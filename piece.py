@@ -11,6 +11,7 @@ class Piece:
         self.direction = direction
         self.evolved = False
 
+
     def invert_direction(self):
         self.evolved = not self.evolved
 

@@ -26,10 +26,10 @@ def create_pieces(player, player_pieces, square_side_size):
         player_pieces.append(Piece(4 * square_side_size, 0, 'h'))
         player_pieces.append(Piece(6 * square_side_size, 0, 'h'))
 
-        player_pieces.append(Piece(1 * square_side_size, 7, 'h'))
-        player_pieces.append(Piece(3 * square_side_size, 7, 'h'))
-        player_pieces.append(Piece(4 * square_side_size, 7, 'h'))
-        player_pieces.append(Piece(6 * square_side_size, 7, 'h'))
+        player_pieces.append(Piece(1 * square_side_size, 7 * square_side_size, 'h'))
+        player_pieces.append(Piece(3 * square_side_size, 7 * square_side_size, 'h'))
+        player_pieces.append(Piece(4 * square_side_size, 7 * square_side_size, 'h'))
+        player_pieces.append(Piece(6 * square_side_size, 7 * square_side_size, 'h'))
 
         player_pieces.append(Piece(0, 2 * square_side_size, 'v'))
         player_pieces.append(Piece(0, 5 * square_side_size, 'v'))
@@ -55,7 +55,6 @@ square_side = screen_size / 8
 create_pieces(1, player1_pieces, square_side)
 
 create_pieces(2, player2_pieces, square_side)
-
 
 while run:
     pygame.time.delay(100)
@@ -90,7 +89,7 @@ while run:
                 paint = True
 
     for i in player1_pieces:
-        i.draw(screen, 1, square_side)
+       i.draw(screen, 1, square_side)
 
     for i in player2_pieces:
         i.draw(screen, 2, square_side)
