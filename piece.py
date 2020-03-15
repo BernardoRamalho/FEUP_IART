@@ -2,7 +2,7 @@ import pygame
 
 
 class Piece:
-    radius = 50
+    radius = 25
 
     def __init__(self, x_position, y_position, direction):
         self.position = [x_position, y_position]
@@ -23,16 +23,16 @@ class Piece:
         if self.direction == 'h':
             if triangle_number == 1:
                 point_1 = (self.position[0] - self.radius, self.position[1])
-                point_2 = (self.position[0] - 5, self.position[1] - 15)
-                point_3 = (self.position[0] - 5, self.position[1] + 15)
+                point_2 = (self.position[0] - 2, self.position[1] - 7)
+                point_3 = (self.position[0] - 2, self.position[1] + 7)
 
                 points = [point_1, point_2, point_3]
                 pygame.draw.polygon(screen, (0, 0, 0), points)
 
             else:
                 point_1 = (self.position[0] + self.radius, self.position[1])
-                point_2 = (self.position[0] + 5, self.position[1] - 15)
-                point_3 = (self.position[0] + 5, self.position[1] + 15)
+                point_2 = (self.position[0] + 2, self.position[1] - 7)
+                point_3 = (self.position[0] + 2, self.position[1] + 7)
 
                 points = [point_1, point_2, point_3]
                 pygame.draw.polygon(screen, (0, 0, 0), points)
@@ -40,16 +40,16 @@ class Piece:
         elif self.direction == 'v':
             if triangle_number == 1:
                 point_1 = (self.position[0], self.position[1] - self.radius)
-                point_2 = (self.position[0] - 15, self.position[1] - 5)
-                point_3 = (self.position[0] + 15, self.position[1] - 5)
+                point_2 = (self.position[0] - 7, self.position[1] - 2)
+                point_3 = (self.position[0] + 7, self.position[1] - 2)
 
                 points = [point_1, point_2, point_3]
                 pygame.draw.polygon(screen, (0, 0, 0), points)
 
             else:
                 point_1 = (self.position[0], self.position[1] + self.radius)
-                point_2 = (self.position[0] - 15, self.position[1] + 5)
-                point_3 = (self.position[0] + 15, self.position[1] + 5)
+                point_2 = (self.position[0] - 7, self.position[1] + 2)
+                point_3 = (self.position[0] + 7, self.position[1] + 2)
 
                 points = [point_1, point_2, point_3]
                 pygame.draw.polygon(screen, (0, 0, 0), points)
