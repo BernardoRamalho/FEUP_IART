@@ -107,7 +107,7 @@ def main():
     pygame.init()
 
     # Variable Initiation
-    screen_size = 1200
+    screen_size = 600
     player1_pieces = defaultdict(tuple)  # List containing all the pieces of player one
     player2_pieces = defaultdict(tuple)  # List containing all the pieces of player two
     screen = pygame.display.set_mode((screen_size, screen_size))  # Where the game is shown
