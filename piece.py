@@ -61,7 +61,7 @@ class Piece:
                 points = [point_1, point_2, point_3]
                 pygame.draw.polygon(screen, (0, 0, 0), points)
 
-    def draw(self, screen, player, square_side):
+    def draw(self, screen, player):
 
         if player == 1:
             colour = (66, 135, 245)  # blue
