@@ -4,38 +4,38 @@ from piece import Piece
 
 def create_pieces(player, player_pieces, square_side_size):
     if player == 2:
-        player_pieces.append(Piece(0, 1 * square_side_size, 'v'))
-        player_pieces.append(Piece(0, 3 * square_side_size, 'v'))
-        player_pieces.append(Piece(0, 4 * square_side_size, 'v'))
-        player_pieces.append(Piece(0, 6 * square_side_size, 'v'))
+        player_pieces.append(Piece(square_side_size / 2, 1 * square_side_size + square_side_size / 2, 'h'))
+        player_pieces.append(Piece(square_side_size / 2, 3 * square_side_size + square_side_size / 2, 'h'))
+        player_pieces.append(Piece(square_side_size / 2, 4 * square_side_size + square_side_size / 2, 'h'))
+        player_pieces.append(Piece(square_side_size / 2, 6 * square_side_size + square_side_size / 2, 'h'))
 
-        player_pieces.append(Piece(7 * square_side_size, 1 * square_side_size, 'v'))
-        player_pieces.append(Piece(7 * square_side_size, 3 * square_side_size, 'v'))
-        player_pieces.append(Piece(7 * square_side_size, 4 * square_side_size, 'v'))
-        player_pieces.append(Piece(7 * square_side_size, 6 * square_side_size, 'v'))
+        player_pieces.append(Piece(7 * square_side_size + square_side_size / 2, 1 * square_side_size + square_side_size / 2, 'h'))
+        player_pieces.append(Piece(7 * square_side_size + square_side_size / 2, 3 * square_side_size + square_side_size / 2, 'h'))
+        player_pieces.append(Piece(7 * square_side_size + square_side_size / 2, 4 * square_side_size + square_side_size / 2, 'h'))
+        player_pieces.append(Piece(7 * square_side_size + square_side_size / 2, 6 * square_side_size + square_side_size / 2, 'h'))
 
-        player_pieces.append(Piece(2 * square_side_size, 0, 'h'))
-        player_pieces.append(Piece(5 * square_side_size, 0, 'h'))
+        player_pieces.append(Piece(2 * square_side_size + square_side_size / 2, square_side_size / 2, 'v'))
+        player_pieces.append(Piece(5 * square_side_size + square_side_size / 2, square_side_size / 2, 'v'))
 
-        player_pieces.append(Piece(2 * square_side_size, 7 * square_side_size, 'h'))
-        player_pieces.append(Piece(5 * square_side_size, 7 * square_side_size, 'h'))
+        player_pieces.append(Piece(2 * square_side_size + square_side_size / 2, 7 * square_side_size + square_side_size / 2, 'v'))
+        player_pieces.append(Piece(5 * square_side_size + square_side_size / 2, 7 * square_side_size + square_side_size / 2, 'v'))
 
     else:
-        player_pieces.append(Piece(1 * square_side_size, 0, 'h'))
-        player_pieces.append(Piece(3 * square_side_size, 0, 'h'))
-        player_pieces.append(Piece(4 * square_side_size, 0, 'h'))
-        player_pieces.append(Piece(6 * square_side_size, 0, 'h'))
+        player_pieces.append(Piece(1 * square_side_size + square_side_size / 2, square_side_size / 2, 'v'))
+        player_pieces.append(Piece(3 * square_side_size + square_side_size / 2, square_side_size / 2, 'v'))
+        player_pieces.append(Piece(4 * square_side_size + square_side_size / 2, square_side_size / 2, 'v'))
+        player_pieces.append(Piece(6 * square_side_size + square_side_size / 2, square_side_size / 2, 'v'))
 
-        player_pieces.append(Piece(1 * square_side_size, 7 * square_side_size, 'h'))
-        player_pieces.append(Piece(3 * square_side_size, 7 * square_side_size, 'h'))
-        player_pieces.append(Piece(4 * square_side_size, 7 * square_side_size, 'h'))
-        player_pieces.append(Piece(6 * square_side_size, 7 * square_side_size, 'h'))
+        player_pieces.append(Piece(1 * square_side_size + square_side_size / 2, 7 * square_side_size + square_side_size / 2, 'v'))
+        player_pieces.append(Piece(3 * square_side_size + square_side_size / 2, 7 * square_side_size + square_side_size / 2, 'v'))
+        player_pieces.append(Piece(4 * square_side_size + square_side_size / 2, 7 * square_side_size + square_side_size / 2, 'v'))
+        player_pieces.append(Piece(6 * square_side_size + square_side_size / 2, 7 * square_side_size + square_side_size / 2, 'v'))
 
-        player_pieces.append(Piece(0, 2 * square_side_size, 'v'))
-        player_pieces.append(Piece(0, 5 * square_side_size, 'v'))
+        player_pieces.append(Piece(square_side_size / 2, 2 * square_side_size + square_side_size / 2, 'h'))
+        player_pieces.append(Piece(square_side_size / 2, 5 * square_side_size + square_side_size / 2, 'h'))
 
-        player_pieces.append(Piece(7 * square_side_size, 2 * square_side_size, 'v'))
-        player_pieces.append(Piece(7 * square_side_size, 5 * square_side_size, 'v'))
+        player_pieces.append(Piece(7 * square_side_size + square_side_size / 2, 2 * square_side_size + square_side_size / 2, 'h'))
+        player_pieces.append(Piece(7 * square_side_size + square_side_size / 2, 5 * square_side_size + square_side_size / 2, 'h'))
 
 
 pygame.init()
