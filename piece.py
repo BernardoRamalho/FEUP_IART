@@ -24,44 +24,44 @@ class Piece:
     def get_position(self):
         return self.position
 
-    def draw_triangle(self, screen, triangle_number):
+    def draw_triangle(self, screen):
 
         space_between_triangles = self.radius * 0.1
         half_triangle_width = self.radius * 0.2
 
         if self.direction == 'h':
-            if triangle_number == 1:
-                point_1 = (self.position[0] - self.radius, self.position[1])
-                point_2 = (self.position[0] - space_between_triangles, self.position[1] - half_triangle_width)
-                point_3 = (self.position[0] - space_between_triangles, self.position[1] + half_triangle_width)
+            # Draw the first triangle
+            point_1 = (self.position[0] - self.radius, self.position[1])
+            point_2 = (self.position[0] - space_between_triangles, self.position[1] - half_triangle_width)
+            point_3 = (self.position[0] - space_between_triangles, self.position[1] + half_triangle_width)
 
-                points = [point_1, point_2, point_3]
-                pygame.draw.polygon(screen, (0, 0, 0), points)
+            points = [point_1, point_2, point_3]
+            pygame.draw.polygon(screen, (0, 0, 0), points)
 
-            else:
-                point_1 = (self.position[0] + self.radius, self.position[1])
-                point_2 = (self.position[0] + space_between_triangles, self.position[1] - half_triangle_width)
-                point_3 = (self.position[0] + space_between_triangles, self.position[1] + half_triangle_width)
+            # Draw the second triangle
+            point_1 = (self.position[0] + self.radius, self.position[1])
+            point_2 = (self.position[0] + space_between_triangles, self.position[1] - half_triangle_width)
+            point_3 = (self.position[0] + space_between_triangles, self.position[1] + half_triangle_width)
 
-                points = [point_1, point_2, point_3]
-                pygame.draw.polygon(screen, (0, 0, 0), points)
+            points = [point_1, point_2, point_3]
+            pygame.draw.polygon(screen, (0, 0, 0), points)
 
         elif self.direction == 'v':
-            if triangle_number == 1:
-                point_1 = (self.position[0], self.position[1] - self.radius)
-                point_2 = (self.position[0] - half_triangle_width, self.position[1] - space_between_triangles)
-                point_3 = (self.position[0] + half_triangle_width, self.position[1] - space_between_triangles)
+            # Draw the first triangle
+            point_1 = (self.position[0], self.position[1] - self.radius)
+            point_2 = (self.position[0] - half_triangle_width, self.position[1] - space_between_triangles)
+            point_3 = (self.position[0] + half_triangle_width, self.position[1] - space_between_triangles)
 
-                points = [point_1, point_2, point_3]
-                pygame.draw.polygon(screen, (0, 0, 0), points)
+            points = [point_1, point_2, point_3]
+            pygame.draw.polygon(screen, (0, 0, 0), points)
 
-            else:
-                point_1 = (self.position[0], self.position[1] + self.radius)
-                point_2 = (self.position[0] - half_triangle_width, self.position[1] + space_between_triangles)
-                point_3 = (self.position[0] + half_triangle_width, self.position[1] + space_between_triangles)
+            # Draw the second triangle
+            point_1 = (self.position[0], self.position[1] + self.radius)
+            point_2 = (self.position[0] - half_triangle_width, self.position[1] + space_between_triangles)
+            point_3 = (self.position[0] + half_triangle_width, self.position[1] + space_between_triangles)
 
-                points = [point_1, point_2, point_3]
-                pygame.draw.polygon(screen, (0, 0, 0), points)
+            points = [point_1, point_2, point_3]
+            pygame.draw.polygon(screen, (0, 0, 0), points)
 
     def draw(self, screen, player):
 
@@ -72,5 +72,4 @@ class Piece:
 
         pygame.draw.circle(screen, colour, (int(self.position[0]), int(self.position[1])), int(self.radius))
 
-        self.draw_triangle(screen, 1)
-        self.draw_triangle(screen, 2)
+        self.draw_triangle(screen)
