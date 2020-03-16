@@ -16,43 +16,49 @@ from collections import defaultdict
 #
 #
 
-def create_pieces(player, player_pieces, square_side_size):
-    if player == 2:
+def get_screen_width():
+    screen_info = pygame.display.Info()
+    return screen_info.current_w
 
+
+def create_pieces(player, player_pieces, square_side_size):
+    radius = square_side_size * 0.9 / 2
+
+    if player == 2:
         for i in range(1, 7):
             if i == 2 or i == 5:
-                piece = Piece(i * square_side_size + square_side_size / 2, square_side_size / 2, 'v')
-                player_pieces[tuple(piece.get_position())] = piece
+                piece = Piece(i * square_side_size + square_side_size / 2, square_side_size / 2, 'v', radius)
+                player_pieces[piece.get_position()] = piece
 
                 piece = Piece(i * square_side_size + square_side_size / 2, 7 * square_side_size + square_side_size / 2,
-                              'v')
-                player_pieces[tuple(piece.get_position())] = piece
+                              'v', radius)
+                player_pieces[piece.get_position()] = piece
 
             else:
-                piece = Piece(square_side_size / 2, i * square_side_size + square_side_size / 2, 'h')
-                player_pieces[tuple(piece.get_position())] = piece
+                piece = Piece(square_side_size / 2, i * square_side_size + square_side_size / 2, 'h', radius)
+                player_pieces[piece.get_position()] = piece
 
                 piece = Piece(7 * square_side_size + square_side_size / 2, i * square_side_size + square_side_size / 2,
-                              'h')
-                player_pieces[tuple(piece.get_position())] = piece
+                              'h', radius)
+                player_pieces[piece.get_position()] = piece
     else:
 
         for i in range(1, 7):
             if i == 2 or i == 5:
-                piece = Piece(square_side_size / 2, i * square_side_size + square_side_size / 2, 'h')
-                player_pieces[tuple(piece.get_position())] = piece
+                piece = Piece(square_side_size / 2, i * square_side_size + square_side_size / 2, 'h', radius)
+                player_pieces[piece.get_position()] = piece
 
                 piece = Piece(7 * square_side_size + square_side_size / 2, i * square_side_size + square_side_size / 2,
-                              'h')
-                player_pieces[tuple(piece.get_position())] = piece
+                              'h', radius)
+                player_pieces[piece.get_position()] = piece
 
             else:
-                piece = Piece(i * square_side_size + square_side_size / 2, square_side_size / 2, 'v')
-                player_pieces[tuple(piece.get_position())] = piece
+                piece = Piece(i * square_side_size + square_side_size / 2, square_side_size / 2, 'v', radius)
+                player_pieces[piece.get_position()] = piece
 
                 piece = Piece(i * square_side_size + square_side_size / 2, 7 * square_side_size + square_side_size / 2,
-                              'v')
-                player_pieces[tuple(piece.get_position())] = piece
+                              'v', radius)
+                player_pieces[piece.get_position()] = piece
 
 
 def draw_board(screen, square_side, screen_size):
@@ -84,9 +90,9 @@ def draw_pieces(screen, pieces):
 
 
 def change_piece_position(pieces, piece, new_position):
-    del pieces[tuple(piece.position)]
+    del pieces[piece.get_position()]
     piece.set_position(new_position)
-    pieces[tuple(new_position)] = piece
+    pieces[new_position] = piece
 
 
 def event_handler(variables):
@@ -107,7 +113,7 @@ def main():
     pygame.init()
 
     # Variable Initiation
-    screen_size = 600
+    screen_size = int(get_screen_width() / 2)
     player1_pieces = defaultdict(tuple)  # List containing all the pieces of player one
     player2_pieces = defaultdict(tuple)  # List containing all the pieces of player two
     screen = pygame.display.set_mode((screen_size, screen_size))  # Where the game is shown
