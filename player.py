@@ -4,7 +4,6 @@ from collections import defaultdict
 
 
 class Player:
-    pieces = defaultdict(Piece)
 
     def __init__(self, player_nr, square_side_size):
         self.player_nr = player_nr
@@ -13,7 +12,10 @@ class Player:
     def create_pieces(self, square_side_size):
         radius = square_side_size * 0.9 / 2
 
+        self.pieces = defaultdict(Piece)
+
         if self.player_nr == 2:
+            print("I got here")
             for i in range(1, 7):
                 if i == 2 or i == 5:
                     piece = Piece(i * square_side_size + square_side_size / 2, square_side_size / 2, 'v', radius)
@@ -54,6 +56,7 @@ class Player:
                     self.pieces[piece.get_position()] = piece
 
     def draw_pieces(self, screen):
+
         for i in self.pieces.values():
             i.draw(screen, self.player_nr)
 
