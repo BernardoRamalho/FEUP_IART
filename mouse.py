@@ -1,6 +1,4 @@
 import pygame
-from piece import Piece
-from collections import defaultdict
 
 
 class Mouse:
@@ -18,3 +16,12 @@ class Mouse:
 
     def button_release(self, button):
         self.buttons[button] = 0
+
+    def check_mouse_piece_click(self, player, square_side):
+
+        for i in player.pieces.values():
+            minimum_x, minimum_y = i.position[0] - square_side / 2 / 2, i.position[1] - square_side / 2 / 2
+            maximum_x, maximum_y = i.position[0] + square_side / 2 / 2, i.position[1] + square_side / 2 / 2
+
+            if minimum_x < self.position[0] < maximum_x and minimum_y < self.position[1] < maximum_y:
+                print("Click Piece at ", i.position)
