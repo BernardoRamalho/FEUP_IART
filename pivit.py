@@ -1,6 +1,7 @@
 import pygame
 from piece import Piece
 from player import Player
+from mouse import Mouse
 from collections import defaultdict
 
 
@@ -47,8 +48,28 @@ def draw_pieces(screen, players):
         i.draw_pieces(screen)
 
 
+def check_mouse_piece_click(mouse, player):
+
+    square_side = int(get_screen_width() / 16)
+
+    for i in player.pieces.values():
+        minimum_x, minimum_y = i.position[0] - square_side / 2, i.position[1] - square_side / 2
+        maximum_x, maximum_y = i.position[0] + square_side / 2, i.position[1] + square_side / 2
+
+        if minimum_x < mouse.position[0] < maximum_x and minimum_y < mouse.position[1] < maximum_y:
+            print("Click Piece at ", i.position)
+
+
 def event_handler(variables):
     for event in pygame.event.get():
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            variables[3].button_press(event.button)
+            variables[3].set_position(event.pos)
+            check_mouse_piece_click(variables[3], variables[1][1])
+
+        if event.type == pygame.MOUSEBUTTONUP:
+            variables[3].button_release(event.button)
 
         # Key pressed
         if event.type == pygame.KEYDOWN:
@@ -71,11 +92,14 @@ def main():
     player1 = Player(1, square_side)
     player2 = Player(2, square_side)
 
+    mouse = Mouse()
+    player_turn = 1  # 1 if it's player 1 turn, 2 otherwise
+
     run = True
 
     players = [player1, player2]
 
-    game_variables = [run, players]  # Everything we want to change in event_handler
+    game_variables = [run, players, player_turn, mouse]  # Everything we want to change in event_handler
 
     while game_variables[0]:
         pygame.time.delay(100)
