@@ -50,7 +50,7 @@ class Game:
     def check_end_game(self):
 
         for i in self.players:
-            for p in i.pieces:
+            for p in i.pieces.values():
 
                 if not p.evolved:
                     return
