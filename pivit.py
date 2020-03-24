@@ -88,6 +88,8 @@ def main():
 
         pygame.display.update()
 
+        game.check_end_game()
+
     pygame.quit()
 
 
