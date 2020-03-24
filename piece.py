@@ -11,12 +11,13 @@ class Piece:
 
     def invert_direction(self):
         if self.direction == 'v':
-            self.direction == 'h'
-        else:
-            self.direction == 'v'
+            self.direction = 'h'
+        elif self.direction == 'h':
+            self.direction = 'v'
 
     def evolve(self):
         self.evolved = True
+        self.direction = 'a'  # all directions
 
     def set_position(self, new_position):
         self.position = new_position
@@ -72,4 +73,5 @@ class Piece:
 
         pygame.draw.circle(screen, colour, (int(self.position[0]), int(self.position[1])), int(self.radius))
 
-        self.draw_triangle(screen)
+        if self.direction != 'a':
+            self.draw_triangle(screen)

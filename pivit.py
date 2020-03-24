@@ -5,7 +5,8 @@ from game import Game
 # Basic Information About Structure the Game
 # 1º- Game object as every variable that we need;
 # 2º- You can exit the Game by pressing the key q;
-# 3º- I already made a function to change the position of a key but haven't implemented the event to do so.
+# 3º- You can reset the piece you picked by pressing the key r;
+
 
 
 #
@@ -14,9 +15,30 @@ from game import Game
 #
 #
 
+def display_initial_message():
+    print("Welcome to Pivit!")
+    print("Made by Bernardo Ramalho and Pedro Pereira for IART 2020.")
+    print("Player 1 as the blue pieces and player 2 as the yellow pieces")
+    print("To play the game just click on a piece and then click on the square you want to move it to.")
+    print("If you select the wrong piece, you can click 'r' to reset. If you want to exit the game click 'q'.")
+    print("We hope you have fun!")
+
 def get_screen_width():
     screen_info = pygame.display.Info()
     return screen_info.current_w
+
+
+def try_move_piece(game):
+    if game.player_turn == 1:
+
+        if game.mouse.check_valid_square_click(game.square_side, game.players[0], game.players[1]):
+            game.player_turn = 2
+            game.mouse.clickedPiece = False
+    else:
+
+        if game.mouse.check_valid_square_click(game.square_side, game.players[1], game.players[0]):
+            game.player_turn = 1
+            game.mouse.clickedPiece = False
 
 
 def event_handler(game):
@@ -24,8 +46,13 @@ def event_handler(game):
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             game.mouse.button_press(event.button)
-            game.mouse.set_position(event.pos)
-            game.mouse.check_mouse_piece_click(game.players[game.player_turn - 1], game.square_side)
+            game.mouse.transform_mouse_position(game.square_side, event.pos)
+
+            if game.mouse.clickedPiece:
+                try_move_piece(game)
+
+            else:
+                game.mouse.check_piece_click(game.players[game.player_turn - 1])
 
         if event.type == pygame.MOUSEBUTTONUP:
             game.mouse.button_release(event.button)
@@ -36,6 +63,10 @@ def event_handler(game):
             if event.key == pygame.K_q:
                 game.run = False
 
+            if event.key == pygame.K_r:
+                print("Pieced selected reverted.")
+                game.mouse.clickedPiece = False
+
         # Closed Window
         if event.type == pygame.QUIT:
             game.run = False
@@ -45,6 +76,8 @@ def main():
     pygame.init()
 
     game = Game(get_screen_width())
+
+    display_initial_message()
 
     while game.run:
         pygame.time.delay(100)
