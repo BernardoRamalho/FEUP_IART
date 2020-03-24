@@ -46,3 +46,13 @@ class Game:
     def draw_pieces(self):
         for i in self.players:
             i.draw_pieces(self.screen)
+
+    def check_end_game(self):
+
+        for i in self.players:
+            for p in i.pieces:
+
+                if not p.evolved:
+                    return
+
+        self.run = False
