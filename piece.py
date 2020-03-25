@@ -8,6 +8,7 @@ class Piece:
         self.direction = direction
         self.evolved = False
         self.radius = radius
+        self.selected = False
 
     def invert_direction(self):
         if self.direction == 'v':
@@ -67,9 +68,11 @@ class Piece:
     def draw(self, screen, player):
 
         if player == 1:
-            colour = (66, 135, 245)  # blue
+            if self.selected: colour = (0, 0, 128)  #blue
+            else: colour = (0,191,255)   #blue
         else:
-            colour = (254, 200, 66)  # yellow
+            if self.selected: colour = (220,20,60)  #yellow
+            else: colour = (255,160,122)  #yellow
 
         pygame.draw.circle(screen, colour, (int(self.position[0]), int(self.position[1])), int(self.radius))
 

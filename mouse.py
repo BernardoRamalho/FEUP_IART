@@ -36,8 +36,9 @@ class Mouse:
             if self.position[0] == i.position[0] and self.position[1] == i.position[1]:
                 self.clickedPiece = True
                 self.piece = i
+                i.selected = True
                 print("Player ", player.player_nr, "clicked piece at ", i.position)
-                break
+            else: i.selected = False
 
     def check_edge_square(self, square_side):
         if self.position[0] == square_side / 2 or self.position[0] == square_side * 8 - square_side / 2:
