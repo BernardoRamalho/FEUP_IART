@@ -18,7 +18,6 @@ class Piece:
 
     def evolve(self):
         self.evolved = True
-        self.direction = 'a'  # all directions
 
     def set_position(self, new_position):
         self.position = new_position
@@ -68,13 +67,15 @@ class Piece:
     def draw(self, screen, player):
 
         if player == 1:
-            if self.selected: colour = (0, 0, 128)  #blue
-            else: colour = (0,191,255)   #blue
+            if self.selected and not(self.evolved): colour = (0, 0, 128)  #blue
+            elif self.selected and self.evolved: colour = (0, 0, 170)
+            elif not(self.evolved): colour = (0,191,255)   #blue
+            else: colour = (0, 95, 255)
         else:
-            if self.selected: colour = (220,20,60)  #yellow
-            else: colour = (255,160,122)  #yellow
+            if self.selected and not(self.evolved): colour = (220,20,60)#blue
+            elif self.selected and self.evolved: colour = (150, 0, 0)
+            elif not(self.evolved): colour = (200, 0, 0)   #blue
+            else: colour = (255,160,122)
 
         pygame.draw.circle(screen, colour, (int(self.position[0]), int(self.position[1])), int(self.radius))
-
-        if self.direction != 'a':
-            self.draw_triangle(screen)
+        self.draw_triangle(screen)

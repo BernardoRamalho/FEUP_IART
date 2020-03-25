@@ -52,7 +52,7 @@ class Mouse:
 
         if self.piece.direction == 'v':
 
-            if self.position[0] != x or self.position[1] == y or abs(self.position[1] - y) % (2 * square_side) == 0:
+            if self.position[0] != x or self.position[1] == y or (not(self.piece.evolved) and abs(self.position[1] - y) % (2 * square_side) == 0):
                 return False
 
             if movement.check_y_movement(x, y, self.position[1], square_side, player, opponent):
@@ -60,7 +60,7 @@ class Mouse:
 
         elif self.piece.direction == 'h':
 
-            if self.position[1] != y or self.position[0] == x or abs(self.position[0] - x) % (2 * square_side) == 0:
+            if  self.position[1] != y or self.position[0] == x or(not(self.piece.evolved) and abs(self.position[0] - x) % (2 * square_side) == 0):
                 return False
 
             if movement.check_x_movement(x, y, self.position[0], square_side, player, opponent):
