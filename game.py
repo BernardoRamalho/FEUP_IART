@@ -63,6 +63,7 @@ class Game:
         del self.players[player_nr - 1].pieces[piece.get_position()]
         piece.set_position(new_position)
         piece.invert_direction()
+        piece.selected = False
 
         if self.mouse.check_edge_square(self.square_side):
             piece.evolve()
