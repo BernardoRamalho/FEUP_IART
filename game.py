@@ -13,12 +13,14 @@ class Game:
         player1 = Player(1, self.square_side)
         player2 = Player(2, self.square_side)
 
-        self.mouse = Mouse()
+        self.mouse = Mouse(self)
         self.player_turn = 1  # 1 if it's player 1 turn, 2 otherwise
 
         self.run = True
 
         self.players = [player1, player2]
+
+        self.mode = 0
 
     def draw(self):
         self.draw_board()
@@ -56,3 +58,22 @@ class Game:
                     return
 
         self.run = False
+
+    def move_piece(self, piece, new_position, player_nr): #change_piece_position
+        del self.players[player_nr - 1].pieces[piece.get_position()]
+        piece.set_position(new_position)
+        piece.invert_direction()
+
+        if self.mouse.check_edge_square(self.square_side):
+            piece.evolve()
+            if self.mode == 1 or self.mode == 2: print("Player ", player_nr, "evolved a piece.")
+
+        self.players[player_nr - 1].pieces[new_position] = piece
+
+        oponent = 0
+        if player_nr == 1: oponent = 1
+        if new_position in self.players[oponent].pieces:
+            del self.players[oponent].pieces[new_position]
+            if self.mode == 1 or self.mode == 2: print("Player ", player_nr, "ate a piece from the opponent")
+
+        if self.mode == 1 or self.mode == 2: print("Player ", player_nr, "moved piece to ", piece.position)

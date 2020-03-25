@@ -4,12 +4,13 @@ import movement
 
 class Mouse:
 
-    def __init__(self):
+    def __init__(self, game):
         self.piece = None
         self.position = pygame.mouse.get_pos()
         self.clickedPiece = False
         self.clickedValidSpace = False
         self.buttons = [0, 0, 0, 0, 1]  # Buttons 1, 2, 3, mouse_wheel roll up, mouse_wheel roll down, apple mouse
+        self.game = game
         # squeeze
 
     def set_position(self, new_position):
@@ -55,11 +56,6 @@ class Mouse:
                 return False
 
             if movement.check_y_movement(x, y, self.position[1], square_side, player, opponent):
-
-                if self.check_edge_square(square_side):
-                    self.piece.evolve()
-
-                player.change_piece_position(self.piece, self.position)
                 return True
 
         elif self.piece.direction == 'h':
@@ -68,22 +64,11 @@ class Mouse:
                 return False
 
             if movement.check_x_movement(x, y, self.position[0], square_side, player, opponent):
-
-                if self.check_edge_square(square_side):
-                    print("Player ", player.player_nr, "has evolved a piece.")
-                    self.piece.evolve()
-
-                player.change_piece_position(self.piece, self.position)
                 return True
 
         else:
 
             if movement.check_both_movements(x, y, self.position[0], self.position[1], square_side, player, opponent):
-
-                if self.check_edge_square(square_side):
-                    self.piece.evolve()
-
-                player.change_piece_position(self.piece, self.position)
                 return True
 
         return False
