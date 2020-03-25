@@ -59,10 +59,3 @@ class Player:
         for i in self.pieces.values():
             i.draw(screen, self.player_nr)
 
-    def change_piece_position(self, piece, new_position):
-        del self.pieces[piece.get_position()]
-        piece.set_position(new_position)
-        piece.invert_direction()
-        self.pieces[new_position] = piece
-        print("Player ", self.player_nr, "moved piece to ", piece.position)
-

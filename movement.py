@@ -9,17 +9,13 @@ def check_selected_piece_exists_and_is_mine(position, players, player_nr):
     return False
 
 
-#def check_selected_pos_is_valid(position, players, player_nr):
-    
+def check_selected_pos_is_valid(position, players, player_nr):
+    if position in players[player_nr]: return False
+    return True
 
 def check_valid_square(position, player, opponent):
     if position in player.pieces:
         return False
-    elif position in opponent.pieces:
-        del opponent.pieces[position]
-        print("Player ", player.player_nr, "ate a piece from the opponent")
-        return True
-
     return True
 
 

@@ -23,6 +23,10 @@ def display_initial_message():
     print("If you select the wrong piece, you can click 'r' to reset. If you want to exit the game click 'q'.")
     print("We hope you have fun!")
 
+def get_game_mode():
+    return input("Select Game Mode:\n1. PvP\n2. PvE\n3. EvE\n")
+
+
 def get_screen_width():
     screen_info = pygame.display.Info()
     return screen_info.current_w
@@ -32,16 +36,18 @@ def try_move_piece(game):
     if game.player_turn == 1:
 
         if game.mouse.check_valid_square_click(game.square_side, game.players[0], game.players[1]):
+            game.move_piece(game.mouse.piece, game.mouse.position, 1)
             game.player_turn = 2
             game.mouse.clickedPiece = False
     else:
 
         if game.mouse.check_valid_square_click(game.square_side, game.players[1], game.players[0]):
+            game.move_piece(game.mouse.piece, game.mouse.position, 2)
             game.player_turn = 1
             game.mouse.clickedPiece = False
 
 
-def event_handler(game):
+def event_handler_pvp(game):
     for event in pygame.event.get():
 
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -76,13 +82,15 @@ def main():
     pygame.init()
 
     game = Game(get_screen_width())
-
+    mode = get_game_mode()
     display_initial_message()
 
     while game.run:
         pygame.time.delay(100)
 
-        event_handler(game)
+        if mode == 1: event_handler_pvp(game)
+
+        else:  event_handler_pvp(game)
 
         game.draw()
 
