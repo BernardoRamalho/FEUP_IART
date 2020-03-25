@@ -2,6 +2,15 @@ def check_piece_in_space(position, players):
     if position in players[0].pieces or position in players[1].pieces:
         return True
 
+def check_selected_piece_exists_and_is_mine(position, players, player_nr):
+    if position in players[player_nr].pieces:
+        return True
+
+    return False
+
+
+#def check_selected_pos_is_valid(position, players, player_nr):
+    
 
 def check_valid_square(position, player, opponent):
     if position in player.pieces:
