@@ -4,13 +4,13 @@ import movement
 
 class Mouse:
 
-    def __init__(self, game):
+    def __init__(self, gamestate):
         self.piece = None
         self.position = pygame.mouse.get_pos()
         self.clickedPiece = False
         self.clickedValidSpace = False
         self.buttons = [0, 0, 0, 0, 1]  # Buttons 1, 2, 3, mouse_wheel roll up, mouse_wheel roll down, apple mouse
-        self.game = game
+        self.gamestate = gamestate
         # squeeze
 
     def set_position(self, new_position):
@@ -40,11 +40,6 @@ class Mouse:
                 i.selected = True
                 print("Player ", player.player_nr, "clicked piece at ", i.position)
             else: i.selected = False
-
-    def check_edge_square(self, square_side):
-        if self.position[0] == square_side / 2 or self.position[0] == square_side * 8 - square_side / 2:
-            if self.position[1] == square_side / 2 or self.position[1] == square_side * 8 - square_side / 2:
-                return True
 
     def check_valid_square_click(self, square_side, player, opponent):
         x = self.piece.get_position()[0]

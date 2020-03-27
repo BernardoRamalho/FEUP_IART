@@ -33,17 +33,17 @@ def get_screen_width():
 
 
 def try_move_piece(game):
-    if game.player_turn == 1:
+    if game.gamestate.player_turn == 1:
 
-        if game.mouse.check_valid_square_click(game.square_side, game.players[0], game.players[1]):
-            game.move_piece(game.mouse.piece, game.mouse.position, 1)
-            game.player_turn = 2
+        if game.mouse.check_valid_square_click(game.gamestate.square_side, game.gamestate.players[0], game.gamestate.players[1]):
+            game.gamestate.move_piece(game.mouse.piece, game.mouse.position, 1)
+            game.gamestate.player_turn = 2
             game.mouse.clickedPiece = False
     else:
 
-        if game.mouse.check_valid_square_click(game.square_side, game.players[1], game.players[0]):
-            game.move_piece(game.mouse.piece, game.mouse.position, 2)
-            game.player_turn = 1
+        if game.mouse.check_valid_square_click(game.gamestate.square_side, game.gamestate.players[1], game.gamestate.players[0]):
+            game.gamestate.move_piece(game.mouse.piece, game.mouse.position, 2)
+            game.gamestate.player_turn = 1
             game.mouse.clickedPiece = False
 
 
@@ -52,13 +52,13 @@ def event_handler_pvp(game):
 
         if event.type == pygame.MOUSEBUTTONDOWN:
             game.mouse.button_press(event.button)
-            game.mouse.transform_mouse_position(game.square_side, event.pos)
+            game.mouse.transform_mouse_position(game.gamestate.square_side, event.pos)
 
             if game.mouse.clickedPiece:
                 try_move_piece(game)
 
             else:
-                game.mouse.check_piece_click(game.players[game.player_turn - 1])
+                game.mouse.check_piece_click(game.gamestate.players[game.gamestate.player_turn - 1])
 
         if event.type == pygame.MOUSEBUTTONUP:
             game.mouse.button_release(event.button)
@@ -81,8 +81,8 @@ def event_handler_pvp(game):
 def main():
     pygame.init()
 
-    game = Game(get_screen_width())
     mode = get_game_mode()
+    game = Game(get_screen_width(), mode)
     display_initial_message()
 
     while game.run:
@@ -96,7 +96,8 @@ def main():
 
         pygame.display.update()
 
-        game.check_end_game()
+        if game.gamestate.check_end_game():
+            game.run = False
 
     pygame.quit()
 
