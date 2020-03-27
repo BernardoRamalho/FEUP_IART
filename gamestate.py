@@ -8,6 +8,7 @@ class GameState:
 		self.player_turn = 1
 		self.players = [player1, player2]
 		self.mode = mode
+		print("Square side: ", square_side)
 
 	def check_end_game(self):
 
