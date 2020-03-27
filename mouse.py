@@ -39,7 +39,8 @@ class Mouse:
                 self.piece = i
                 i.selected = True
                 print("Player ", player.player_nr, "clicked piece at ", i.position)
-            else: i.selected = False
+            else:
+                i.selected = False
 
     def check_edge_square(self, square_side):
         if self.position[0] == square_side / 2 or self.position[0] == square_side * 8 - square_side / 2:
@@ -52,7 +53,8 @@ class Mouse:
 
         if self.piece.direction == 'v':
 
-            if self.position[0] != x or self.position[1] == y or (not(self.piece.evolved) and abs(self.position[1] - y) % (2 * square_side) == 0):
+            if self.position[0] != x or self.position[1] == y or (
+                    not self.piece.evolved and abs(self.position[1] - y) % (2 * square_side) == 0):
                 return False
 
             if movement.check_y_movement(x, y, self.position[1], square_side, player, opponent):
@@ -60,7 +62,8 @@ class Mouse:
 
         elif self.piece.direction == 'h':
 
-            if  self.position[1] != y or self.position[0] == x or(not(self.piece.evolved) and abs(self.position[0] - x) % (2 * square_side) == 0):
+            if self.position[1] != y or self.position[0] == x or (
+                    not self.piece.evolved and abs(self.position[0] - x) % (2 * square_side) == 0):
                 return False
 
             if movement.check_x_movement(x, y, self.position[0], square_side, player, opponent):

@@ -58,4 +58,3 @@ class Player:
 
         for i in self.pieces.values():
             i.draw(screen, self.player_nr)
-
