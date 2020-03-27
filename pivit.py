@@ -8,7 +8,6 @@ from game import Game
 # 3º- You can reset the piece you picked by pressing the key r;
 
 
-
 #
 #
 # FUNCTION DEFINITION
@@ -22,6 +21,7 @@ def display_initial_message():
     print("To play the game just click on a piece and then click on the square you want to move it to.")
     print("If you select the wrong piece, you can click 'r' to reset. If you want to exit the game click 'q'.")
     print("We hope you have fun!")
+
 
 def get_game_mode():
     return input("Select Game Mode:\n1. PvP\n2. PvE\n3. EvE\n")
@@ -59,6 +59,8 @@ def event_handler_pvp(game):
 
             else:
                 game.mouse.check_piece_click(game.players[game.player_turn - 1])
+                start_time = time.time()
+                game.generate_valid_moves(game.player_turn)
 
         if event.type == pygame.MOUSEBUTTONUP:
             game.mouse.button_release(event.button)
@@ -88,9 +90,11 @@ def main():
     while game.run:
         pygame.time.delay(100)
 
-        if mode == 1: event_handler_pvp(game)
+        if mode == 1:
+            event_handler_pvp(game)
 
-        else:  event_handler_pvp(game)
+        else:
+            event_handler_pvp(game)
 
         game.draw()
 
