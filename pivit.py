@@ -24,30 +24,27 @@ def display_initial_message():
 
 
 def get_game_mode():
-    return input("Select Game Mode:\n1. PvP\n2. PvE\n3. EvE\n")
+    """Asks the user for a game mode"""
+    return input("Select Game Mode:\n1. PvP\n2. PvE\n3. EvE\nDesired Mode: ")
 
 
 def get_screen_width():
+    """Returns the user's screen width"""
     screen_info = pygame.display.Info()
     return screen_info.current_w
 
 
 def try_move_piece(game):
-    if game.player_turn == 1:
+    """Based on the game state, tries to move the piece a player clicked"""
 
-        if game.mouse.check_valid_square_click(game.square_side, game.players[0], game.players[1]):
-            game.move_piece(game.mouse.piece, game.mouse.position, 1)
-            game.player_turn = 2
-            game.mouse.clickedPiece = False
-    else:
-
-        if game.mouse.check_valid_square_click(game.square_side, game.players[1], game.players[0]):
-            game.move_piece(game.mouse.piece, game.mouse.position, 2)
-            game.player_turn = 1
-            game.mouse.clickedPiece = False
+    if game.mouse.check_valid_square_click(game.square_side, game.players[game.player_turn - 1], game.players[game.player_turn % 2]):
+        game.move_piece(game.mouse.piece, game.mouse.position, game.player_turn)
+        game.change_turn()
+        game.display_turn()
 
 
 def event_handler_pvp(game):
+    """Responsible for receiving the user inputs and acting on them"""
     for event in pygame.event.get():
 
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -59,7 +56,6 @@ def event_handler_pvp(game):
 
             else:
                 game.mouse.check_piece_click(game.players[game.player_turn - 1])
-                start_time = time.time()
                 game.generate_valid_moves(game.player_turn)
 
         if event.type == pygame.MOUSEBUTTONUP:
@@ -82,10 +78,13 @@ def event_handler_pvp(game):
 
 def main():
     pygame.init()
-
-    game = Game(get_screen_width())
-    mode = get_game_mode()
+    pygame.display.set_caption('Pivit')
+    game = Game(get_screen_width())             # Initiates the Game Master Class
     display_initial_message()
+    mode = get_game_mode()
+
+    print("Let the game BEGIN!")
+    game.display_turn()
 
     while game.run:
         pygame.time.delay(100)
@@ -102,6 +101,7 @@ def main():
 
         game.check_end_game()
 
+    print("We hoped you liked the game. See you soon!")
     pygame.quit()
 
 

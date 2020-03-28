@@ -69,9 +69,4 @@ class Mouse:
             if movement.check_x_movement(x, y, self.position[0], square_side, player, opponent):
                 return True
 
-        else:
-
-            if movement.check_both_movements(x, y, self.position[0], self.position[1], square_side, player, opponent):
-                return True
-
         return False
