@@ -59,7 +59,7 @@ class Game:
                     x = 0
 
     def display_turn(self):
-        print("Turn ", self.turn, ":")
+        print("Turn ", self.turn, ":", sep= '')
 
     def draw_pieces(self):
         for i in self.players:
@@ -83,34 +83,28 @@ class Game:
 
         if self.mouse.check_edge_square(self.square_side):
             piece.evolve()
-            if self.mode == 1 or self.mode == 2: print("Player ", player_nr, "evolved a piece.")
+            print("Player", player_nr, "evolved a piece.")
 
         self.players[player_nr - 1].pieces[new_position] = piece
 
-        opponent = 0
-        if player_nr == 1:
-            opponent = 1
+        print("Player", player_nr, "moved piece to", piece.position)
+
+        opponent = player_nr % 2
+
         if new_position in self.players[opponent].pieces:
             del self.players[opponent].pieces[new_position]
-            if self.mode == 1 or self.mode == 2:
-                print("Player ", player_nr, "ate a piece from the opponent")
-
-        if self.mode == 1 or self.mode == 2:
-            print("Player ", player_nr, "moved piece to ", piece.position)
+            print("Player", player_nr, "ate a piece from the opponent!")
 
     def generate_valid_moves(self, player_nr):
-        opponent = 1
-
-        if player_nr == 1:
-            opponent = 2
+        opponent = player_nr % 2
 
         possible_positions = defaultdict(list)
         for i in self.players[player_nr - 1].pieces.values():
 
             if i.direction == 'v': # Generate all the possible y positions
-                movement.generate_all_y_movements(self.players[player_nr - 1], self.players[opponent - 1], i,
+                movement.generate_all_y_movements(self.players[player_nr - 1], self.players[opponent], i,
                                                   self.square_side, possible_positions)
 
             else: # Generate all the possible x positions
-                movement.generate_all_x_movements(self.players[player_nr - 1], self.players[opponent - 1], i,
+                movement.generate_all_x_movements(self.players[player_nr - 1], self.players[opponent], i,
                                                   self.square_side, possible_positions)
