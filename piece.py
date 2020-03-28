@@ -66,16 +66,23 @@ class Piece:
 
     def draw(self, screen, player):
 
-        if player == 1:
-            if self.selected and not(self.evolved): colour = (0, 0, 128)  #blue
-            elif self.selected and self.evolved: colour = (0, 0, 170)
-            elif not(self.evolved): colour = (0,191,255)   #blue
-            else: colour = (0, 95, 255)
+        if player == 1:  # All the colour will be based on Blue
+            if self.selected:
+                colour = (0, 125, 255)
+            else:
+                if self.evolved:
+                    colour = (118, 182, 255)
+                else:
+                    colour = (0, 185, 255)
+
         else:
-            if self.selected and not(self.evolved): colour = (220,20,60)#blue
-            elif self.selected and self.evolved: colour = (150, 0, 0)
-            elif not(self.evolved): colour = (200, 0, 0)   #blue
-            else: colour = (255,160,122)
+            if self.selected:
+                colour = (125, 0, 0)
+            else:
+                if self.evolved:
+                    colour = (255,160,122)
+                else:
+                    colour = (255, 0, 0)
 
         pygame.draw.circle(screen, colour, (int(self.position[0]), int(self.position[1])), int(self.radius))
         self.draw_triangle(screen)

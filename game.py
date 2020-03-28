@@ -15,6 +15,7 @@ class Game:
         self.square_side = self.screen_size / 8  # 8 because the board is 8x8
         player1 = Player(1, self.square_side)
         player2 = Player(2, self.square_side)
+        self.turn = 1
 
         self.mouse = Mouse(self)
         self.player_turn = 1  # 1 if it's player 1 turn, 2 otherwise
@@ -28,6 +29,15 @@ class Game:
     def draw(self):
         self.draw_board()
         self.draw_pieces()
+
+    def change_turn(self):
+        if self.player_turn == 2:
+            self.player_turn = 1
+        else:
+            self.player_turn = 2
+
+        self.mouse.clickedPiece = False
+        self.turn += 1
 
     def draw_board(self):
         x = 0
@@ -47,6 +57,9 @@ class Game:
                     y += self.square_side
 
                     x = 0
+
+    def display_turn(self):
+        print("Turn ", self.turn, ":")
 
     def draw_pieces(self):
         for i in self.players:
