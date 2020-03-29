@@ -1,4 +1,5 @@
 import sys
+import math
 from piece import Piece
 from gamestate import GameState
 from collections import defaultdict
@@ -287,7 +288,7 @@ class Minimax:
 	def vuln_pos_top(self, check_x, check_y, player, oponent):
 		pos_counter = 1	
 		check_y -= self.gamestate.square_side	
-		while check_y > self.gamestate.min_pos:
+		while check_y >= self.gamestate.min_pos:
 			if (check_x, check_y) in self.gamestate.players[player].pieces.keys(): return False #It's being protected by another friendly piece
 
 			if (check_x, check_y) in self.gamestate.players[oponent].pieces.keys():
@@ -390,12 +391,34 @@ class Minimax:
 	def vulnerable_position(self, check_x, check_y, player, oponent):
 		return self.vuln_pos_left(check_x, check_y, player, oponent) or self.vuln_pos_right(check_x, check_y, player, oponent) or self.vuln_pos_top(check_x, check_y, player, oponent) or self.vuln_pos_bot(check_x, check_y, player, oponent) 
 
-#test = Minimax(1, 120)
+
+	def calc_dist_to_nearest_evol(self, check_x, check_y):
+		point_0 = (self.gamestate.min_pos, self.gamestate.min_pos)
+		point_1 = (self.gamestate.min_pos, self.gamestate.max_pos)
+		point_2 = (self.gamestate.max_pos, self.gamestate.min_pos)
+		point_3 = (self.gamestate.max_pos, self.gamestate.max_pos)
+
+		d0 = math.floor(math.sqrt(pow(check_x - point_0[0],2) + pow(check_y - point_0[1],2)))
+		d1 = math.floor(math.sqrt(pow(check_x - point_1[0],2) + pow(check_y - point_1[1],2)))
+		d2 = math.floor(math.sqrt(pow(check_x - point_2[0],2) + pow(check_y - point_2[1],2)))
+		d3 = math.floor(math.sqrt(pow(check_x - point_3[0],2) + pow(check_y - point_3[1],2)))
+
+		return min([d0, d1, d2, d3])
+
+
+	#def value_my_pieces()
+	#def value_max_pieces(self, player, oponent):
+		#value_counter = 0
+		#for piece in self.gamestate.players[player].pieces.values():
+			#if(self.vulnerable_position(piece.get_position()[0], piece.get_position()[1], player, oponent)): continue
+
+		#return value_counter
+		
+test = Minimax(1, 120)
 #Test Constructor
 #print("Testing Constructor\n")
 #print("P1: ", test.gamestate.players[0].pieces, "\n\n")
 #print("P2: ", test.gamestate.players[1].pieces, "\n\n")
-
 #Test max_win
 #test.test_max_win()
 

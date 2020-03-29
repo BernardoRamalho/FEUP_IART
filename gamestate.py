@@ -8,9 +8,8 @@ class GameState:
 		self.player_turn = 1
 		self.players = [player1, player2]
 		self.mode = mode
-		self.min_pos = 0
+		self.min_pos = square_side/2
 		self.max_pos = square_side * 8 - square_side/2
-		print("Square side: ", square_side)
 
 	def check_end_game(self):
 
