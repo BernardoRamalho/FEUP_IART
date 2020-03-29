@@ -13,9 +13,8 @@ class Game:
         self.screen_size = int(screen_width / 2)
         self.screen = pygame.display.set_mode((self.screen_size, self.screen_size))  # Where the game is shown
         self.gamestate = GameState(mode, self.screen_size / 8)
-        
+
         self.mouse = Mouse(self.gamestate)
-        self.turn = 0
         self.run = True
 
     def draw(self):
@@ -32,7 +31,8 @@ class Game:
             for j in range(8):
 
                 if (i + j) % 2 != 0:
-                    pygame.draw.rect(self.screen, (255, 255, 255), (x, y,self.gamestate.square_side, self.gamestate.square_side))
+                    pygame.draw.rect(self.screen, (255, 255, 255),
+                                     (x, y, self.gamestate.square_side, self.gamestate.square_side))
 
                 x += self.gamestate.square_side
 
@@ -42,20 +42,17 @@ class Game:
                     x = 0
 
     def display_turn(self):
-        print("Turn ", self.gamestate.player_turn, ":", sep= '')
+        print("Turn ", self.gamestate.turn, ":", sep='')
 
     def draw_pieces(self):
         for i in self.gamestate.players:
             i.draw_pieces(self.screen)
 
     def change_turn(self):
-        if self.gamestate.player_turn == 2:
+        if self.gamestate.player_turn == 2 and len(self.gamestate.players[0].pieces):
             self.gamestate.player_turn = 1
-        else:
+        elif self.gamestate.player_turn == 1 and len(self.gamestate.players[1].pieces):
             self.gamestate.player_turn = 2
-		
+
         self.mouse.clickedPiece = False
-        self.turn += 1
-
-
- 
+        self.gamestate.turn += 1

@@ -2,59 +2,74 @@ from player import Player
 import movement
 from collections import defaultdict
 
+
 class GameState:
-	def __init__(self, mode, square_side):
-		self.square_side = square_side
-		player1 = Player(1, self.square_side)
-		player2 = Player(2, self.square_side)
-		self.player_turn = 1
-		self.players = [player1, player2]
-		self.mode = mode
-		self.min_pos = square_side/2
-		self.max_pos = square_side * 8 - square_side/2
-		self.turn = 0
+    def __init__(self, mode, square_side):
+        self.square_side = square_side
+        player1 = Player(1, self.square_side)
+        player2 = Player(2, self.square_side)
+        self.player_turn = 1
+        self.players = [player1, player2]
+        self.mode = mode
+        self.min_pos = square_side / 2
+        self.max_pos = square_side * 8 - square_side / 2
+        self.turn = 1
 
-	def check_end_game(self):
+    def check_end_game(self):
 
-		for i in self.players:
-			for p in i.pieces.values():
-				if not p.evolved: return False
-		return True
+        for i in self.players:
+            for p in i.pieces.values():
+                if not p.evolved:
+                    return False
+        return True
 
-	def check_edge_square(self, position, square_side):
-		if position[0] == square_side / 2 or position[0] == square_side * 8 - square_side / 2:
-			if position[1] == square_side / 2 or position[1] == square_side * 8 - square_side / 2:
-				return True
-	
-	def move_piece(self, piece, new_position, player_nr):
-		del self.players[player_nr - 1].pieces[piece.get_position()]
-		piece.set_position(new_position)
-		piece.invert_direction()
-		piece.selected = False
+    def get_who_wins(self):
+        if len(self.players[0].pieces) > len(self.players[1].pieces):  # Player 1 Wins
+            return 1
+        elif len(self.players[0].pieces) < len(self.players[1].pieces):  # Player 2 Wins
+            return 2
+        else:  # Drawn
+            return 3
 
-		if self.check_edge_square(new_position, self.square_side):
-			piece.evolve()
-			if self.mode == 1 or self.mode == 2: print("Player ", player_nr, "evolved a piece.")
-		
-		self.players[player_nr - 1].pieces[new_position] = piece
+    def check_edge_square(self, position, square_side):
+        if position[0] == square_side / 2 or position[0] == square_side * 8 - square_side / 2:
+            if position[1] == square_side / 2 or position[1] == square_side * 8 - square_side / 2:
+                return True
 
-		oponent = 0
-		if player_nr == 1: oponent = 1
-		if new_position in self.players[oponent].pieces:
-			del self.players[oponent].pieces[new_position]
-			if self.mode == 1 or self.mode == 2: print("Player ", player_nr, "ate a piece from the opponent")
+    def move_piece(self, piece, new_position):
+        del self.players[self.player_turn - 1].pieces[piece.get_position()]
+        piece.set_position(new_position)
+        piece.invert_direction()
+        piece.selected = False
 
-		if self.mode == 1 or self.mode == 2: print("Player ", player_nr, "moved piece to ", piece.position)
+        if self.check_edge_square(new_position, self.square_side):
+            piece.evolve()
+            #print("Player ", self.player_turn, "evolved a piece.")
 
-	def generate_valid_moves(self, player_nr):
-		opponent = player_nr % 2
+        self.players[self.player_turn - 1].pieces[new_position] = piece
 
-		possible_positions = defaultdict(list)
-		for i in self.players[player_nr - 1].pieces.values():
+        opponent = self.player_turn % 2
 
-			if i.direction == 'v': # Generate all the possible y positions
-				movement.generate_all_y_movements(self.players[player_nr - 1], self.players[opponent], i, self.square_side, possible_positions)
+        if new_position in self.players[opponent].pieces:
+            del self.players[opponent].pieces[new_position]
+            #print("Player ", self.player_turn, "ate a piece from the opponent")
 
-			else: # Generate all the possible x positions
-				movement.generate_all_x_movements(self.players[player_nr - 1], self.players[opponent], i,
+        #print("Player ", self.player_turn, "moved piece to ", piece.position)
+
+    def generate_valid_moves(self):
+        opponent = self.player_turn % 2
+
+        possible_positions = defaultdict(list)
+        for i in self.players[self.player_turn - 1].pieces.values():
+
+            if i.direction == 'v':  # Generate all the possible y positions
+                movement.generate_all_y_movements(self.players[self.player_turn - 1], self.players[opponent], i,
                                                   self.square_side, possible_positions)
+
+            else:  # Generate all the possible x positions
+                movement.generate_all_x_movements(self.players[self.player_turn - 1], self.players[opponent], i,
+                                                  self.square_side, possible_positions)
+        return possible_positions
+
+    def print_info(self):
+        print(self.players[self.player_turn - 1].pieces.keys())

@@ -11,7 +11,8 @@ def check_selected_piece_exists_and_is_mine(position, players, player_nr):
 
 
 def check_selected_pos_is_valid(position, players, player_nr):
-    if position in players[player_nr]: return False
+    if position in players[player_nr]:
+        return False
     return True
 
 
@@ -90,7 +91,6 @@ def generate_y_up_moves(player, opponent, piece, square_side, possible_moves):
 
         if check_valid_square((x, y), player, opponent) and valid_square:
             possible_moves[piece.position].append((x, y))
-            continue
 
         if check_piece_in_space((x, y), [player, opponent]):
             break
@@ -110,7 +110,6 @@ def generate_y_down_moves(player, opponent, piece, square_side, possible_moves):
 
         if check_valid_square((x, y), player, opponent) and valid_square:
             possible_moves[piece.position].append((x, y))
-            continue
 
         if check_piece_in_space((x, y), [player, opponent]):
             break
@@ -130,7 +129,6 @@ def generate_x_left_moves(player, opponent, piece, square_side, possible_moves):
 
         if check_valid_square((x, y), player, opponent) and valid_square:
             possible_moves[piece.position].append((x, y))
-            continue
 
         if check_piece_in_space((x, y), [player, opponent]):
             break
@@ -150,7 +148,6 @@ def generate_x_right_moves(player, opponent, piece, square_side, possible_moves)
 
         if check_valid_square((x, y), player, opponent) and valid_square:
             possible_moves[piece.position].append((x, y))
-            continue
 
         if check_piece_in_space((x, y), [player, opponent]):
             break

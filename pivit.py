@@ -1,6 +1,7 @@
 import pygame
 from game import Game
-
+from minimax import Minimax
+import time
 
 # Basic Information About Structure the Game
 # 1º- Game object as every variable that we need;
@@ -23,6 +24,15 @@ def display_initial_message():
     print("We hope you have fun!")
 
 
+def display_result_message(winner):
+    if winner == 1:
+        print("Player 1 has won the game!")
+    elif winner == 2:
+        print("Player 2 has won the game!")
+    else:
+        print("We have a drawn!")
+
+
 def get_game_mode():
     """Asks the user for a game mode"""
     return input("Select Game Mode:\n1. PvP\n2. PvE\n3. EvE\nDesired Mode: ")
@@ -37,8 +47,10 @@ def get_screen_width():
 def try_move_piece(game):
     """Based on the game state, tries to move the piece a player clicked"""
 
-    if game.mouse.check_valid_square_click(game.gamestate.square_side, game.gamestate.players[game.gamestate.player_turn - 1], game.gamestate.players[game.gamestate.player_turn % 2]):
-        game.gamestate.move_piece(game.mouse.piece, game.mouse.position, game.gamestate.player_turn)
+    if game.mouse.check_valid_square_click(game.gamestate.square_side,
+                                           game.gamestate.players[game.gamestate.player_turn - 1],
+                                           game.gamestate.players[game.gamestate.player_turn % 2]):
+        game.gamestate.move_piece(game.mouse.piece, game.mouse.position)
         game.change_turn()
         game.display_turn()
 
@@ -56,7 +68,7 @@ def event_handler_pvp(game):
 
             else:
                 game.mouse.check_piece_click(game.gamestate.players[game.gamestate.player_turn - 1])
-                game.gamestate.generate_valid_moves(game.gamestate.player_turn)
+                #print(game.gamestate.generate_valid_moves())
 
         if event.type == pygame.MOUSEBUTTONUP:
             game.mouse.button_release(event.button)
@@ -79,10 +91,11 @@ def event_handler_pvp(game):
 def main():
     pygame.init()
 
-    mode = get_game_mode()
-    game = Game(get_screen_width(), mode) # Initiates the Game Master Class
-    pygame.display.set_caption('Pivit')           
     display_initial_message()
+    mode = get_game_mode()
+    game = Game(get_screen_width(), mode)  # Initiates the Game Master Class
+    ai = Minimax(game.gamestate)
+    pygame.display.set_caption('Pivit')
 
     print("Let the game BEGIN!")
     game.display_turn()
@@ -100,9 +113,9 @@ def main():
 
         pygame.display.update()
 
-        game.gamestate.players[1].pieces = []
         if game.gamestate.check_end_game():
-            print("NAO SEI SE ISTO ESTÁ A FUNCIONAR MAS JÁ SÃO 3 DA MANHÃ E QUERO ME IR DEITAR")
+            winner = game.gamestate.get_who_wins()
+            display_result_message(winner)
             game.run = False
 
     print("We hoped you liked the game. See you soon!")
