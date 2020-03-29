@@ -19,11 +19,11 @@ class Minimax:
 		self.gamestate.players[1].pieces = defaultdict(Piece)
 		print("P1: ", self.gamestate.players[0].pieces)
 		print("P2: ", self.gamestate.players[1].pieces)
-		print("max_win: ", self.max_win(), "\n")
+		print("max_win: ", self.max_win(0,1), "\n")
 
-	def max_win(self):
-		if self.gamestate.check_end_game() and len(self.gamestate.players[0].pieces) > len(self.gamestate.players[1].pieces): return True#sys.maxsize
-		elif len(self.gamestate.players[0].pieces) > 0 and len(self.gamestate.players[1].pieces) <= 0: return True
+	def max_win(self, max_p, min_p):
+		if self.gamestate.check_end_game() and len(self.gamestate.players[max_p].pieces) > len(self.gamestate.players[min_p].pieces): return True#sys.maxsize
+		elif len(self.gamestate.players[max_p].pieces) > 0 and len(self.gamestate.players[min_p].pieces) <= 0: return True
 		return False
 
 	def test_min_win(self):
@@ -35,12 +35,12 @@ class Minimax:
 		self.gamestate.players[1].pieces[piece.get_position()] = piece
 		print("P1: ", self.gamestate.players[0].pieces)
 		print("P2: ", self.gamestate.players[1].pieces)
-		print("min_win: ", self.min_win(), "\n")
+		print("min_win: ", self.min_win(0, 1), "\n")
 
 
-	def min_win(self):
-		if self.gamestate.check_end_game() and len(self.gamestate.players[0].pieces) > len(self.gamestate.players[1].pieces): return True
-		elif len(self.gamestate.players[1].pieces) > 0 and len(self.gamestate.players[0].pieces) <= 0: return True
+	def min_win(self, max_p, min_p):
+		if self.gamestate.check_end_game() and len(self.gamestate.players[min_p].pieces) > len(self.gamestate.players[max_p].pieces): return True
+		elif len(self.gamestate.players[min_p].pieces) > 0 and len(self.gamestate.players[max_p].pieces) <= 0: return True
 		return False
 	
 	def test_vul_pos_left(self):
@@ -406,14 +406,33 @@ class Minimax:
 		return min([d0, d1, d2, d3])
 
 
-	#def value_my_pieces()
-	#def value_max_pieces(self, player, oponent):
-		#value_counter = 0
-		#for piece in self.gamestate.players[player].pieces.values():
-			#if(self.vulnerable_position(piece.get_position()[0], piece.get_position()[1], player, oponent)): continue
 
-		#return value_counter
-		
+	def value_my_pieces(self, player, oponent):
+		value_counter = 0
+		for piece in self.gamestate.players[player].pieces.values():
+			if self.vulnerable_position(piece.get_position()[0], piece.get_position()[1], player, oponent): continue
+			elif piece.evolved: value_counter += 1000
+			else:
+				value_counter += 100
+				value_counter -= self.calc_dist_to_nearest_evol(piece.get_position()[0], piece.get_position()[1])
+
+		return value_counter
+
+	def value_oponents_pieces(self, player, oponent):
+		value_counter = 0
+		for piece in self.gamestate.players[oponent].pieces.values():
+			if self.vulnerable_position(piece.get_position()[0], piece.get_position()[1], oponent, player): continue
+			elif piece.evolved: value_counter -= 1000
+			else: value_counter -= 100
+
+		return value_counter
+	
+
+	def value_gamestate(self, player, oponent):
+		if self.max_win(player, oponent): return sys.maxsize
+		elif self.min_win(player, oponent): return -sys.maxsize + 1
+		else: return self.value_my_pieces(player, oponent) + self.value_oponents_pieces(player, oponent)
+
 test = Minimax(1, 120)
 #Test Constructor
 #print("Testing Constructor\n")
@@ -421,9 +440,14 @@ test = Minimax(1, 120)
 #print("P2: ", test.gamestate.players[1].pieces, "\n\n")
 #Test max_win
 #test.test_max_win()
-
+#print(test.value_my_pieces(0))
+#print(test.value_oponents_pieces(1))
 #Test min_win
 #test.test_min_win()
+
+print("Value", test.value_gamestate(0, 1) ,"\n")
+
+
 
 #Test vulnerable_pos_left
 #test.test_vul_pos_left()
