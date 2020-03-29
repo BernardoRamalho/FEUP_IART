@@ -1,4 +1,6 @@
 from player import Player
+import movement
+from collections import defaultdict
 
 class GameState:
 	def __init__(self, mode, square_side):
@@ -10,6 +12,7 @@ class GameState:
 		self.mode = mode
 		self.min_pos = square_side/2
 		self.max_pos = square_side * 8 - square_side/2
+		self.turn = 0
 
 	def check_end_game(self):
 
@@ -17,7 +20,7 @@ class GameState:
 			for p in i.pieces.values():
 				if not p.evolved: return False
 		return True
-	
+
 	def check_edge_square(self, position, square_side):
 		if position[0] == square_side / 2 or position[0] == square_side * 8 - square_side / 2:
 			if position[1] == square_side / 2 or position[1] == square_side * 8 - square_side / 2:
@@ -43,3 +46,15 @@ class GameState:
 
 		if self.mode == 1 or self.mode == 2: print("Player ", player_nr, "moved piece to ", piece.position)
 
+	def generate_valid_moves(self, player_nr):
+		opponent = player_nr % 2
+
+		possible_positions = defaultdict(list)
+		for i in self.players[player_nr - 1].pieces.values():
+
+			if i.direction == 'v': # Generate all the possible y positions
+				movement.generate_all_y_movements(self.players[player_nr - 1], self.players[opponent], i, self.square_side, possible_positions)
+
+			else: # Generate all the possible x positions
+				movement.generate_all_x_movements(self.players[player_nr - 1], self.players[opponent], i,
+                                                  self.square_side, possible_positions)

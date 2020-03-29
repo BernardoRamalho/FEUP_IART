@@ -8,7 +8,6 @@ from game import Game
 # 3º- You can reset the piece you picked by pressing the key r;
 
 
-
 #
 #
 # FUNCTION DEFINITION
@@ -23,31 +22,29 @@ def display_initial_message():
     print("If you select the wrong piece, you can click 'r' to reset. If you want to exit the game click 'q'.")
     print("We hope you have fun!")
 
+
 def get_game_mode():
-    return input("Select Game Mode:\n1. PvP\n2. PvE\n3. EvE\n")
+    """Asks the user for a game mode"""
+    return input("Select Game Mode:\n1. PvP\n2. PvE\n3. EvE\nDesired Mode: ")
 
 
 def get_screen_width():
+    """Returns the user's screen width"""
     screen_info = pygame.display.Info()
     return screen_info.current_w
 
 
 def try_move_piece(game):
-    if game.gamestate.player_turn == 1:
+    """Based on the game state, tries to move the piece a player clicked"""
 
-        if game.mouse.check_valid_square_click(game.gamestate.square_side, game.gamestate.players[0], game.gamestate.players[1]):
-            game.gamestate.move_piece(game.mouse.piece, game.mouse.position, 1)
-            game.gamestate.player_turn = 2
-            game.mouse.clickedPiece = False
-    else:
-
-        if game.mouse.check_valid_square_click(game.gamestate.square_side, game.gamestate.players[1], game.gamestate.players[0]):
-            game.gamestate.move_piece(game.mouse.piece, game.mouse.position, 2)
-            game.gamestate.player_turn = 1
-            game.mouse.clickedPiece = False
+    if game.mouse.check_valid_square_click(game.gamestate.square_side, game.gamestate.players[game.gamestate.player_turn - 1], game.gamestate.players[game.gamestate.player_turn % 2]):
+        game.gamestate.move_piece(game.mouse.piece, game.mouse.position, game.gamestate.player_turn)
+        game.change_turn()
+        game.display_turn()
 
 
 def event_handler_pvp(game):
+    """Responsible for receiving the user inputs and acting on them"""
     for event in pygame.event.get():
 
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -59,6 +56,7 @@ def event_handler_pvp(game):
 
             else:
                 game.mouse.check_piece_click(game.gamestate.players[game.gamestate.player_turn - 1])
+                game.gamestate.generate_valid_moves(game.gamestate.player_turn)
 
         if event.type == pygame.MOUSEBUTTONUP:
             game.mouse.button_release(event.button)
@@ -82,23 +80,32 @@ def main():
     pygame.init()
 
     mode = get_game_mode()
-    game = Game(get_screen_width(), mode)
+    game = Game(get_screen_width(), mode) # Initiates the Game Master Class
+    pygame.display.set_caption('Pivit')           
     display_initial_message()
+
+    print("Let the game BEGIN!")
+    game.display_turn()
 
     while game.run:
         pygame.time.delay(100)
 
-        if mode == 1: event_handler_pvp(game)
+        if game.gamestate.mode == 1:
+            event_handler_pvp(game)
 
-        else:  event_handler_pvp(game)
+        else:
+            event_handler_pvp(game)
 
         game.draw()
 
         pygame.display.update()
 
+        game.gamestate.players[1].pieces = []
         if game.gamestate.check_end_game():
+            print("NAO SEI SE ISTO ESTÁ A FUNCIONAR MAS JÁ SÃO 3 DA MANHÃ E QUERO ME IR DEITAR")
             game.run = False
 
+    print("We hoped you liked the game. See you soon!")
     pygame.quit()
 
 

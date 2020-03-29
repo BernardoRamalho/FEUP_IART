@@ -433,6 +433,7 @@ class Minimax:
 		elif self.min_win(player, oponent): return -sys.maxsize + 1
 		else: return self.value_my_pieces(player, oponent) + self.value_oponents_pieces(player, oponent)
 
+	#TODO: E se fizessemos uma função para valorar peças proximas de evoluir, tipo capazes de evoluir na próxima jogada, podiam valer tipo 500 pontos
 test = Minimax(1, 120)
 #Test Constructor
 #print("Testing Constructor\n")

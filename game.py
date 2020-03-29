@@ -1,7 +1,9 @@
+from collections import defaultdict
 import pygame
 from player import Player
 from mouse import Mouse
 from gamestate import GameState
+import movement
 
 
 class Game:
@@ -11,9 +13,9 @@ class Game:
         self.screen_size = int(screen_width / 2)
         self.screen = pygame.display.set_mode((self.screen_size, self.screen_size))  # Where the game is shown
         self.gamestate = GameState(mode, self.screen_size / 8)
-
+        
         self.mouse = Mouse(self.gamestate)
-
+        self.turn = 0
         self.run = True
 
     def draw(self):
@@ -39,6 +41,21 @@ class Game:
 
                     x = 0
 
+    def display_turn(self):
+        print("Turn ", self.gamestate.player_turn, ":", sep= '')
+
     def draw_pieces(self):
         for i in self.gamestate.players:
             i.draw_pieces(self.screen)
+
+    def change_turn(self):
+        if self.gamestate.player_turn == 2:
+            self.gamestate.player_turn = 1
+        else:
+            self.gamestate.player_turn = 2
+		
+        self.mouse.clickedPiece = False
+        self.turn += 1
+
+
+ 
