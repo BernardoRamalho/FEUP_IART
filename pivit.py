@@ -2,6 +2,7 @@ import pygame
 from game import Game
 from minimax import Minimax
 import time
+import heuristics_test
 
 # Basic Information About Structure the Game
 # 1º- Game object as every variable that we need;
@@ -94,7 +95,6 @@ def main():
     display_initial_message()
     mode = get_game_mode()
     game = Game(get_screen_width(), mode)  # Initiates the Game Master Class
-    ai = Minimax(game.gamestate)
     pygame.display.set_caption('Pivit')
 
     print("Let the game BEGIN!")
