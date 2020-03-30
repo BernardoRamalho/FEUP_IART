@@ -3,6 +3,12 @@ def check_piece_in_space(position, players):
         return True
 
 
+def check_enemy_piece_in_space(position, players, opponent):
+    if position in players[opponent].pieces:
+        return True
+    return False
+
+
 def check_selected_piece_exists_and_is_mine(position, players, player_nr):
     if position in players[player_nr].pieces:
         return True
@@ -89,7 +95,7 @@ def generate_y_up_moves(player, opponent, piece, square_side, possible_moves):
         if not piece.evolved:
             valid_square = not valid_square
 
-        if check_valid_square((x, y), player, opponent) and valid_square:
+        if check_valid_square((x, y), player, opponent) and (valid_square or piece.evolved):
             possible_moves[piece.position].append((x, y))
 
         if check_piece_in_space((x, y), [player, opponent]):

@@ -1,9 +1,8 @@
-from collections import defaultdict
 import pygame
-from player import Player
 from mouse import Mouse
 from gamestate import GameState
-import movement
+import time
+from minimax import Minimax
 
 
 class Game:
@@ -13,9 +12,11 @@ class Game:
         self.screen_size = int(screen_width / 2)
         self.screen = pygame.display.set_mode((self.screen_size, self.screen_size))  # Where the game is shown
         self.gamestate = GameState(mode, self.screen_size / 8)
-
         self.mouse = Mouse(self.gamestate)
         self.run = True
+
+        if mode != '1':
+            self.ai = Minimax()
 
     def draw(self):
         self.draw_board()
@@ -41,18 +42,15 @@ class Game:
 
                     x = 0
 
-    def display_turn(self):
-        print("Turn ", self.gamestate.turn, ":", sep='')
-
     def draw_pieces(self):
         for i in self.gamestate.players:
             i.draw_pieces(self.screen)
 
-    def change_turn(self):
-        if self.gamestate.player_turn == 2 and len(self.gamestate.players[0].pieces):
-            self.gamestate.player_turn = 1
-        elif self.gamestate.player_turn == 1 and len(self.gamestate.players[1].pieces):
-            self.gamestate.player_turn = 2
-
-        self.mouse.clickedPiece = False
-        self.gamestate.turn += 1
+    def ai_turn(self, depth):
+        start_time = time.time()
+        ai_move = self.ai.play(self.gamestate, depth)
+        self.gamestate.move_piece(self.gamestate.players[self.gamestate.player_turn - 1].pieces[ai_move[0]], ai_move[1])
+        print(time.time() - start_time)
+        print("Player ", self.gamestate.player_turn, "moved piece to ", ai_move[1])
+        self.gamestate.change_turn()
+        self.gamestate.display_turn()

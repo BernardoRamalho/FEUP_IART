@@ -52,8 +52,10 @@ def try_move_piece(game):
                                            game.gamestate.players[game.gamestate.player_turn - 1],
                                            game.gamestate.players[game.gamestate.player_turn % 2]):
         game.gamestate.move_piece(game.mouse.piece, game.mouse.position)
-        game.change_turn()
-        game.display_turn()
+        print("Player ", game.gamestate.player_turn, "moved piece to ", game.mouse.position)
+        game.mouse.clickedPiece = False
+        game.gamestate.change_turn()
+        game.gamestate.display_turn()
 
 
 def event_handler_pvp(game):
@@ -69,7 +71,6 @@ def event_handler_pvp(game):
 
             else:
                 game.mouse.check_piece_click(game.gamestate.players[game.gamestate.player_turn - 1])
-                #print(game.gamestate.generate_valid_moves())
 
         if event.type == pygame.MOUSEBUTTONUP:
             game.mouse.button_release(event.button)
@@ -98,16 +99,23 @@ def main():
     pygame.display.set_caption('Pivit')
 
     print("Let the game BEGIN!")
-    game.display_turn()
+    game.gamestate.display_turn()
+    game.draw()
+    pygame.display.update()
 
     while game.run:
-        pygame.time.delay(100)
+        #pygame.time.delay(100)
 
-        if game.gamestate.mode == 1:
+        if game.gamestate.mode == '1':
             event_handler_pvp(game)
 
+        elif game.gamestate.mode == '2':
+            if game.gamestate.player_turn == 1:
+                event_handler_pvp(game)
+            else:
+                game.ai_turn(3)
         else:
-            event_handler_pvp(game)
+            game.ai_turn(3)
 
         game.draw()
 

@@ -44,7 +44,7 @@ class GameState:
 
         if self.check_edge_square(new_position, self.square_side):
             piece.evolve()
-            #print("Player ", self.player_turn, "evolved a piece.")
+            # print("Player ", self.player_turn, "evolved a piece.")
 
         self.players[self.player_turn - 1].pieces[new_position] = piece
 
@@ -52,24 +52,36 @@ class GameState:
 
         if new_position in self.players[opponent].pieces:
             del self.players[opponent].pieces[new_position]
-            #print("Player ", self.player_turn, "ate a piece from the opponent")
+            # print("Player ", self.player_turn, "ate a piece from the opponent")
 
-        #print("Player ", self.player_turn, "moved piece to ", piece.position)
+        # print("Player ", self.player_turn, "moved piece to ", piece.position)
 
-    def generate_valid_moves(self):
-        opponent = self.player_turn % 2
+    def generate_valid_moves(self, player):
+        opponent = player % 2
 
         possible_positions = defaultdict(list)
-        for i in self.players[self.player_turn - 1].pieces.values():
+        for i in self.players[player - 1].pieces.values():
 
             if i.direction == 'v':  # Generate all the possible y positions
-                movement.generate_all_y_movements(self.players[self.player_turn - 1], self.players[opponent], i,
+                movement.generate_all_y_movements(self.players[player - 1], self.players[opponent], i,
                                                   self.square_side, possible_positions)
 
             else:  # Generate all the possible x positions
-                movement.generate_all_x_movements(self.players[self.player_turn - 1], self.players[opponent], i,
+                movement.generate_all_x_movements(self.players[player - 1], self.players[opponent], i,
                                                   self.square_side, possible_positions)
         return possible_positions
 
     def print_info(self):
         print(self.players[self.player_turn - 1].pieces.keys())
+
+    def change_turn(self):
+        if self.player_turn == 2 and len(self.players[0].pieces):
+            self.player_turn = 1
+        elif self.player_turn == 1 and len(self.players[1].pieces):
+            self.player_turn = 2
+
+        self.turn += 1
+
+
+    def display_turn(self):
+        print("Turn ", self.turn, ":", sep='')

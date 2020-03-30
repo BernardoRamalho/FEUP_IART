@@ -284,12 +284,3 @@ def test_vul_pos_bot(gamestate):
     print("P2: ", gamestate.players[1].pieces)
     print(heuristics.vuln_pos_bot(gamestate, 60, 30, 0, 1))
 
-
-gamestate1 = GameState(1, 120)
-test_vul_pos_left(gamestate1)
-gamestate1 = GameState(1, 120)
-test_vul_pos_bot(gamestate1)
-gamestate1 = GameState(1, 120)
-test_vul_pos_right(gamestate1)
-gamestate1 = GameState(1, 120)
-test_vul_pos_top(gamestate1)
