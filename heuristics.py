@@ -110,18 +110,18 @@ def calc_dist_to_nearest_evol(gamestate, check_x, check_y):
     d2 = math.floor(math.sqrt(pow(check_x - point_2[0], 2) + pow(check_y - point_2[1], 2)))
     d3 = math.floor(math.sqrt(pow(check_x - point_3[0], 2) + pow(check_y - point_3[1], 2)))
 
-    return min([d0, d1, d2, d3])
+    return min([d0, d1, d2, d3])//6
 
 
 def value_my_pieces(gamestate, player, opponent):
     value_counter = 0
     for piece in gamestate.players[player].pieces.values():
         if vulnerable_position(gamestate, piece.get_position()[0], piece.get_position()[1], player, opponent):
-            value_counter -= 300
+            value_counter -= 25
         elif piece.evolved:
-            value_counter += 1000
+            value_counter += 500
         else:
-            value_counter += 50
+            value_counter += 5
             if not piece.evolved:
                 value_counter -= calc_dist_to_nearest_evol(gamestate, piece.get_position()[0], piece.get_position()[1])
 
@@ -132,11 +132,11 @@ def value_opponents_pieces(gamestate, player, opponent):
     value_counter = 0
     for piece in gamestate.players[opponent].pieces.values():
         if vulnerable_position(gamestate, piece.get_position()[0], piece.get_position()[1], opponent, player):
-            value_counter += 300
+            value_counter += 5
         elif piece.evolved:
-            value_counter -= 1000
+            value_counter -= 500
         else:
-            value_counter -= 50
+            value_counter -= 25
             value_counter += calc_dist_to_nearest_evol(gamestate, piece.get_position()[0], piece.get_position()[1])
 
     return value_counter
