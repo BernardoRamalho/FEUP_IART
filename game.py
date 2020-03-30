@@ -48,9 +48,19 @@ class Game:
 
     def ai_turn(self, depth):
         start_time = time.time()
+
         ai_move = self.ai.play(self.gamestate, depth)
+
+        if ai_move[1] == []:
+            self.forfeit()
+
         self.gamestate.move_piece(self.gamestate.players[self.gamestate.player_turn - 1].pieces[ai_move[0]], ai_move[1])
-        print(time.time() - start_time)
+        print("Time to calculate:", time.time() - start_time)
         print("Player ", self.gamestate.player_turn, "moved piece to ", ai_move[1])
         self.gamestate.change_turn()
         self.gamestate.display_turn()
+
+    def forfeit(self):
+        print("Player", self.gamestate.player_turn, "has forfeited the game!")
+        print("Congratz to Player", self.gamestate.player_turn % 2 + 1, "for winning the game!")
+        self.run = False
