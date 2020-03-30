@@ -49,7 +49,7 @@ class Game:
     def ai_turn(self, depth):
         start_time = time.time()
 
-        ai_move = self.ai.play(self.gamestate, depth)
+        ai_move = self.ai.play_v2(self.gamestate, depth)
 
         if ai_move[1] == []:
             self.forfeit()

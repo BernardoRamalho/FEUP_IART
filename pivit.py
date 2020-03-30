@@ -135,10 +135,10 @@ def main():
             if game.gamestate.player_turn == 1:
                 event_handler_pvp(game)
             else:
-                game.ai_turn(3)
+                game.ai_turn(5)
         else:
 
-            game.ai_turn(3)
+            game.ai_turn(5)
 
         game.draw()
 
