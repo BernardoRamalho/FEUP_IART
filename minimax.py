@@ -65,6 +65,8 @@ class Minimax:
 
         max_value = -sys.maxsize + 1
 
+        best_move = []
+
         for i in generate_possible_gamestates(gamestate, gamestate.player_turn):
             value = self.min_alpha_beta(alpha, beta, depth - 1, i[0])
 

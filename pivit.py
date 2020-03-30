@@ -104,7 +104,7 @@ def main():
     pygame.display.update()
 
     while game.run:
-        #pygame.time.delay(100)
+        pygame.time.delay(100)
 
         if game.gamestate.mode == '1':
             event_handler_pvp(game)
@@ -115,6 +115,7 @@ def main():
             else:
                 game.ai_turn(3)
         else:
+
             game.ai_turn(3)
 
         game.draw()
