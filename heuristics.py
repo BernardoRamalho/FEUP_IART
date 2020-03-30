@@ -93,8 +93,10 @@ def vuln_pos_bot(gamestate, check_x, check_y, player, oponent):
 
 
 def vulnerable_position(gamestate, check_x, check_y, player, opponent):
-    return vuln_pos_left(gamestate, check_x, check_y, player, opponent) or vuln_pos_right(gamestate, check_x, check_y, player,
-                                                                               opponent) or vuln_pos_top(gamestate,
+    return vuln_pos_left(gamestate, check_x, check_y, player, opponent) or vuln_pos_right(gamestate, check_x, check_y,
+                                                                                          player,
+                                                                                          opponent) or vuln_pos_top(
+        gamestate,
         check_x, check_y, player, opponent) or vuln_pos_bot(gamestate, check_x, check_y, player, opponent)
 
 
@@ -115,7 +117,7 @@ def calc_dist_to_nearest_evol(gamestate, check_x, check_y):
 def value_my_pieces(gamestate, player, opponent):
     value_counter = 0
     for piece in gamestate.players[player].pieces.values():
-        if vulnerable_position(piece.get_position()[0], piece.get_position()[1], player, opponent):
+        if vulnerable_position(gamestate, piece.get_position()[0], piece.get_position()[1], player, opponent):
             continue
         elif piece.evolved:
             value_counter += 1000
@@ -129,9 +131,12 @@ def value_my_pieces(gamestate, player, opponent):
 def value_opponents_pieces(gamestate, player, opponent):
     value_counter = 0
     for piece in gamestate.players[opponent].pieces.values():
-        if vulnerable_position(piece.get_position()[0], piece.get_position()[1], opponent, player):
+        if vulnerable_position(gamestate, piece.get_position()[0], piece.get_position()[1], opponent, player):
             continue
         elif piece.evolved:
             value_counter -= 1000
         else:
             value_counter -= 100
+            value_counter += calc_dist_to_nearest_evol(gamestate, piece.get_position()[0], piece.get_position()[1])
+
+    return value_counter
