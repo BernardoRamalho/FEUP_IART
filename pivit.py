@@ -17,12 +17,31 @@ import heuristics_test
 #
 
 def display_initial_message():
+    print("\n#################")
     print("Welcome to Pivit!")
-    print("Made by Bernardo Ramalho and Pedro Pereira for IART 2020.")
-    print("Player 1 as the blue pieces and player 2 as the yellow pieces")
-    print("To play the game just click on a piece and then click on the square you want to move it to.")
-    print("If you select the wrong piece, you can click 'r' to reset. If you want to exit the game click 'q'.")
-    print("We hope you have fun!")
+    print("#################\n")
+    print("Made by Bernardo Ramalho and Pedro Pereira for IART 2020.\n")
+    print("Before we start here are some general rules of the game:")
+    print("1.Player 1 has the blue pieces and Player 2 has the red pieces.")
+    print("2.The point of the game is it to have more evolved pieces then your opponent at the end of the game.")
+    print("3.The game ends when there are no more unenvolved pieces. To evolve a piece you just have to get it to one "
+          "of the corners of the board.")
+    print("4.Pieces can move in the direction their arrows point to and to a square of different colour then the one "
+          "they are in. Unless they are evolved, in which case they can move to any square in that direction.")
+    print("5.The last thing in mind is that you cannot jump over pieces but you can eat pieces by moving one of your "
+          "pieces to an enemy occupied square.")
+    print("\nBasic Commands:")
+    print("To move just click on a piece and then click on the square you want to move it to.")
+    print("If you select the wrong piece, you can click 'r' to reset.")
+    print("If you want to exit the game click 'q'.")
+    print("You can also use 'f' to forfeit a match.")
+    print("\nWe give you three game modes for you to enjoy the game:")
+    print("1. PvP or Player vs Player. This is where you can battle against your friends.")
+    print("2. PvE or Player vs Environment. This is where you can face against our AI in case you don't have any "
+          "friends.")
+    print("3. EvE or Environment vs Environment. This is a mode for you to sit back and relax while you watch some AI "
+          "vs AI action.")
+    print("\nWe hope you have fun and enjoy our game!\n")
 
 
 def display_result_message(winner):
@@ -85,6 +104,9 @@ def event_handler_pvp(game):
                 print("Pieced selected reverted.")
                 game.mouse.clickedPiece = False
 
+            if event.key == pygame.K_f:
+                game.forfeit()
+
         # Closed Window
         if event.type == pygame.QUIT:
             game.run = False
@@ -98,7 +120,7 @@ def main():
     game = Game(get_screen_width(), mode)  # Initiates the Game Master Class
     pygame.display.set_caption('Pivit')
 
-    print("Let the game BEGIN!")
+    print("\nLet the game BEGIN!")
     game.gamestate.display_turn()
     game.draw()
     pygame.display.update()
@@ -127,7 +149,7 @@ def main():
             display_result_message(winner)
             game.run = False
 
-    print("We hoped you liked the game. See you soon!")
+    print("\nWe hoped you liked the game. See you soon!")
     pygame.quit()
 
 

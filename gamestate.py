@@ -84,4 +84,4 @@ class GameState:
 
 
     def display_turn(self):
-        print("Turn ", self.turn, ":", sep='')
+        print("\nTurn ", self.turn, ":", sep='')
