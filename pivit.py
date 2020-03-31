@@ -66,7 +66,7 @@ def event_handler_pvp(game):
                 game.forfeit()
 
             elif event.key == pygame.K_d:
-                suggested_move = game.gamestate.ai_player2.play(game.gamestate, 3)
+                suggested_move = game.gamestate.ai_player2.play(game.gamestate)
                 suggested_move[0] = transform_into_readable_position(suggested_move[0], game)
                 suggested_move[1] = transform_into_readable_position(suggested_move[1], game)
                 print("The AI suggest you move the piece at position", suggested_move[0], "to", suggested_move[1], ".")
@@ -119,13 +119,15 @@ def main():
                 event_handler_pvp(game)
             else:
                 event_handler_ai(game)
-                game.gamestate.ai_turn(game.gamestate.ai_player2)
+                if  not game.gamestate.ai_turn(game.gamestate.ai_player2): game.no_moves_left()
+                
         else:
             event_handler_ai(game)
             if game.gamestate.player_turn == 1:
-                game.gamestate.ai_turn(game.gamestate.ai_player1)
+                if  not game.gamestate.ai_turn(game.gamestate.ai_player1): game.no_moves_left()
+                
             else:
-                game.gamestate.ai_turn(game.gamestate.ai_player2)
+                if not game.gamestate.ai_turn(game.gamestate.ai_player2): game.no_moves_left()
 
         game.draw()
 
