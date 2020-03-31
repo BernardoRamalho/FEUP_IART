@@ -20,6 +20,8 @@ Após executar o script, será pedido ao utilizador que insira na linha de coman
 
 3. Defenições da Heurística da IA (+ Agressivo vs + Defensivo)
 
+3.1 No caso do modo de jogo ser EvE, pode-se decidir se a IA sabe que Heurística o seu oponente corre, ou não.
+
 Depois a janela de jogo abrirá.
 
 -> Para jogar clique numa peça sua, e depois na posição que para a qual se quer mover. 
@@ -51,6 +53,8 @@ After executing the script, the user will be prompted to insert the following co
 2. Depth of Minimax Search
 
 3. AI Heuristic (+ Agressive vs + Defensive)
+
+3.1 If the mode selected is EvE, one must decide if the AI knows which Heuristic it's opponent is running.
 
 Following that, the game window will open
 

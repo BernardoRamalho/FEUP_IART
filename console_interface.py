@@ -110,3 +110,10 @@ def get_two_ai_modes():
     ai_mode2 = get_ai_mode()
 
     return ai_mode1, ai_mode2
+
+def is_omniscient():
+    print("Would you like the AI's to know the heuristic the other is running?")
+    
+    dec = input("[Y/N]: ")
+    
+    if dec == 'Y': return True

@@ -4,9 +4,8 @@ from collections import defaultdict
 from minimax import Minimax
 import time
 
-
 class GameState:
-    def __init__(self, mode, square_side, depth, ai_mode):
+    def __init__(self, mode, square_side, depth, ai_mode, omni):
         self.square_side = square_side
         player1 = Player(1, self.square_side)
         player2 = Player(2, self.square_side)
@@ -17,14 +16,16 @@ class GameState:
         self.max_pos = square_side * 8 - square_side / 2
         self.turn = 1
 
-        if '3' == self.mode:
+        if '3' == self.mode and omni:
             ai2 = ai_mode[1]
-        else: ai2 = ai_mode[0]
+        else: ai2 = '3'
         
         self.ai_player2 = Minimax(depth, ai_mode[0], ai2)
 
         if '3' == self.mode:
-            self.ai_player1 = Minimax(depth, ai2, ai_mode[0])
+            if omni:
+                self.ai_player1 = Minimax(depth, ai2, ai_mode[0])
+            else: self.ai_player1 = Minimax(depth, ai2, '3')
 
     def __eq__(self, other):
         if not isinstance(other, GameState):
