@@ -116,9 +116,12 @@ class GameState:
 
         ai_move = ai.play(self)
 
-        self.move_piece(self.players[self.player_turn - 1].pieces[ai_move[0]], ai_move[1])
-        print("Time to calculate:", time.time() - start_time)
-        print("Player ", self.player_turn, "moved piece at", movement.transform_into_readable_position(ai_move[0], self)
-              , "to", movement.transform_into_readable_position(ai_move[1], self))
-        self.change_turn()
-        self.display_turn()
+        if len(ai_move) == 2:
+            self.move_piece(self.players[self.player_turn - 1].pieces[ai_move[0]], ai_move[1])
+            print("Time to calculate:", time.time() - start_time)
+            print("Player ", self.player_turn, "moved piece at", movement.transform_into_readable_position(ai_move[0], self)
+                  , "to", movement.transform_into_readable_position(ai_move[1], self))
+            self.change_turn()
+            self.display_turn()
+            return True
+        else: return False

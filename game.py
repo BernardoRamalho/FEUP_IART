@@ -47,3 +47,8 @@ class Game:
         print("\nPlayer", self.gamestate.player_turn, "has forfeited the game!")
         print("Congratz to Player", self.gamestate.player_turn % 2 + 1, "for winning the game!")
         self.run = False
+
+    def no_moves_left(self):
+        print("\nPlayer", self.gamestate.player_turn, "has no more plays!")
+        print("Congratz to Player", self.gamestate.player_turn % 2 + 1, "for winning the game!")
+        self.run = False

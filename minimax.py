@@ -87,12 +87,11 @@ class Minimax:
 
                     alpha = max(alpha, value)
 
-                    if gamestate.player_turn == 1:
-                        self.saved_moves1.append([new_game_state, best_move])
-                    else:
-                        self.saved_moves2.append([new_game_state, best_move])
-
                     if beta <= alpha:
+                        if gamestate.player_turn == 1:
+                            self.saved_moves1.append([gamestate, best_move])
+                        else:
+                            self.saved_moves2.append([gamestate, best_move])
                         return max_value, best_move
 
         if depth != self.max_depth:
@@ -112,6 +111,7 @@ class Minimax:
         else:
             for i in range(0, len(self.saved_moves2)):
                 if gamestate == self.saved_moves2[i][0]:
+                    time.sleep(1)
                     return self.saved_moves2[i][1]
 
         if gamestate.player_turn == 1:
