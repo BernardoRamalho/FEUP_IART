@@ -35,6 +35,7 @@ def display_result_message(winner):
     else:
         print("We have a drawn!")
 
+
 def get_game_mode():
     """Asks the user for a game mode"""
     mode = input("Select Game Mode:\n1. PvP\n2. PvE\n3. EvE\nDesired Mode: ")
