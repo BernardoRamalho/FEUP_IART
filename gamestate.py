@@ -16,10 +16,15 @@ class GameState:
         self.min_pos = square_side / 2
         self.max_pos = square_side * 8 - square_side / 2
         self.turn = 1
-        self.ai_player2 = Minimax(depth, ai_mode[0])
 
         if '3' == self.mode:
-            self.ai_player1 = Minimax(depth, ai_mode[1])
+            ai2 = ai_mode[1]
+        else: ai2 = ai_mode[0]
+
+        self.ai_player2 = Minimax(depth, ai_mode[0], ai2)
+
+        if '3' == self.mode:
+            self.ai_player1 = Minimax(depth, ai2, ai_mode[0])
 
     def __eq__(self, other):
         if not isinstance(other, GameState):
