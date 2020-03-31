@@ -15,8 +15,29 @@ class GameState:
         self.max_pos = square_side * 8 - square_side / 2
         self.turn = 1
 
+    def __eq__(self, other):
+        if not isinstance(other, GameState): return False
+        
+        if len(self.players[0].pieces) != len(other.players[0].pieces): return False
+        
+        if len(self.players[1].pieces) != len(other.players[1].pieces): return False
+
+        for positions1 in self.players[0].pieces.keys():
+            if not (positions1 in other.players[0].pieces.keys()): return False
+
+        for positions2 in self.players[1].pieces.keys():
+            if not (positions2 in other.players[1].pieces.keys()): return False
+
+        return True
+
+    def __hash__(self):
+        return hash(self.players[0].pieces.get(0))
+                
+
     def check_end_game(self):
 
+        if len(self.players[0].pieces) == 0 or len(self.players[1].pieces) == 0: return True
+        
         for i in self.players:
             for p in i.pieces.values():
                 if not p.evolved:

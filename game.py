@@ -50,6 +50,7 @@ class Game:
         start_time = time.time()
 
         ai_move = self.ai.play_v2(self.gamestate, depth)
+        print(ai_move)
 
         if ai_move[1] == []:
             self.forfeit()

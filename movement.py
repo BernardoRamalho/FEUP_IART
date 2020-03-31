@@ -28,13 +28,19 @@ def check_valid_square(position, player, opponent):
     return True
 
 
-def check_x_movement(x, y, mouse_x, square_side, player, opponent):
+def check_x_movement(piece, mouse_x, square_side, player, opponent):
+    x = piece.get_position()[0]
+    y = piece.get_position()[1]
+    valid_square = False
     if x > mouse_x:
 
         while x != mouse_x:
             x -= square_side
+            
+            if not piece.evolved:
+                valid_square = not valid_square
 
-            if x == mouse_x:
+            if x == mouse_x and (valid_square or piece.evolved):
                 return check_valid_square((x, y), player, opponent)
 
             if check_piece_in_space((x, y), [player, opponent]):
@@ -44,20 +50,29 @@ def check_x_movement(x, y, mouse_x, square_side, player, opponent):
         while x != mouse_x:
             x += square_side
 
-            if x == mouse_x:
+            if not piece.evolved:
+                valid_square = not valid_square
+
+            if x == mouse_x and (valid_square or piece.evolved):
                 return check_valid_square((x, y), player, opponent)
 
             if (x, y) in player.pieces or (x, y) in opponent.pieces:
                 return False
 
 
-def check_y_movement(x, y, mouse_y, square_side, player, opponent):
+def check_y_movement(piece, mouse_y, square_side, player, opponent):
+    x = piece.get_position()[0]
+    y = piece.get_position()[1]
+    valid_square = False
     if y > mouse_y:
 
         while y != mouse_y:
             y -= square_side
 
-            if y == mouse_y:
+            if not piece.evolved:
+                valid_square = not valid_square
+
+            if y == mouse_y and (valid_square or piece.evolved):
                 return check_valid_square((x, y), player, opponent)
 
             if check_piece_in_space((x, y), [player, opponent]):
@@ -67,20 +82,14 @@ def check_y_movement(x, y, mouse_y, square_side, player, opponent):
         while y != mouse_y:
             y += square_side
 
-            if y == mouse_y:
+            if not piece.evolved:
+                valid_square = not valid_square
+
+            if y == mouse_y and (valid_square or piece.evolved):
                 return check_valid_square((x, y), player, opponent)
 
             if (x, y) in player.pieces or (x, y) in opponent.pieces:
                 return False
-
-
-def check_both_movements(x, y, mouse_x, mouse_y, square_side, player, opponent):
-    if check_y_movement(x, y, mouse_y, square_side, player, opponent):
-        return True
-    elif check_x_movement(x, y, mouse_x, square_side, player, opponent):
-        return True
-
-    return False
 
 
 def generate_y_up_moves(player, opponent, piece, square_side, possible_moves):
