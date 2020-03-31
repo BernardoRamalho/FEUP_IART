@@ -22,18 +22,24 @@ class Heuristics:
         if mode == '1':
             self.player_pieces_values = 10
             self.player_vulnerable_pieces_values = 5
+            self.player_vulnerable_evolved_pieces_values = 250
+            self.opponent_vulnerable_evolved_pieces_values = 250
             self.opponent_vulnerable_pieces_values = 10
             self.opponent_pieces_values = 20
             self.evolved_pieces_values = 500
         elif mode == '2':
             self.player_pieces_values = 20
             self.player_vulnerable_pieces_values = 10
+            self.player_vulnerable_evolved_pieces_values = 250
+            self.opponent_vulnerable_evolved_pieces_values = 250
             self.opponent_vulnerable_pieces_values = 5
             self.opponent_pieces_values = 10
             self.evolved_pieces_values = 500
         else:
             self.player_pieces_values = 10
             self.player_vulnerable_pieces_values = 5
+            self.player_vulnerable_evolved_pieces_values = 250
+            self.opponent_vulnerable_evolved_pieces_values = 250
             self.opponent_vulnerable_pieces_values = 5
             self.opponent_pieces_values = 10
             self.evolved_pieces_values = 500
@@ -58,8 +64,11 @@ class Heuristics:
         for piece in gamestate.players[player].pieces.values():
             if self.vulnerable_position(gamestate, piece.get_position()[0], piece.get_position()[1], player,
                                            opponent):
-                value_counter -= self.player_vulnerable_pieces_values
-                value_counter -= calc_dist_to_nearest_evol(gamestate, piece.get_position()[0], piece.get_position()[1])
+                if not piece.evolved:
+                    value_counter -= self.player_vulnerable_pieces_values
+                    value_counter -= calc_dist_to_nearest_evol(gamestate, piece.get_position()[0], piece.get_position()[1])
+                else:
+                    value_counter -= self.player_vulnerable_evolved_pieces_values
 
             elif piece.evolved:
                 value_counter += self.evolved_pieces_values
@@ -74,8 +83,12 @@ class Heuristics:
         for piece in gamestate.players[opponent].pieces.values():
             if self.vulnerable_position(gamestate, piece.get_position()[0], piece.get_position()[1], opponent,
                                            player):
-                value_counter += self.opponent_vulnerable_pieces_values
-                value_counter += calc_dist_to_nearest_evol(gamestate, piece.get_position()[0], piece.get_position()[1])
+                if not piece.evolved:
+                    value_counter += self.opponent_vulnerable_pieces_values
+                    value_counter += calc_dist_to_nearest_evol(gamestate, piece.get_position()[0], piece.get_position()[1])
+                else:
+                    value_counter += self.opponent_vulnerable_evolved_pieces_values
+
             elif piece.evolved:
                 value_counter -= self.evolved_pieces_values
             else:
