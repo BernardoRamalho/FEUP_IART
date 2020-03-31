@@ -97,7 +97,7 @@ def ask_ai_mode_again():
     print("Please select a valid ai mode:")
     ai_mode = input("1.Aggressive\n2.Defensive\n3.Neutral\nDesired mode:")
 
-    if ai_mode != '1' and ai_mode != '2' and ai_mode != '3':
+    if ai_mode != '1' and ai_mode != '2' and ai_mode != '3' and ai_mode != '4':
         return ask_ai_mode_again()
     else:
         return ai_mode, 0

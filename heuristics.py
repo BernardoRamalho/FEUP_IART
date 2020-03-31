@@ -19,6 +19,7 @@ def calc_dist_to_nearest_evol(gamestate, check_x, check_y):
 class Heuristics:
 
     def __init__(self, mode):
+        self.mode = mode
         if mode == '1':
             self.player_pieces_values = 5
             self.player_vulnerable_pieces_values = 5
@@ -35,13 +36,21 @@ class Heuristics:
             self.opponent_vulnerable_pieces_values = 0
             self.opponent_pieces_values = 10
             self.evolved_pieces_values = 500
-        else:
+        elif mode =='3':
             self.player_pieces_values = 10
             self.player_vulnerable_pieces_values = 5
             self.player_vulnerable_evolved_pieces_values = 250
             self.opponent_vulnerable_evolved_pieces_values = 250
             self.opponent_vulnerable_pieces_values = 0
             self.opponent_pieces_values = 10
+            self.evolved_pieces_values = 500
+        else:
+            self.player_pieces_values = -100
+            self.player_vulnerable_pieces_values = 100
+            self.player_vulnerable_evolved_pieces_values = -250
+            self.opponent_vulnerable_evolved_pieces_values = -250
+            self.opponent_vulnerable_pieces_values = 100
+            self.opponent_pieces_values = -100
             self.evolved_pieces_values = 500
 
     def vulnerable_position(self, gamestate, check_x, check_y, player, opponent):
