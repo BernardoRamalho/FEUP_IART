@@ -39,8 +39,9 @@ def value_gamestate(gamestate, player):
 
 class Minimax:
     
-    saved_moves1 = defaultdict(tuple)
-    saved_moves2 = defaultdict(tuple)
+    saved_moves1 = [] #defaultdict(tuple)
+    saved_moves2 = []#defaultdict(tuple)
+    max_depth = 0
 
     def min_alpha_beta(self, alpha, beta, depth, gamestate):
 
@@ -134,7 +135,6 @@ class Minimax:
         best_move = []
 
         possible_positions = gamestate.generate_valid_moves(gamestate.player_turn)
-        new_game_state = copy.deepcopy(gamestate)
         for i in gamestate.players[gamestate.player_turn - 1].pieces.keys():
             if i in possible_positions.keys():
 
@@ -152,30 +152,32 @@ class Minimax:
 
                     alpha = max(alpha, value)
                     
+                    if gamestate.player_turn == 1 : self.saved_moves1.append([new_game_state, best_move])
+                    else : self.saved_moves2.append([new_game_state, best_move])
+                    
                     if beta <= alpha:
-                        if gamestate.player_turn == 1 : self.saved_moves1[new_game_state] = best_move
-                        else : self.saved_moves2[new_game_state] = best_move
                         return max_value, best_move
-       
-        if gamestate.player_turn == 1 : self.saved_moves1[new_game_state] = best_move
-        else : self.saved_moves2[new_game_state] = best_move
+        
+        
+        if depth != self.max_depth:
+            if gamestate.player_turn == 1 : self.saved_moves1.append([gamestate, best_move])
+            else : self.saved_moves2.append([gamestate, best_move])
         return max_value, best_move
 
     def play_v2(self, gamestate, depth):
-    
+        
+        if depth > self.max_depth: self.max_depth = depth
         if gamestate.player_turn == 1:
-            for g in self.saved_moves1.keys():
-                if gamestate == g:
-                    print(g)
-                    return self.saved_moves1[g]
+            for i in range(0, len(self.saved_moves1)):
+                if gamestate == self.saved_moves1[i][0]:
+                    return self.saved_moves1[i][1]
         else:
-            for g in self.saved_moves2.keys():
-                if gamestate == g:
-                    print(g)
-                    return self.saved_moves2[g]
+            for i in range(0, len(self.saved_moves2)):
+                if gamestate == self.saved_moves2[i][0]:
+                    return self.saved_moves2[i][1]
 
-        #if gamestate.player_turn == 1: self.saved_moves1.clear()  
-        #if gamestate.player_turn == 2: self.saved_moves2.clear()     
+        if gamestate.player_turn == 1: self.saved_moves1.clear()  
+        if gamestate.player_turn == 2: self.saved_moves2.clear()     
         max_value, best_move = self.new_max_alpha_beta(-sys.maxsize + 1, sys.maxsize, depth, gamestate)
 
 

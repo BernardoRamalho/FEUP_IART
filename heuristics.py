@@ -147,7 +147,7 @@ def value_opponents_pieces(gamestate, player, opponent):
     value_counter = 0
     for piece in gamestate.players[opponent].pieces.values():
         if vulnerable_position_v2(gamestate, piece.get_position()[0], piece.get_position()[1], opponent, player):
-            value_counter += 10
+            value_counter += 5
             if not piece.evolved: value_counter += calc_dist_to_nearest_evol(gamestate, piece.get_position()[0], piece.get_position()[1])
         elif piece.evolved:
             value_counter -= 500
