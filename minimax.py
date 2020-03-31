@@ -4,24 +4,6 @@ from heuristics import Heuristics
 import time
 
 
-def generate_possible_gamestates(gamestate, player):
-    possible_gamestates = []
-    possible_positions = gamestate.generate_valid_moves(player)
-
-    for i in gamestate.players[player - 1].pieces.keys():
-        if i in possible_positions.keys():
-
-            for j in possible_positions[i]:
-                new_game_state = copy.deepcopy(gamestate)
-
-                new_game_state.move_piece(new_game_state.players[player - 1].pieces[i], j)
-                new_game_state.change_turn()
-
-                possible_gamestates.append([new_game_state, [i, j]])
-
-    return possible_gamestates
-
-
 class Minimax:
     saved_moves1 = []  # defaultdict(tuple)
     saved_moves2 = []  # defaultdict(tuple)
