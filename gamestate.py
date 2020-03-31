@@ -1,10 +1,12 @@
 from player import Player
 import movement
 from collections import defaultdict
+from minimax import Minimax
+import time
 
 
 class GameState:
-    def __init__(self, mode, square_side):
+    def __init__(self, mode, square_side, depth, ai_mode):
         self.square_side = square_side
         player1 = Player(1, self.square_side)
         player2 = Player(2, self.square_side)
@@ -14,36 +16,33 @@ class GameState:
         self.min_pos = square_side / 2
         self.max_pos = square_side * 8 - square_side / 2
         self.turn = 1
+        self.ai_player2 = Minimax(depth, ai_mode[0])
+
+        if '3' == self.mode:
+            self.ai_player1 = Minimax(depth, ai_mode[1])
 
     def __eq__(self, other):
         if not isinstance(other, GameState):
-            #print("Fail 1")
             return False
-        
+
         if len(self.players[0].pieces) != len(other.players[0].pieces):
-            #print("Fail 2")
             return False
-        
+
         if len(self.players[1].pieces) != len(other.players[1].pieces):
-            #print("Fail 3")
             return False
 
         for positions1 in self.players[0].pieces.keys():
             if not (positions1 in other.players[0].pieces.keys()):
-                #print("\nFalhei em ", positions1, "not in", other.players[0].pieces.keys())
                 return False
 
         for positions2 in self.players[1].pieces.keys():
             if not (positions2 in other.players[1].pieces.keys()):
-                #print("\nFalhei em ", positions2, "not in", other.players[1].pieces.keys())
                 return False
 
-        print("Pintou")
         return True
 
     def __hash__(self):
         return hash(self.players[0].pieces.get(0))
-                
 
     def check_end_game(self):
 
@@ -63,18 +62,13 @@ class GameState:
         else:  # Drawn
             return 3
 
-    def check_edge_square(self, position, square_side):
-        if position[0] == square_side / 2 or position[0] == square_side * 8 - square_side / 2:
-            if position[1] == square_side / 2 or position[1] == square_side * 8 - square_side / 2:
-                return True
-
     def move_piece(self, piece, new_position):
         del self.players[self.player_turn - 1].pieces[piece.get_position()]
         piece.set_position(new_position)
         piece.invert_direction()
         piece.selected = False
 
-        if self.check_edge_square(new_position, self.square_side):
+        if movement.check_edge_square(new_position, self.square_side):
             piece.evolve()
             # print("Player ", self.player_turn, "evolved a piece.")
 
@@ -114,6 +108,17 @@ class GameState:
 
         self.turn += 1
 
-
     def display_turn(self):
         print("\nTurn ", self.turn, ":", sep='')
+
+    def ai_turn(self, ai):
+        start_time = time.time()
+
+        ai_move = ai.play(self)
+
+        self.move_piece(self.players[self.player_turn - 1].pieces[ai_move[0]], ai_move[1])
+        print("Time to calculate:", time.time() - start_time)
+        print("Player ", self.player_turn, "moved piece at", movement.transform_into_readable_position(ai_move[0], self)
+              , "to", movement.transform_into_readable_position(ai_move[1], self))
+        self.change_turn()
+        self.display_turn()
