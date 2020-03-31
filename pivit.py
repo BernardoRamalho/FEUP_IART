@@ -94,6 +94,8 @@ def main():
     pygame.init()
 
     console_interface.display_initial_message()
+
+    # Variable Initialization
     mode = console_interface.get_game_mode()
     depth = console_interface.get_ai_depth()
     if mode == '3':
