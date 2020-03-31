@@ -8,29 +8,48 @@ class Minimax:
     saved_moves1 = []
     saved_moves2 = []
 
-    def __init__(self, depth, mode):
+    def __init__(self, depth, mode1, mode2):
         self.max_depth = depth
-        self.heuristics = Heuristics(mode)
+        self.my_heuristics = Heuristics(mode1)
+        self.their_heuristics = Heuristics(mode2)
 
-    def value_gamestate(self, gamestate, player):
-        opponent = player % 2
 
-        if gamestate.check_end_game():
-            if gamestate.get_who_wins() == gamestate.player_turn:
-                return sys.maxsize
+    def value_gamestate(self, gamestate, player, me):
+
+        if me:
+            opponent = player % 2
+
+            if gamestate.check_end_game():
+                if gamestate.get_who_wins() == gamestate.player_turn:
+                    return sys.maxsize
+                else:
+                    return -sys.maxsize + 1
+
             else:
-                return -sys.maxsize + 1
+                val = self.my_heuristics.value_my_pieces(gamestate, player - 1,
+                                                      opponent) + self.my_heuristics.value_opponents_pieces(
+                    gamestate, player - 1, opponent)
+                return val
 
         else:
-            val = self.heuristics.value_my_pieces(gamestate, player - 1,
-                                                  opponent) + self.heuristics.value_opponents_pieces(
-                gamestate, player - 1, opponent)
-            return val
+            opponent = player % 2
+
+            if gamestate.check_end_game():
+                if gamestate.get_who_wins() == gamestate.player_turn:
+                    return sys.maxsize
+                else:
+                    return -sys.maxsize + 1
+
+            else:
+                val = self.their_heuristics.value_my_pieces(gamestate, player - 1,
+                                                      opponent) + self.their_heuristics.value_opponents_pieces(
+                    gamestate, player - 1, opponent)
+                return val
 
     def min_alpha_beta(self, alpha, beta, depth, gamestate):
         # Caso o jogo acabe ou chegue ai fim retorna o valor do estado
         if depth == 0 or gamestate.check_end_game():
-            return self.value_gamestate(gamestate, gamestate.player_turn)
+            return self.value_gamestate(gamestate, gamestate.player_turn, False)
 
         min_value = sys.maxsize
 
@@ -66,7 +85,7 @@ class Minimax:
     def max_alpha_beta(self, alpha, beta, depth, gamestate):
         # Caso o jogo acabe ou chegue ai fim retorna o valor do estado
         if depth == 0 or gamestate.check_end_game():
-            return self.value_gamestate(gamestate, gamestate.player_turn)
+            return self.value_gamestate(gamestate, gamestate.player_turn, True)
 
         max_value = -sys.maxsize + 1
 
