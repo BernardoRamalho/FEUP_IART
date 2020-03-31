@@ -18,6 +18,7 @@ class Piece:
 
     def evolve(self):
         self.evolved = True
+        print("Piece Evolved!")
 
     def set_position(self, new_position):
         self.position = new_position

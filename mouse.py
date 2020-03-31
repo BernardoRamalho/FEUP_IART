@@ -38,7 +38,7 @@ class Mouse:
                 self.clickedPiece = True
                 self.piece = i
                 i.selected = True
-                print("Player ", player.player_nr, "clicked piece at ", i.position)
+                print("Player ", player.player_nr, "clicked piece at ", movement.transform_into_readable_position(i.position, self.gamestate))
             else:
                 i.selected = False
 

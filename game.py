@@ -7,16 +7,13 @@ from minimax import Minimax
 
 class Game:
 
-    def __init__(self, screen_width, mode):
+    def __init__(self, screen_width, mode, depth, ai_modes):
         # Variable Initiation
         self.screen_size = int(screen_width / 2)
         self.screen = pygame.display.set_mode((self.screen_size, self.screen_size))  # Where the game is shown
-        self.gamestate = GameState(mode, self.screen_size / 8)
+        self.gamestate = GameState(mode, self.screen_size / 8, depth, ai_modes)
         self.mouse = Mouse(self.gamestate)
         self.run = True
-
-        if mode != '1':
-            self.ai = Minimax()
 
     def draw(self):
         self.draw_board()
@@ -45,21 +42,6 @@ class Game:
     def draw_pieces(self):
         for i in self.gamestate.players:
             i.draw_pieces(self.screen)
-
-    def ai_turn(self, depth):
-        start_time = time.time()
-
-        ai_move = self.ai.play_v2(self.gamestate, depth)
-        print(ai_move)
-
-        if ai_move[1] == []:
-            self.forfeit()
-
-        self.gamestate.move_piece(self.gamestate.players[self.gamestate.player_turn - 1].pieces[ai_move[0]], ai_move[1])
-        print("Time to calculate:", time.time() - start_time)
-        print("Player ", self.gamestate.player_turn, "moved piece to ", ai_move[1])
-        self.gamestate.change_turn()
-        self.gamestate.display_turn()
 
     def forfeit(self):
         print("\nPlayer", self.gamestate.player_turn, "has forfeited the game!")

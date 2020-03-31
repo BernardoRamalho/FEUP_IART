@@ -1,6 +1,18 @@
+def transform_into_readable_position(position, gamestate):
+    square_side = gamestate.square_side
+
+    return (position[0] - square_side / 2) // square_side, (position[1] - square_side / 2) // square_side
+
+
 def check_piece_in_space(position, players):
     if position in players[0].pieces or position in players[1].pieces:
         return True
+
+
+def check_edge_square(position, square_side):
+    if position[0] == square_side / 2 or position[0] == square_side * 8 - square_side / 2:
+        if position[1] == square_side / 2 or position[1] == square_side * 8 - square_side / 2:
+            return True
 
 
 def check_enemy_piece_in_space(position, players, opponent):
@@ -36,7 +48,7 @@ def check_x_movement(piece, mouse_x, square_side, player, opponent):
 
         while x != mouse_x:
             x -= square_side
-            
+
             if not piece.evolved:
                 valid_square = not valid_square
 
