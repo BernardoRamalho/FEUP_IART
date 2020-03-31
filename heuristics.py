@@ -13,14 +13,14 @@ def calc_dist_to_nearest_evol(gamestate, check_x, check_y):
     d2 = math.floor(math.sqrt(pow(check_x - point_2[0], 2) + pow(check_y - point_2[1], 2)))
     d3 = math.floor(math.sqrt(pow(check_x - point_3[0], 2) + pow(check_y - point_3[1], 2)))
 
-    return min([d0, d1, d2, d3]) // 6
+    return min([d0, d1, d2, d3])
 
 
 class Heuristics:
 
     def __init__(self, mode):
         if mode == '1':
-            self.player_pieces_values = 10
+            self.player_pieces_values = 5
             self.player_vulnerable_pieces_values = 5
             self.player_vulnerable_evolved_pieces_values = 250
             self.opponent_vulnerable_evolved_pieces_values = 250
@@ -29,10 +29,10 @@ class Heuristics:
             self.evolved_pieces_values = 500
         elif mode == '2':
             self.player_pieces_values = 20
-            self.player_vulnerable_pieces_values = 10
+            self.player_vulnerable_pieces_values = 40
             self.player_vulnerable_evolved_pieces_values = 250
             self.opponent_vulnerable_evolved_pieces_values = 250
-            self.opponent_vulnerable_pieces_values = 5
+            self.opponent_vulnerable_pieces_values = 0
             self.opponent_pieces_values = 10
             self.evolved_pieces_values = 500
         else:
@@ -40,7 +40,7 @@ class Heuristics:
             self.player_vulnerable_pieces_values = 5
             self.player_vulnerable_evolved_pieces_values = 250
             self.opponent_vulnerable_evolved_pieces_values = 250
-            self.opponent_vulnerable_pieces_values = 5
+            self.opponent_vulnerable_pieces_values = 0
             self.opponent_pieces_values = 10
             self.evolved_pieces_values = 500
 
