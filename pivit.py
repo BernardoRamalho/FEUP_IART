@@ -101,7 +101,7 @@ def main():
     if mode == '3':
         ai_modes = console_interface.get_two_ai_modes()
     else:
-        ai_modes = console_interface.get_ai_mode()
+        ai_modes = (console_interface.get_ai_mode(), 0)
     game = Game(get_screen_width(), mode, depth, ai_modes)  # Initiates the Game Master Class
     pygame.display.set_caption('Pivit')
 

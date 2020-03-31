@@ -90,7 +90,7 @@ def get_ai_mode():
     if ai_mode != '1' and ai_mode != '2' and ai_mode != '3':
         return ask_ai_mode_again()
     else:
-        return ai_mode, 0
+        return ai_mode
 
 
 def ask_ai_mode_again():
@@ -100,7 +100,7 @@ def ask_ai_mode_again():
     if ai_mode != '1' and ai_mode != '2' and ai_mode != '3' and ai_mode != '4':
         return ask_ai_mode_again()
     else:
-        return ai_mode, 0
+        return ai_mode
 
 
 def get_two_ai_modes():
