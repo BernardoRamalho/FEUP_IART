@@ -11,8 +11,8 @@ class Minimax:
 
     def __init__(self, depth, mode1, mode2):
         self.max_depth = depth
-        self.my_heuristics = Heuristics(mode1[0])
-        self.their_heuristics = Heuristics(mode2[0])
+        self.my_heuristics = Heuristics(mode1)
+        self.their_heuristics = Heuristics(mode2)
 
     def value_gamestate(self, gamestate, player, me):
 
@@ -130,8 +130,6 @@ class Minimax:
         return max_value, best_move
 
     def play(self, gamestate):
-        print("Mine ", self.my_heuristics.mode)
-        print("Their ", self.their_heuristics.mode)
         # Caso ele já tenha o gamestate guardado, então já sabe qual a melhor jogado
         if gamestate.player_turn == 1:
             for i in range(0, len(self.saved_moves1)):
