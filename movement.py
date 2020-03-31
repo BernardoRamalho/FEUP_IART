@@ -109,7 +109,7 @@ def generate_y_up_moves(player, opponent, piece, square_side, possible_moves):
     x = piece.position[0]
     valid_square = False
 
-    while y >= square_side / 2:
+    while y > square_side / 2:
 
         y -= square_side
 
@@ -128,7 +128,7 @@ def generate_y_down_moves(player, opponent, piece, square_side, possible_moves):
     x = piece.position[0]
     valid_square = False
 
-    while y <= 8 * square_side - square_side / 2:
+    while y < 8 * square_side - square_side / 2:
 
         y += square_side
 
@@ -147,7 +147,7 @@ def generate_x_left_moves(player, opponent, piece, square_side, possible_moves):
     x = piece.position[0]
     valid_square = False
 
-    while x >= square_side / 2:
+    while x > square_side / 2:
 
         x -= square_side
 
@@ -166,7 +166,7 @@ def generate_x_right_moves(player, opponent, piece, square_side, possible_moves)
     x = piece.position[0]
     valid_square = False
 
-    while x <= 8 * square_side - square_side / 2:
+    while x < 8 * square_side - square_side / 2:
 
         x += square_side
 
