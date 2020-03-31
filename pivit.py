@@ -98,11 +98,13 @@ def main():
     # Variable Initialization
     mode = console_interface.get_game_mode()
     depth = console_interface.get_ai_depth()
+    omni = False
     if mode == '3':
         ai_modes = console_interface.get_two_ai_modes()
+        omni = console_interface.is_omniscient()
     else:
         ai_modes = (console_interface.get_ai_mode(), 0)
-    game = Game(get_screen_width(), mode, depth, ai_modes)  # Initiates the Game Master Class
+    game = Game(get_screen_width(), mode, depth, ai_modes, omni)  # Initiates the Game Master Class
     pygame.display.set_caption('Pivit')
 
     print("\nLet the game BEGIN!")

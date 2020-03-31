@@ -7,11 +7,11 @@ from minimax import Minimax
 
 class Game:
 
-    def __init__(self, screen_width, mode, depth, ai_modes):
+    def __init__(self, screen_width, mode, depth, ai_modes, omni):
         # Variable Initiation
         self.screen_size = int(screen_width / 2)
         self.screen = pygame.display.set_mode((self.screen_size, self.screen_size))  # Where the game is shown
-        self.gamestate = GameState(mode, self.screen_size / 8, depth, ai_modes)
+        self.gamestate = GameState(mode, self.screen_size / 8, depth, ai_modes, omni)
         self.mouse = Mouse(self.gamestate)
         self.run = True
 
