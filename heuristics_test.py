@@ -3,7 +3,6 @@ from piece import Piece
 from collections import defaultdict
 from gamestate import GameState
 
-
 def test_vul_pos_left(gamestate):
     print("Testing vulnerable pos left")
     piece1 = Piece(300, 60, "h", 50)

@@ -52,7 +52,7 @@ class Mouse:
                     not self.piece.evolved and abs(self.position[1] - y) % (2 * square_side) == 0):
                 return False
 
-            if movement.check_y_movement(x, y, self.position[1], square_side, player, opponent):
+            if movement.check_y_movement(self.piece, self.position[1], square_side, player, opponent):
                 return True
 
         elif self.piece.direction == 'h':
@@ -61,7 +61,7 @@ class Mouse:
                     not self.piece.evolved and abs(self.position[0] - x) % (2 * square_side) == 0):
                 return False
 
-            if movement.check_x_movement(x, y, self.position[0], square_side, player, opponent):
+            if movement.check_x_movement(self.piece,  self.position[0], square_side, player, opponent):
                 return True
 
         return False

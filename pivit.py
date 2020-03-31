@@ -1,5 +1,6 @@
 import pygame
 from game import Game
+from gamestate import GameState
 from minimax import Minimax
 import time
 import heuristics_test
@@ -135,10 +136,10 @@ def main():
             if game.gamestate.player_turn == 1:
                 event_handler_pvp(game)
             else:
-                game.ai_turn(5)
+                game.ai_turn(3)
         else:
 
-            game.ai_turn(5)
+            game.ai_turn(3)
 
         game.draw()
 
