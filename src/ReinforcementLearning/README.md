@@ -1,4 +1,4 @@
-#TODO: Porque estamos demasiado cansados para pegar nisto já :D
+# TODO: Porque estamos demasiado cansados para pegar nisto já :D
 
 https://www.youtube.com/watch?v=ZxXKISVkH6Y -> Link do video para como criar o environment.
 
