@@ -2,6 +2,8 @@
 
 https://www.youtube.com/watch?v=ZxXKISVkH6Y -> Link do video para como criar o environment.
 
+https://github.com/genyrosk/gym-chess -> Link do Chess Environment
+
 ### 1. Criar __init__.py com a info do environment na raiz da pasta
 
 #### 2. Criar pasta env com o environment per se.
