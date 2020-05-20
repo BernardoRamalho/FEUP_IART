@@ -10,9 +10,9 @@ https://github.com/genyrosk/gym-chess -> Link do Chess Environment
 
 ##### 2.1 Defenir o environment
 
-- [ ] Defenir espaço de ações (numero de peças * numero de posições no tabuleiro)
-- [ ] Função para dado um estado e um jogador -> calcular jogadas possíveis
-- [ ] Função que dado um estado e uma jogada, efetua-a -> retorna novo estado
+- [ X ] Defenir espaço de ações (numero de peças * numero de posições no tabuleiro)
+- [ X ] Função para dado um estado e um jogador -> calcular jogadas possíveis
+- [ ] Função que dado um estado e uma jogada, efetua-a -> retorna novo estado -> Função que mapeia jogadas em actions e vice versa
 - [ ] Defenir observation space (que neste caso é o estado porque é o que o agent "vê")
 - [ ] Defenir __init__ e reset do environment
 - [ ] Defenir step do agent (o que calcula e efetua um passo do agent)
