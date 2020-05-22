@@ -2,6 +2,8 @@ import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
 
+import numpy as np
+
 # Piece names:
 # Player color letter [r,R or b, B], Capped if evolved + Alignment -> Evolved Red Piece Horizontally Alligned = RH
 
@@ -81,6 +83,17 @@ class PivitEnv(gym.Env):
         piece_id = move['piece_id']
         new_pos = move['new_pos']
         return 64*(abs(piece_id) - 1) + (new_pos[0] * 8 + new_pos[1]).item()
+
+    @staticmethod
+    def action_to_move(action, player):
+        square = action % 64
+        column = square % 8
+        row = (square - column) // 8
+        piece_id = (action - square) // 64 + 1
+        return {
+            'piece_id': piece_id * player,
+            'new_pos': np.array([int(row), int(column)]),
+        }
 
     #####################
     # Movement Function #
