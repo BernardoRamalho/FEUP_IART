@@ -15,13 +15,13 @@ pieces_to_ids = {
     'RV1': 5, 'RV2': 6, 'RV3': 7, 'RV4': 8,
     'RH5': 9, 'RH6': 10, 'RH7': 11, 'RH8': 12,
     # Blue Uninvolved Pieces
-    'bV1': 1, 'bV2': 2, 'bV3': 3, 'bV4': 4,
-    'bH1': 5, 'bH2': 6, 'bH3': 7, 'bH4': 8,
-    'bV5': 9, 'bV6': 10, 'bV7': 11, 'bV8': 12,
+    'bV1': -1, 'bV2': -2, 'bV3': -3, 'bV4': -4,
+    'bH1': -5, 'bH2': -6, 'bH3': -7, 'bH4': -8,
+    'bV5': -9, 'bV6': -10, 'bV7': -11, 'bV8': -12,
     # Blue Evolved Pieces
-    'BV1': 1, 'BV2': 2, 'BV3': 3, 'BV4': 4,
-    'BH1': 5, 'BH2': 6, 'BH3': 7, 'BH4': 8,
-    'BV5': 9, 'BV6': 10, 'BV7': 11, 'BV8': 12,
+    'BV1': -1, 'BV2': -2, 'BV3': -3, 'BV4': -4,
+    'BH1': -5, 'BH2': -6, 'BH3': -7, 'BH4': -8,
+    'BV5': -9, 'BV6': -10, 'BV7': -11, 'BV8': -12,
 }
 
 RED = 0
@@ -75,6 +75,12 @@ class PivitEnv(gym.Env):
     @staticmethod
     def check_piece_in_corner(lin, col):
         return (lin == 0 and col == 0) or (lin == 0 and col == 7) or (lin == 7 and col == 7) or (lin == 7 and col == 0)
+
+    @staticmethod
+    def move_to_action(move):
+        piece_id = move['piece_id']
+        new_pos = move['new_pos']
+        return 64*(abs(piece_id) - 1) + (new_pos[0] * 8 + new_pos[1]).item()
 
     #####################
     # Movement Function #
