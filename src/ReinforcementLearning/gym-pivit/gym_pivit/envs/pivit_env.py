@@ -30,6 +30,7 @@ BLUE = 1
 
 class PivitEnv(gym.Env):
     metadata = {'render.modes': ['human']}
+    ids_to_pieces = {v: k for k, v in pieces_to_ids.items()}
 
     def __init__(self):
 
@@ -82,12 +83,12 @@ class PivitEnv(gym.Env):
         valid_moves = []
         total_moves = []
         i = 0
-        piece = board[lin][col]
+        piece_id = board[lin][col]
         deltaCol = col + 1
         while deltaCol < 8:
-            if (i % 2 == 0 or piece == 'RH') and self.check_valid_square_red(board, lin, deltaCol):
+            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'RH') and self.check_valid_square_red(board, lin, deltaCol):
                 valid_moves.append(((lin, col), (lin, deltaCol)))
-            if self.check_piece_in(board, lin, deltaCol):
+            if self.check_piece_id_in(board, lin, deltaCol):
                 break
             i += 1
             deltaCol += 1
@@ -95,16 +96,16 @@ class PivitEnv(gym.Env):
         deltaCol = col - 1
         i = 0
         while deltaCol >= 0:
-            if (i % 2 == 0 or piece == 'RH') and self.check_valid_square_red(board, lin, deltaCol):
+            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'RH') and self.check_valid_square_red(board, lin, deltaCol):
                 valid_moves.append(((lin, col), (lin, deltaCol)))
-            if self.check_piece_in(board, lin, deltaCol):
+            if self.check_piece_id_in(board, lin, deltaCol):
                 break
             i += 1
             deltaCol -= 1
 
         for m in valid_moves:
             total_moves.append({
-                'piece': piece,
+                'piece': piece_id,
                 'pos': m[0],
                 'new_pos': m[1],
                 'type': 'move'
@@ -116,12 +117,12 @@ class PivitEnv(gym.Env):
         valid_moves = []
         total_moves = []
         i = 0
-        piece = board[lin][col]
+        piece_id = board[lin][col]
         deltaLin = lin + 1
         while deltaLin < 8:
-            if (i % 2 == 0 or piece == 'RV') and self.check_valid_square_red(board, deltaLin, col):
+            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'RV') and self.check_valid_square_red(board, deltaLin, col):
                 valid_moves.append(((lin, col), (deltaLin, col)))
-            if self.check_piece_in(board, deltaLin, col):
+            if self.check_piece_id_in(board, deltaLin, col):
                 break
             i += 1
             deltaLin += 1
@@ -129,16 +130,16 @@ class PivitEnv(gym.Env):
         deltaLin = lin - 1
         i = 0
         while deltaLin >= 0:
-            if (i % 2 == 0 or piece == 'RV') and self.check_valid_square_red(board, deltaLin, col):
+            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'RV') and self.check_valid_square_red(board, deltaLin, col):
                 valid_moves.append(((lin, col), (deltaLin, col)))
-            if self.check_piece_in(board, deltaLin, col):
+            if self.check_piece_id_in(board, deltaLin, col):
                 break
             i += 1
             deltaLin -= 1
 
         for m in valid_moves:
             total_moves.append({
-                'piece': piece,
+                'piece': piece_id,
                 'pos': m[0],
                 'new_pos': m[1],
                 'type': 'move'
@@ -151,11 +152,11 @@ class PivitEnv(gym.Env):
         total_moves = []
         i = 0
         deltaCol = col + 1
-        piece = board[lin][col]
+        piece_id = board[lin][col]
         while deltaCol < 8:
-            if (i % 2 == 0 or piece == 'BH') and self.check_valid_square_blue(board, lin, deltaCol):
+            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'BH') and self.check_valid_square_blue(board, lin, deltaCol):
                 valid_moves.append(((lin, col), (lin, deltaCol)))
-            if self.check_piece_in(board, lin, deltaCol):
+            if self.check_piece_id_in(board, lin, deltaCol):
                 break
             i += 1
             deltaCol += 1
@@ -163,16 +164,16 @@ class PivitEnv(gym.Env):
         deltaCol = col - 1
         i = 0
         while deltaCol >= 0:
-            if (i % 2 == 0 or piece == 'BH') and self.check_valid_square_blue(board, lin, deltaCol):
+            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'BH') and self.check_valid_square_blue(board, lin, deltaCol):
                 valid_moves.append(((lin, col), (lin, deltaCol)))
-            if self.check_piece_in(board, lin, deltaCol):
+            if self.check_piece_id_in(board, lin, deltaCol):
                 break
             i += 1
             deltaCol -= 1
 
         for m in valid_moves:
             total_moves.append({
-                'piece': piece,
+                'piece': piece_id,
                 'pos': m[0],
                 'new_pos': m[1],
                 'type': 'move'
@@ -185,11 +186,11 @@ class PivitEnv(gym.Env):
         total_moves = []
         i = 0
         deltaLin = lin + 1
-        piece = board[lin][col]
+        piece_id = board[lin][col]
         while deltaLin < 8:
-            if (i % 2 == 0 or piece == 'BV') and self.check_valid_square_blue(board, deltaLin, col):
+            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'BV') and self.check_valid_square_blue(board, deltaLin, col):
                 valid_moves.append(((lin, col), (deltaLin, col)))
-            if self.check_piece_in(board, deltaLin, col):
+            if self.check_piece_id_in(board, deltaLin, col):
                 break
             i += 1
             deltaLin += 1
@@ -197,16 +198,16 @@ class PivitEnv(gym.Env):
         deltaLin = lin - 1
         i = 0
         while deltaLin >= 0:
-            if (i % 2 == 0 or piece == 'BV') and self.check_valid_square_blue(board, deltaLin, col):
+            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'BV') and self.check_valid_square_blue(board, deltaLin, col):
                 valid_moves.append(((lin, col), (deltaLin, col)))
-            if self.check_piece_in(board, deltaLin, col):
+            if self.check_piece_id_in(board, deltaLin, col):
                 break
             i += 1
             deltaLin -= 1
 
         for m in valid_moves:
             total_moves.append({
-                'piece': piece,
+                'piece': piece_id,
                 'pos': m[0],
                 'new_pos': m[1],
                 'type': 'move'
