@@ -9,21 +9,21 @@ import numpy as np
 
 pieces_to_ids = {
     # Red Uninvolved Pieces
-    'rH1': 1, 'rH2': 2, 'rH3': 3, 'rH4': 4,
-    'rV1': 5, 'rV2': 6, 'rV3': 7, 'rV4': 8,
-    'rH5': 9, 'rH6': 10, 'rH7': 11, 'rH8': 12,
-    # Red Evolved Pieces
-    'RH1': 1, 'RH2': 2, 'RH3': 3, 'RH4': 4,
-    'RV1': 5, 'RV2': 6, 'RV3': 7, 'RV4': 8,
-    'RH5': 9, 'RH6': 10, 'RH7': 11, 'RH8': 12,
-    # Blue Uninvolved Pieces
-    'bV1': -1, 'bV2': -2, 'bV3': -3, 'bV4': -4,
-    'bH1': -5, 'bH2': -6, 'bH3': -7, 'bH4': -8,
-    'bV5': -9, 'bV6': -10, 'bV7': -11, 'bV8': -12,
-    # Blue Evolved Pieces
-    'BV1': -1, 'BV2': -2, 'BV3': -3, 'BV4': -4,
-    'BH1': -5, 'BH2': -6, 'BH3': -7, 'BH4': -8,
-    'BV5': -9, 'BV6': -10, 'BV7': -11, 'BV8': -12,
+    'r1': 1, 'r2': 2, 'r3': 3, 'r4': 4,
+    'r5': 5, 'r6': 6, 'r7': 7, 'r8': 8,
+    'r9': 9, 'r10': 10, 'r11': 11, 'r12': 12,
+    # Red Envolved Pieces
+    'R1': 1, 'R2': 2, 'R3': 3, 'R4': 4,
+    'R5': 5, 'R6': 6, 'R7': 7, 'R8': 8,
+    'R9': 9, 'R10': 10, 'R11': 11, 'R12': 12,
+    # Blue Unevolved Pieces
+    'b1': -1, 'b2': -2, 'b3': -3, 'b4': -4,
+    'b5': -5, 'b6': -6, 'b7': -7, 'b8': -8,
+    'b9': -9, 'b10': -10, 'b11': -11, 'b12': -12,
+    # Blue Evolved
+    'B1': -1, 'B2': -2, 'B3': -3, 'B4': -4,
+    'B5': -5, 'B6': -6, 'B7': -7, 'B8': -8,
+    'B9': -9, 'B10': -10, 'B11': -11, 'B12': -12,
 }
 
 RED = 0
@@ -33,6 +33,11 @@ BLUE = 1
 class PivitEnv(gym.Env):
     metadata = {'render.modes': ['human']}
     ids_to_pieces = {v: k for k, v in pieces_to_ids.items()}
+
+    def setup(self):
+        self.blueMap = ['none', 'v', 'v', 'v', 'v', 'h', 'h', 'h', 'h', 'v', 'v', 'v', 'v'] #CAPS if Evolved
+        self.redMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'v', 'v'] #CAPS if Evolved
+        self.board = [[0, -1, 1, -2, -3, 2, -4, 0],[3, 0, 0, 0, 0, 0, 0, 4], [-5, 0, 0, 0, 0, 0, 0, -6], [5, 0, 0, 0, 0, 0, 0, 0, 6], [7, 0, 0, 0, 0, 0, 0, 0, 8], [-7, 0, 0, 0, 0, 0, 0, 0, -8],  [9, 0, 0, 0, 0, 0, 0, 0, 10], [0, -9, 11, -10, -11, 12, -12, 0]]
 
     def __init__(self):
 
@@ -44,6 +49,7 @@ class PivitEnv(gym.Env):
         return
 
     def reset(self):
+        self.setup()
         return
 
     def render(self, mode='human'):
@@ -59,20 +65,18 @@ class PivitEnv(gym.Env):
     @staticmethod
     def check_valid_square_red(board, lin, col):
         inPos = board[lin][col]
-        if inPos == 'rh' or inPos == 'RH' or inPos == 'rv' or inPos == 'RV':
-            return False
+        if inPos > 0: return False
         return True
 
     @staticmethod
     def check_valid_square_blue(board, lin, col):
         inPos = board[lin][col]
-        if inPos == 'bh' or inPos == 'BH' or inPos == 'bv' or inPos == 'BV':
-            return False
+        if inPos < 0: return False
         return True
 
     @staticmethod
     def check_piece_in(board, lin, col):
-        return not board[lin][col] == ' '
+        return not board[lin][col] == 0
 
     @staticmethod
     def check_piece_in_corner(lin, col):
@@ -95,6 +99,17 @@ class PivitEnv(gym.Env):
             'new_pos': np.array([int(row), int(column)]),
         }
 
+    def check_piece_evolved(self, id):
+        if id > 0 and (self.redMap[id] == 'H' or self.redMap[id] == 'V'): 
+            return True
+        elif id < 0 and (self.blueMap[id*(-1)] == 'H' or self.blueMap[id*(-1)] == 'V'): 
+            return True
+        return False
+    
+    def get_piece_orientation(self, id):
+        if id > 0: return self.redMap[id]
+        return self.blueMap[id*(-1)]
+
     #####################
     # Movement Function #
     #####################
@@ -107,7 +122,7 @@ class PivitEnv(gym.Env):
         while deltaCol < 8:
             if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'RH') and self.check_valid_square_red(board, lin, deltaCol):
                 valid_moves.append(((lin, col), (lin, deltaCol)))
-            if self.check_piece_id_in(board, lin, deltaCol):
+            if self.check_piece_in(board, lin, deltaCol):
                 break
             i += 1
             deltaCol += 1
@@ -117,7 +132,7 @@ class PivitEnv(gym.Env):
         while deltaCol >= 0:
             if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'RH') and self.check_valid_square_red(board, lin, deltaCol):
                 valid_moves.append(((lin, col), (lin, deltaCol)))
-            if self.check_piece_id_in(board, lin, deltaCol):
+            if self.check_piece_in(board, lin, deltaCol):
                 break
             i += 1
             deltaCol -= 1
@@ -141,7 +156,7 @@ class PivitEnv(gym.Env):
         while deltaLin < 8:
             if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'RV') and self.check_valid_square_red(board, deltaLin, col):
                 valid_moves.append(((lin, col), (deltaLin, col)))
-            if self.check_piece_id_in(board, deltaLin, col):
+            if self.check_piece_in(board, deltaLin, col):
                 break
             i += 1
             deltaLin += 1
@@ -151,7 +166,7 @@ class PivitEnv(gym.Env):
         while deltaLin >= 0:
             if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'RV') and self.check_valid_square_red(board, deltaLin, col):
                 valid_moves.append(((lin, col), (deltaLin, col)))
-            if self.check_piece_id_in(board, deltaLin, col):
+            if self.check_piece_in(board, deltaLin, col):
                 break
             i += 1
             deltaLin -= 1
@@ -175,7 +190,7 @@ class PivitEnv(gym.Env):
         while deltaCol < 8:
             if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'BH') and self.check_valid_square_blue(board, lin, deltaCol):
                 valid_moves.append(((lin, col), (lin, deltaCol)))
-            if self.check_piece_id_in(board, lin, deltaCol):
+            if self.check_piece_in(board, lin, deltaCol):
                 break
             i += 1
             deltaCol += 1
@@ -185,7 +200,7 @@ class PivitEnv(gym.Env):
         while deltaCol >= 0:
             if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'BH') and self.check_valid_square_blue(board, lin, deltaCol):
                 valid_moves.append(((lin, col), (lin, deltaCol)))
-            if self.check_piece_id_in(board, lin, deltaCol):
+            if self.check_piece_in(board, lin, deltaCol):
                 break
             i += 1
             deltaCol -= 1
@@ -209,7 +224,7 @@ class PivitEnv(gym.Env):
         while deltaLin < 8:
             if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'BV') and self.check_valid_square_blue(board, deltaLin, col):
                 valid_moves.append(((lin, col), (deltaLin, col)))
-            if self.check_piece_id_in(board, deltaLin, col):
+            if self.check_piece_in(board, deltaLin, col):
                 break
             i += 1
             deltaLin += 1
@@ -219,7 +234,7 @@ class PivitEnv(gym.Env):
         while deltaLin >= 0:
             if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'BV') and self.check_valid_square_blue(board, deltaLin, col):
                 valid_moves.append(((lin, col), (deltaLin, col)))
-            if self.check_piece_id_in(board, deltaLin, col):
+            if self.check_piece_in(board, deltaLin, col):
                 break
             i += 1
             deltaLin -= 1
@@ -233,3 +248,4 @@ class PivitEnv(gym.Env):
             })
 
         return total_moves
+
