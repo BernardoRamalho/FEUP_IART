@@ -5,6 +5,25 @@ from gym.utils import seeding
 # Piece names:
 # Player color letter [r,R or b, B], Capped if evolved + Alignment -> Evolved Red Piece Horizontally Alligned = RH
 
+pieces_to_ids = {
+    # Red Uninvolved Pieces
+    'rH1': 1, 'rH2': 2, 'rH3': 3, 'rH4': 4,
+    'rV1': 5, 'rV2': 6, 'rV3': 7, 'rV4': 8,
+    'rH5': 9, 'rH6': 10, 'rH7': 11, 'rH8': 12,
+    # Red Evolved Pieces
+    'RH1': 1, 'RH2': 2, 'RH3': 3, 'RH4': 4,
+    'RV1': 5, 'RV2': 6, 'RV3': 7, 'RV4': 8,
+    'RH5': 9, 'RH6': 10, 'RH7': 11, 'RH8': 12,
+    # Blue Uninvolved Pieces
+    'bV1': 1, 'bV2': 2, 'bV3': 3, 'bV4': 4,
+    'bH1': 5, 'bH2': 6, 'bH3': 7, 'bH4': 8,
+    'bV5': 9, 'bV6': 10, 'bV7': 11, 'bV8': 12,
+    # Blue Evolved Pieces
+    'BV1': 1, 'BV2': 2, 'BV3': 3, 'BV4': 4,
+    'BH1': 5, 'BH2': 6, 'BH3': 7, 'BH4': 8,
+    'BV5': 9, 'BV6': 10, 'BV7': 11, 'BV8': 12,
+}
+
 RED = 0
 BLUE = 1
 
