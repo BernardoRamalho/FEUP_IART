@@ -15,7 +15,7 @@ class PivitEnv(gym.Env):
     def __init__(self):
 
         self.observation_space = spaces.Box(-12, 12, (8, 8))  # board 8x8
-        self.action_space = spaces.Discrete(64*12)
+        self.action_space = spaces.Discrete(64 * 12)
         return
 
     def step(self, action):
@@ -30,29 +30,44 @@ class PivitEnv(gym.Env):
     def close(self):
         return
 
-    def check_valid_square_red(self, board, lin, col):
-        inpos = board[lin][col]
-        if inpos == 'rh' or inpos == 'RH' or inpos == 'rv' or inpos == 'RV':
+    ##################
+    # Logic Function #
+    ##################
+
+    @staticmethod
+    def check_valid_square_red(board, lin, col):
+        inPos = board[lin][col]
+        if inPos == 'rh' or inPos == 'RH' or inPos == 'rv' or inPos == 'RV':
             return False
         return True
 
-    def check_valid_square_blue(self, board, lin, col):
-        inpos = board[lin][col]
-        if inpos == 'bh' or inpos == 'BH' or inpos == 'bv' or inpos == 'BV':
+    @staticmethod
+    def check_valid_square_blue(board, lin, col):
+        inPos = board[lin][col]
+        if inPos == 'bh' or inPos == 'BH' or inPos == 'bv' or inPos == 'BV':
             return False
         return True
 
-    def check_piece_in(self, board, lin, col):
+    @staticmethod
+    def check_piece_in(board, lin, col):
         return not board[lin][col] == ' '
 
+    @staticmethod
+    def check_piece_in_corner(lin, col):
+        return (lin == 0 and col == 0) or (lin == 0 and col == 7) or (lin == 7 and col == 7) or (lin == 7 and col == 0)
+
+    #####################
+    # Movement Function #
+    #####################
     def generate_valid_moves_rh(self, board, lin, col):
         valid_moves = []
+        total_moves = []
         i = 0
         piece = board[lin][col]
         deltaCol = col + 1
         while deltaCol < 8:
             if (i % 2 == 0 or piece == 'RH') and self.check_valid_square_red(board, lin, deltaCol):
-    	        valid_moves.append(((lin, col), (lin, deltaCol)))
+                valid_moves.append(((lin, col), (lin, deltaCol)))
             if self.check_piece_in(board, lin, deltaCol):
                 break
             i += 1
@@ -67,16 +82,26 @@ class PivitEnv(gym.Env):
                 break
             i += 1
             deltaCol -= 1
-        return valid_moves
-    
+
+        for m in valid_moves:
+            total_moves.append({
+                'piece': piece,
+                'pos': m[0],
+                'new_pos': m[1],
+                'type': 'move'
+            })
+
+        return total_moves
+
     def generate_valid_moves_rv(self, board, lin, col):
         valid_moves = []
+        total_moves = []
         i = 0
         piece = board[lin][col]
         deltaLin = lin + 1
         while deltaLin < 8:
             if (i % 2 == 0 or piece == 'RV') and self.check_valid_square_red(board, deltaLin, col):
-    	        valid_moves.append(((lin, col), (deltaLin, col)))
+                valid_moves.append(((lin, col), (deltaLin, col)))
             if self.check_piece_in(board, deltaLin, col):
                 break
             i += 1
@@ -91,16 +116,26 @@ class PivitEnv(gym.Env):
                 break
             i += 1
             deltaLin -= 1
-        return valid_moves
+
+        for m in valid_moves:
+            total_moves.append({
+                'piece': piece,
+                'pos': m[0],
+                'new_pos': m[1],
+                'type': 'move'
+            })
+
+        return total_moves
 
     def generate_valid_moves_bh(self, board, lin, col):
         valid_moves = []
+        total_moves = []
         i = 0
         deltaCol = col + 1
         piece = board[lin][col]
         while deltaCol < 8:
             if (i % 2 == 0 or piece == 'BH') and self.check_valid_square_blue(board, lin, deltaCol):
-    	        valid_moves.append(((lin, col), (lin, deltaCol)))
+                valid_moves.append(((lin, col), (lin, deltaCol)))
             if self.check_piece_in(board, lin, deltaCol):
                 break
             i += 1
@@ -115,16 +150,26 @@ class PivitEnv(gym.Env):
                 break
             i += 1
             deltaCol -= 1
-        return valid_moves
+
+        for m in valid_moves:
+            total_moves.append({
+                'piece': piece,
+                'pos': m[0],
+                'new_pos': m[1],
+                'type': 'move'
+            })
+
+        return total_moves
 
     def generate_valid_moves_bv(self, board, lin, col):
         valid_moves = []
+        total_moves = []
         i = 0
         deltaLin = lin + 1
         piece = board[lin][col]
         while deltaLin < 8:
             if (i % 2 == 0 or piece == 'BV') and self.check_valid_square_blue(board, deltaLin, col):
-    	        valid_moves.append(((lin, col), (deltaLin, col)))
+                valid_moves.append(((lin, col), (deltaLin, col)))
             if self.check_piece_in(board, deltaLin, col):
                 break
             i += 1
@@ -139,5 +184,13 @@ class PivitEnv(gym.Env):
                 break
             i += 1
             deltaLin -= 1
-        return valid_moves
 
+        for m in valid_moves:
+            total_moves.append({
+                'piece': piece,
+                'pos': m[0],
+                'new_pos': m[1],
+                'type': 'move'
+            })
+
+        return total_moves
