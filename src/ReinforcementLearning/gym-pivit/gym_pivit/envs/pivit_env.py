@@ -32,11 +32,17 @@ BLUE = 1
 
 class PivitEnv(gym.Env):
     metadata = {'render.modes': ['human']}
+
     ids_to_pieces = {v: k for k, v in pieces_to_ids.items()}
 
     def setup(self):
-        self.blueMap = ['none', 'v', 'v', 'v', 'v', 'h', 'h', 'h', 'h', 'v', 'v', 'v', 'v'] #CAPS if Evolved
-        self.redMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'v', 'v'] #CAPS if Evolved
+        # The position in the array is equal to the id of the piece and it represents the orientation of the piece
+        # v --> vertical; h --> horizontal
+        # If the letter is Upper Case then the piece has evolved
+        self.blueMap = ['none', 'v', 'v', 'v', 'v', 'h', 'h', 'h', 'h', 'v', 'v', 'v', 'v'] 
+        self.redMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'v', 'v'] 
+
+        # 8x8 board that has 0 if the spot is empty, the id of the piece that occupies it otherwise
         self.board = [[0, -1, 1, -2, -3, 2, -4, 0],
                      [3, 0, 0, 0, 0, 0, 0, 4],
                      [-5, 0, 0, 0, 0, 0, 0, -6], 
@@ -47,8 +53,13 @@ class PivitEnv(gym.Env):
                      [0, -9, 11, -10, -11, 12, -12, 0]]
 
     def __init__(self):
-        self.observation_space = spaces.Box(-12, 12, (8, 8))  # board 8x8
-        self.action_space = spaces.Discrete(64 * 12)
+        # Representation of the 8x8 board game with 24 pieces with ids [-12, 12]
+        self.observation_space = spaces.Box(-12, 12, (8, 8))  
+
+        # All the possible actions: we have 11 possible piece ids (12 - 1, since we start at 0) that can be in 64 possible places
+        # plus 64 places it can go with an action
+        # That gives 64*11 + 64 = 64*12
+        self.action_space = spaces.Discrete(64 * 12) 
         return
 
     def step(self, action):
@@ -70,14 +81,18 @@ class PivitEnv(gym.Env):
 
     @staticmethod
     def check_valid_square_red(board, lin, col):
-        inPos = board[lin][col]
-        if inPos > 0: return False
+        piece_id = board[lin][col]
+
+        # Pieces with positive ids are red 
+        if piece_id > 0: return False
         return True
 
     @staticmethod
     def check_valid_square_blue(board, lin, col):
-        inPos = board[lin][col]
-        if inPos < 0: return False
+        piece_id = board[lin][col]
+
+        # Pieces with negative ids are red 
+        if piece_id < 0: return False
         return True
 
     @staticmethod
@@ -106,6 +121,7 @@ class PivitEnv(gym.Env):
         }
 
     def check_piece_evolved(self, id):
+        # If the letter in the map is upper case then the piece is evolved
         if id > 0 and (self.redMap[id] == 'H' or self.redMap[id] == 'V'): 
             return True
         elif id < 0 and (self.blueMap[id*(-1)] == 'H' or self.blueMap[id*(-1)] == 'V'): 
@@ -135,8 +151,10 @@ class PivitEnv(gym.Env):
         while deltaCol < 8:
             if (i % 2 == 0 or or check_piece_evolved(piece_id))) and self.check_valid_square_red(board, lin, deltaCol):
                 valid_positions.append(((lin, col), (lin, deltaCol)))
+
             if self.check_piece_in(board, lin, deltaCol):
                 break
+
             i += 1
             deltaCol += 1
 
@@ -148,8 +166,10 @@ class PivitEnv(gym.Env):
         while deltaCol >= 0:
             if (i % 2 == 0 or or check_piece_evolved(piece_id))) and self.check_valid_square_red(board, lin, deltaCol):
                 valid_positions.append(((lin, col), (lin, deltaCol)))
+
             if self.check_piece_in(board, lin, deltaCol):
                 break
+
             i += 1
             deltaCol -= 1
 
@@ -180,8 +200,10 @@ class PivitEnv(gym.Env):
         while deltaLin < 8:
             if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_red(board, deltaLin, col):
                 valid_positions.append(((lin, col), (deltaLin, col)))
+
             if self.check_piece_in(board, deltaLin, col):
                 break
+
             i += 1
             deltaLin += 1
 
@@ -193,8 +215,10 @@ class PivitEnv(gym.Env):
         while deltaLin >= 0:
             if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_red(board, deltaLin, col):
                 valid_positions.append(((lin, col), (deltaLin, col)))
+
             if self.check_piece_in(board, deltaLin, col):
                 break
+
             i += 1
             deltaLin -= 1
 
@@ -223,10 +247,13 @@ class PivitEnv(gym.Env):
 
         # Check Positions to the Right
         while deltaCol < 8:
+
             if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, lin, deltaCol):
                 valid_positions.append(((lin, col), (lin, deltaCol)))
+
             if self.check_piece_in(board, lin, deltaCol):
                 break
+
             i += 1
             deltaCol += 1
 
@@ -236,10 +263,13 @@ class PivitEnv(gym.Env):
 
         # Check Positions to the Left
         while deltaCol >= 0:
+
             if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, lin, deltaCol):
                 valid_positions.append(((lin, col), (lin, deltaCol)))
+
             if self.check_piece_in(board, lin, deltaCol):
                 break
+
             i += 1
             deltaCol -= 1
 
@@ -268,10 +298,13 @@ class PivitEnv(gym.Env):
 
         # Check Upper Positions
         while deltaLin < 8:
+
             if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, deltaLin, col):
                 valid_positions.append(((lin, col), (deltaLin, col)))
+
             if self.check_piece_in(board, deltaLin, col):
                 break
+
             i += 1
             deltaLin += 1
 
@@ -281,10 +314,13 @@ class PivitEnv(gym.Env):
 
         # Check Down Positions
         while deltaLin >= 0:
+
             if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, deltaLin, col):
                 valid_positions.append(((lin, col), (deltaLin, col)))
+
             if self.check_piece_in(board, deltaLin, col):
                 break
+
             i += 1
             deltaLin -= 1
 
