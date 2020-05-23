@@ -1,6 +1,3 @@
-
-import numpy as np
-
 pieces_to_ids = {
     # Red Uninvolved Pieces
     'r1': 1, 'r2': 2, 'r3': 3, 'r4': 4,
@@ -270,36 +267,44 @@ def generate_valid_moves_bv(board, lin, col):
     return total_moves
 
 
-def generate_valid_moves_r(board):
-    valid_moves = []
-    for position, piece_id in np.ndenumerate(board):
-        if piece_id > 0:
-            if redMap[piece_id] == 'h' or redMap[piece_id] == 'H':
-                valid_moves += generate_valid_moves_rh(
-                    board, position[0], position[1])
-            elif redMap[piece_id] != 'none':
-                valid_moves += generate_valid_moves_rv(
-                    board, position[0], position[1])
-    return valid_moves
+# def generate_valid_moves_r(board):
+#     valid_moves = []
+#     #for position, piece_id in np.ndenumerate(board):
+#         #if piece_id > 0:
+#             if redMap[piece_id] == 'h' or redMap[piece_id] == 'H':
+#                 valid_moves += generate_valid_moves_rh(
+#                     board, position[0], position[1])
+#             elif redMap[piece_id] != 'none':
+#                 valid_moves += generate_valid_moves_rv(
+#                     board, position[0], position[1])
+#     return valid_moves
 
 
 def generate_valid_moves_b(board):
     valid_moves = []
-    for position, piece_id in np.ndenumerate(board):
-        piece_id = piece_id[0]
-        if piece_id < 0:
-            piece_id *= -1
-            if blueMap[piece_id] == 'h' or blueMap[piece_id] == 'H':
-                valid_moves += generate_valid_moves_bh(
-                    board, position[0], position[1])
-            elif blueMap[piece_id] != 'none':
-                valid_moves += generate_valid_moves_bv(
-                    board, position[0], position[1])
+    lin = 0
+    col = 0
+    while lin < 8:
+        print(lin)
+        while col < 8:
+            piece_id = board[lin][col]
+            if piece_id < 0:
+                piece_id *= -1
+                if blueMap[piece_id] == 'h' or blueMap[piece_id] == 'H':
+                    valid_moves += generate_valid_moves_bh(board, lin, col)
+                    print(valid_moves)
+                elif blueMap[piece_id] != 'none':
+                    valid_moves += generate_valid_moves_bv(board, lin, col)
+                    print(valid_moves)
+                else: print(piece_id)
+            col += 1
+        lin += 1
     return valid_moves
 
 print(board)
+print("\n")
 list_o_moves_b = generate_valid_moves_b(board)
-print(list_o_moves_b)
-list_o_moves_r = generate_valid_moves_r(board)
-print(list_o_moves_r)
+#print(list_o_moves_b)
+#list_o_moves_r = generate_valid_moves_r(board)
+#print(list_o_moves_r)
 
