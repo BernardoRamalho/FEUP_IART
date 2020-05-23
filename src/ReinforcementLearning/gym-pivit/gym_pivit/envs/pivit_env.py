@@ -120,30 +120,41 @@ class PivitEnv(gym.Env):
     # Movement Function #
     #####################
     def generate_valid_moves_rh(self, board, lin, col):
-        valid_moves = []
+        # Initialize arrays to store positions and moves
+        valid_positions = []
         total_moves = []
-        i = 0
+        
+        # Get the piece id from the board
         piece_id = board[lin][col]
+        
+        # Initialize variables to help navigate the board
+        i = 0
         deltaCol = col + 1
+
+        # Check Positions to the Right
         while deltaCol < 8:
-            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'RH') and self.check_valid_square_red(board, lin, deltaCol):
-                valid_moves.append(((lin, col), (lin, deltaCol)))
+            if (i % 2 == 0 or or check_piece_evolved(piece_id))) and self.check_valid_square_red(board, lin, deltaCol):
+                valid_positions.append(((lin, col), (lin, deltaCol)))
             if self.check_piece_in(board, lin, deltaCol):
                 break
             i += 1
             deltaCol += 1
 
+        # Reinitialize the variables to help navigate the board the opposite way
         deltaCol = col - 1
         i = 0
+        
+        # Check Positions to the Left
         while deltaCol >= 0:
-            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'RH') and self.check_valid_square_red(board, lin, deltaCol):
-                valid_moves.append(((lin, col), (lin, deltaCol)))
+            if (i % 2 == 0 or or check_piece_evolved(piece_id))) and self.check_valid_square_red(board, lin, deltaCol):
+                valid_positions.append(((lin, col), (lin, deltaCol)))
             if self.check_piece_in(board, lin, deltaCol):
                 break
             i += 1
             deltaCol -= 1
 
-        for m in valid_moves:
+        # Transforme Positions into moves
+        for m in valid_positions:
             total_moves.append({
                 'piece': piece_id,
                 'pos': m[0],
@@ -154,30 +165,41 @@ class PivitEnv(gym.Env):
         return total_moves
 
     def generate_valid_moves_rv(self, board, lin, col):
-        valid_moves = []
+        # Initialize arrays to store positions and moves
+        valid_positions = []
         total_moves = []
-        i = 0
+        
+        # Get the piece id from the board
         piece_id = board[lin][col]
+        
+        # Initialize variables to help navigate the board
+        i = 0
         deltaLin = lin + 1
+
+        # Check Upper Positions
         while deltaLin < 8:
-            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'RV') and self.check_valid_square_red(board, deltaLin, col):
-                valid_moves.append(((lin, col), (deltaLin, col)))
+            if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_red(board, deltaLin, col):
+                valid_positions.append(((lin, col), (deltaLin, col)))
             if self.check_piece_in(board, deltaLin, col):
                 break
             i += 1
             deltaLin += 1
 
+        # Reinitialize the variables to help navigate the board the opposite way
         deltaLin = lin - 1
         i = 0
+
+        # Check Down Positions
         while deltaLin >= 0:
-            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'RV') and self.check_valid_square_red(board, deltaLin, col):
-                valid_moves.append(((lin, col), (deltaLin, col)))
+            if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_red(board, deltaLin, col):
+                valid_positions.append(((lin, col), (deltaLin, col)))
             if self.check_piece_in(board, deltaLin, col):
                 break
             i += 1
             deltaLin -= 1
 
-        for m in valid_moves:
+        # Transforme Positions into moves
+        for m in valid_positions:
             total_moves.append({
                 'piece': piece_id,
                 'pos': m[0],
@@ -188,30 +210,41 @@ class PivitEnv(gym.Env):
         return total_moves
 
     def generate_valid_moves_bh(self, board, lin, col):
-        valid_moves = []
+        # Initialize arrays to store positions and moves
+        valid_positions = []
         total_moves = []
+        
+        # Get the piece id from the board
+        piece_id = board[lin][col]
+        
+        # Initialize variables to help navigate the board
         i = 0
         deltaCol = col + 1
-        piece_id = board[lin][col]
+
+        # Check Positions to the Right
         while deltaCol < 8:
-            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'BH') and self.check_valid_square_blue(board, lin, deltaCol):
-                valid_moves.append(((lin, col), (lin, deltaCol)))
+            if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, lin, deltaCol):
+                valid_positions.append(((lin, col), (lin, deltaCol)))
             if self.check_piece_in(board, lin, deltaCol):
                 break
             i += 1
             deltaCol += 1
 
+        # Reinitialize the variables to help navigate the board the opposite way
         deltaCol = col - 1
         i = 0
+
+        # Check Positions to the Left
         while deltaCol >= 0:
-            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'BH') and self.check_valid_square_blue(board, lin, deltaCol):
-                valid_moves.append(((lin, col), (lin, deltaCol)))
+            if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, lin, deltaCol):
+                valid_positions.append(((lin, col), (lin, deltaCol)))
             if self.check_piece_in(board, lin, deltaCol):
                 break
             i += 1
             deltaCol -= 1
 
-        for m in valid_moves:
+        # Transforme Positions into moves   
+        for m in valid_positions:
             total_moves.append({
                 'piece': piece_id,
                 'pos': m[0],
@@ -222,30 +255,41 @@ class PivitEnv(gym.Env):
         return total_moves
 
     def generate_valid_moves_bv(self, board, lin, col):
-        valid_moves = []
+        # Initialize arrays to store positions and moves
+        valid_positions = []
         total_moves = []
+        
+        # Get the piece id from the board
+        piece_id = board[lin][col]
+        
+        # Initialize variables to help navigate the board
         i = 0
         deltaLin = lin + 1
-        piece_id = board[lin][col]
+
+        # Check Upper Positions
         while deltaLin < 8:
-            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'BV') and self.check_valid_square_blue(board, deltaLin, col):
-                valid_moves.append(((lin, col), (deltaLin, col)))
+            if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, deltaLin, col):
+                valid_positions.append(((lin, col), (deltaLin, col)))
             if self.check_piece_in(board, deltaLin, col):
                 break
             i += 1
             deltaLin += 1
 
+        # Reinitialize the variables to help navigate the board the opposite way
         deltaLin = lin - 1
         i = 0
+
+        # Check Down Positions
         while deltaLin >= 0:
-            if (i % 2 == 0 or self.ids_to_pieces[piece_id] == 'BV') and self.check_valid_square_blue(board, deltaLin, col):
-                valid_moves.append(((lin, col), (deltaLin, col)))
+            if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, deltaLin, col):
+                valid_positions.append(((lin, col), (deltaLin, col)))
             if self.check_piece_in(board, deltaLin, col):
                 break
             i += 1
             deltaLin -= 1
 
-        for m in valid_moves:
+        # Transforme Positions into moves
+        for m in valid_positions:
             total_moves.append({
                 'piece': piece_id,
                 'pos': m[0],
