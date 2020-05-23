@@ -1,7 +1,3 @@
-import gym
-from gym import error, spaces, utils
-action_space = spaces.Discrete(64*12)
-
 pieces_to_ids = {
     # Red Uninvolved Pieces
     'r1': 1, 'r2': 2, 'r3': 3, 'r4': 4,
@@ -21,6 +17,17 @@ pieces_to_ids = {
     'B9': -9, 'B10': -10, 'B11': -11, 'B12': -12,
 }
 
+blueMap = ['none', 'v', 'v', 'v', 'v', 'h', 'h', 'h', 'h', 'v', 'v', 'v', 'v'] #CAPS if Evolved
+redMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'v', 'v'] #CAPS if Evolved
+board = [[0, -1, 1, -2, -3, 2, -4, 0],
+             [3, 0, 0, 0, 0, 0, 0, 4],
+             [-5, 0, 0, 2, 0, 0, 0, -6], 
+             [5, 0, 0, 0, 0, 0, 0, 0, 6], 
+             [7, 0, 0, 0, 0, 0, 0, 0, 8], 
+             [-7, 0, 0, 0, 0, 0, 0, 0, -8],  
+             [9, 0, 0, 0, 0, 0, 0, 0, 10], 
+             [0, -9, 11, -10, -11, 12, -12, 0]]
+
 def check_valid_square_red(board, lin, col):
     inPos = board[lin][col]
     if inPos > 0: return False
@@ -34,16 +41,14 @@ def check_valid_square_blue(board, lin, col):
 def check_piece_in(board, lin, col):
     return not board[lin][col] == 0
 
-blueMap = ['none', 'v', 'v', 'v', 'v', 'h', 'h', 'h', 'h', 'v', 'v', 'v', 'v'] #CAPS if Evolved
-redMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'v', 'v'] #CAPS if Evolved
-board = [[0, -1, 1, -2, -3, 2, -4, 0],
-             [3, 0, 0, 0, 0, 0, 0, 4],
-             [-5, 0, 0, 0, 0, 0, 0, -6], 
-             [5, 0, 0, 0, 0, 0, 0, 0, 6], 
-             [7, 0, 0, 0, 0, 0, 0, 0, 8], 
-             [-7, 0, 0, 0, 0, 0, 0, 0, -8],  
-             [9, 0, 0, 0, 0, 0, 0, 0, 10], 
-             [0, -9, 11, -10, -11, 12, -12, 0]]
+def check_piece_evolved(id):
+    if id > 0 and (redMap[id] == 'H' or redMap[id] == 'V'): 
+        return True
+    elif id < 0 and (blueMap[id*(-1)] == 'H' or blueMap[id*(-1)] == 'V'): 
+        return True
+    return False
 
-           
-print(action_space.sample())
+def get_piece_orientation(id):
+    if id > 0: return redMap[id]
+    return blueMap[id*(-1)]
+
