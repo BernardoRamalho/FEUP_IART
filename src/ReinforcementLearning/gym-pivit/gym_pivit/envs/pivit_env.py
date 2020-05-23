@@ -135,6 +135,28 @@ class PivitEnv(gym.Env):
     #####################
     # Movement Function #
     #####################
+
+    def generate_valid_moves_r(self, board):
+        valid_moves = []
+        for position, piece_id in np.ndenumerate(board):
+            if piece_id > 0:
+                if self.redMap[piece_id] == 'h' or self.redMap[piece_id] == 'H':
+                    valid_moves += self.generate_valid_moves_rh(board, position[0], position[1])
+                elif self.redMap[piece_id] != 'none':
+                    valid_moves += self.generate_valid_moves_rv(board, position[0], position[1])
+        return valid_moves
+    
+    def generate_valid_moves_b(self, board):
+        valid_moves = []
+        for position, piece_id in np.ndenumerate(board):
+            if piece_id < 0:
+                piece_id *= -1
+                if self.blueMap[piece_id] == 'h' or self.blueMap[piece_id] == 'H':
+                    valid_moves += self.generate_valid_moves_bh(board, position[0], position[1])
+                elif self.blueMap[piece_id] != 'none':
+                    valid_moves += self.generate_valid_moves_bv(board, position[0], position[1])
+
+
     def generate_valid_moves_rh(self, board, lin, col):
         # Initialize arrays to store positions and moves
         valid_positions = []
@@ -149,7 +171,7 @@ class PivitEnv(gym.Env):
 
         # Check Positions to the Right
         while deltaCol < 8:
-            if (i % 2 == 0 or or check_piece_evolved(piece_id))) and self.check_valid_square_red(board, lin, deltaCol):
+            if (i % 2 == 0 or self.check_piece_evolved(piece_id)) and self.check_valid_square_red(board, lin, deltaCol):
                 valid_positions.append(((lin, col), (lin, deltaCol)))
 
             if self.check_piece_in(board, lin, deltaCol):
@@ -164,7 +186,7 @@ class PivitEnv(gym.Env):
         
         # Check Positions to the Left
         while deltaCol >= 0:
-            if (i % 2 == 0 or or check_piece_evolved(piece_id))) and self.check_valid_square_red(board, lin, deltaCol):
+            if (i % 2 == 0 or self.check_piece_evolved(piece_id)) and self.check_valid_square_red(board, lin, deltaCol):
                 valid_positions.append(((lin, col), (lin, deltaCol)))
 
             if self.check_piece_in(board, lin, deltaCol):
@@ -198,7 +220,7 @@ class PivitEnv(gym.Env):
 
         # Check Upper Positions
         while deltaLin < 8:
-            if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_red(board, deltaLin, col):
+            if (i % 2 == 0 or self.check_piece_evolved(piece_id)) and self.check_valid_square_red(board, deltaLin, col):
                 valid_positions.append(((lin, col), (deltaLin, col)))
 
             if self.check_piece_in(board, deltaLin, col):
@@ -213,7 +235,7 @@ class PivitEnv(gym.Env):
 
         # Check Down Positions
         while deltaLin >= 0:
-            if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_red(board, deltaLin, col):
+            if (i % 2 == 0 or self.check_piece_evolved(piece_id)) and self.check_valid_square_red(board, deltaLin, col):
                 valid_positions.append(((lin, col), (deltaLin, col)))
 
             if self.check_piece_in(board, deltaLin, col):
@@ -248,7 +270,7 @@ class PivitEnv(gym.Env):
         # Check Positions to the Right
         while deltaCol < 8:
 
-            if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, lin, deltaCol):
+            if (i % 2 == 0 or self.check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, lin, deltaCol):
                 valid_positions.append(((lin, col), (lin, deltaCol)))
 
             if self.check_piece_in(board, lin, deltaCol):
@@ -264,7 +286,7 @@ class PivitEnv(gym.Env):
         # Check Positions to the Left
         while deltaCol >= 0:
 
-            if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, lin, deltaCol):
+            if (i % 2 == 0 or self.check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, lin, deltaCol):
                 valid_positions.append(((lin, col), (lin, deltaCol)))
 
             if self.check_piece_in(board, lin, deltaCol):
@@ -299,7 +321,7 @@ class PivitEnv(gym.Env):
         # Check Upper Positions
         while deltaLin < 8:
 
-            if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, deltaLin, col):
+            if (i % 2 == 0 or self.check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, deltaLin, col):
                 valid_positions.append(((lin, col), (deltaLin, col)))
 
             if self.check_piece_in(board, deltaLin, col):
@@ -315,7 +337,7 @@ class PivitEnv(gym.Env):
         # Check Down Positions
         while deltaLin >= 0:
 
-            if (i % 2 == 0 or check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, deltaLin, col):
+            if (i % 2 == 0 or self.check_piece_evolved(piece_id)) and self.check_valid_square_blue(board, deltaLin, col):
                 valid_positions.append(((lin, col), (deltaLin, col)))
 
             if self.check_piece_in(board, deltaLin, col):
@@ -335,3 +357,43 @@ class PivitEnv(gym.Env):
 
         return total_moves
 
+    def pivot(self, piece_id):
+        if piece_id > 0:
+            if self.redMap[piece_id] == 'v':
+                self.redMap[piece_id] = 'h'
+            elif self.redMap[piece_id] == 'h':
+                self.redMap[piece_id] = 'v'
+            elif self.redMap[piece_id] == 'V':
+                self.redMap[piece_id] = 'H'
+            elif self.redMap[piece_id] == 'H':
+                self.redMap[piece_id] = 'V'
+        else:
+            piece_id *= -1
+            if self.blueMap[piece_id] == 'v':
+                self.blueMap[piece_id] = 'h'
+            elif self.blueMap[piece_id] == 'h':
+                self.blueMap[piece_id] = 'v'
+            elif self.blueMap[piece_id] == 'V':
+                self.blueMap[piece_id] = 'H'
+            elif self.blueMap[piece_id] == 'H':
+                self.blueMap[piece_id] = 'V'
+    
+    def evolve(self, piece_id):
+        if piece_id > 0:
+            self.redMap[piece_id].upper()
+        else:
+            self.blueMap[piece_id].upper()
+    
+    def kill(self, piece_id):
+        if piece_id > 0:
+            self.redMap[piece_id] = 'none'
+        else:
+            self.blueMap[piece_id] = 'none'
+
+    def isDone(self):
+        for redStatus, blueStatus in zip(self.redMap, self.blueMap):
+            if (redStatus != 'none' and redStatus.islower()) or (blueStatus != 'none' and blueStatus.islower()) :
+                return False
+        return True
+
+    
