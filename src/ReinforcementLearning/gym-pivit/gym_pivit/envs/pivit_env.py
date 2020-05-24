@@ -110,22 +110,22 @@ class PivitEnv(gym.Env):
         }
 
     def player_move(self, action):
-        move = action_to_move(action, player)
+        move = self.action_to_move(action, player)
 
         # Save move attributes for easier use
         piece_id = move['piece_id']
-        pos = get_piece_position(piece_id)
+        pos = self.get_piece_position(piece_id)
         new_pos = move['new_pos']
 
         # Check if there is an enemy piece in the new position
-        if check_piece_in(board, new_pos[0], new_pos[1]):
+        if self.check_piece_in(board, new_pos[0], new_pos[1]):
             kill(board[new_pos[0], new_pos[1]]) 
 
         # Move the piece to the new square
         board[new_pos[0], new_pos[1]] = board[pos[0], pos[1]]
         board[pos[0], pos[1]] = '0'
 
-        if check_piece_in_corner(new_pos[0], new_pos[1]):
+        if self.check_piece_in_corner(new_pos[0], new_pos[1]):
             evolve[piece_id]
 
         pivot(piece_id)
