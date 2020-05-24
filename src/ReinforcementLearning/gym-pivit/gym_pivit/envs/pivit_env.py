@@ -109,7 +109,7 @@ class PivitEnv(gym.Env):
             'new_pos': np.array([int(row), int(column)]),
         }
 
-    def player_move(self, action):
+    def player_move(self, action, player):
         move = self.action_to_move(action, player)
 
         # Save move attributes for easier use
