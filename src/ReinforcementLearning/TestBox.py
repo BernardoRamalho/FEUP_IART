@@ -64,6 +64,10 @@ def get_piece_orientation(id):
         return redMap[id]
     return blueMap[id*(-1)]
 
+def check_piece_in_corner(lin, col):
+    return (lin == 0 and col == 0) or (lin == 0 and col == 7) or (lin == 7 and col == 7) or (lin == 7 and col == 0)
+
+
 
 def generate_valid_moves_rh(board, lin, col):
     # Initialize arrays to store positions and moves
@@ -298,9 +302,103 @@ def generate_valid_moves_b(board):
 
     return valid_moves
 
+# Inverts the orientation of the piece
+def pivot(piece_id):
+    if piece_id > 0:
+        if redMap[piece_id] == 'v':
+            redMap[piece_id] = 'h'
+        elif redMap[piece_id] == 'h':
+            redMap[piece_id] = 'v'
+        elif redMap[piece_id] == 'V':
+            redMap[piece_id] = 'H'
+        elif redMap[piece_id] == 'H':
+            redMap[piece_id] = 'V'
+    else:
+        piece_id *= -1
+        if blueMap[piece_id] == 'v':
+            blueMap[piece_id] = 'h'
+        elif blueMap[piece_id] == 'h':
+            blueMap[piece_id] = 'v'
+        elif blueMap[piece_id] == 'V':
+            blueMap[piece_id] = 'H'
+        elif blueMap[piece_id] == 'H':
+            blueMap[piece_id] = 'V'
 
-#print(board[0, 1])
-print(generate_valid_moves_b(board))
+# Evolves a piece
+def evolve(piece_id):
+    if piece_id > 0:
+        redMap[piece_id].upper()
+    else:
+        blueMap[piece_id].upper()
+
+# Removes a piece from the game
+def kill(piece_id):
+    if piece_id > 0:
+        redMap[piece_id] = 'none'
+    else:
+        blueMap[piece_id] = 'none'
+
+# Checks if the game is over
+def isDone():
+    for redStatus, blueStatus in zip(redMap, blueMap):
+        if (redStatus != 'none' and redStatus.islower()) or (blueStatus != 'none' and blueStatus.islower()) :
+            return False
+    return True
+
+
+# Searches for a piece in the board
+def get_piece_position(id):
+    for position, piece_id in np.ndenumerate(board):
+        if piece_id == id:
+            return position
+
+def move_to_action(move):
+    piece_id = move['piece_id']
+    new_pos = move['new_pos']
+    return 64*(abs(piece_id) - 1) + (new_pos[0] * 8 + new_pos[1])
+
+def action_to_move(action, player):
+    square = action % 64
+    column = square % 8
+    row = (square - column) // 8
+    piece_id = (action - square) // 64 + 1
+    return {
+        'piece_id': piece_id * player,
+        'new_pos': np.array([int(row), int(column)]),
+    }
+
+def player_move(action, player):
+        move = action_to_move(action, player)
+
+        # Save move attributes for easier use
+        piece_id = move['piece_id']
+        pos = get_piece_position(piece_id)
+        new_pos = move['new_pos']
+
+        # Check if there is an enemy piece in the new position
+        if check_piece_in(board, new_pos[0], new_pos[1]):
+            kill(board[new_pos[0], new_pos[1]]) 
+
+        # Move the piece to the new square
+        board[new_pos[0], new_pos[1]] = board[pos[0], pos[1]]
+        board[pos[0], pos[1]] = '0'
+
+        if check_piece_in_corner(new_pos[0], new_pos[1]):
+            evolve[piece_id]
+
+        pivot(piece_id)
+
+move = {'piece_id': 1,
+        'new_pos': (4, 2)
+        }
+
+action = move_to_action(move)
+
+print(board)
+player_move(action, 1)
+print(board)
+
+#print(generate_valid_moves_b(board))
 #print(board)
 #print("\n")
 #list_o_moves_b = generate_valid_moves_b(board)

@@ -26,6 +26,13 @@ pieces_to_ids = {
     'B9': -9, 'B10': -10, 'B11': -11, 'B12': -12,
 }
 
+#{
+# 'piece': piece_id,
+#   'pos': m[0],
+#    'new_pos': m[1],
+#    'type': 'move'
+#}
+
 RED = 0
 BLUE = 1
 
@@ -63,6 +70,12 @@ class PivitEnv(gym.Env):
         return
 
     def step(self, action):
+        # Validate action
+		assert self.action_space.contains(action), "ACTION ERROR {}".format(action)
+
+        move = action_to_move(action)
+
+
         return
 
     def reset(self):
@@ -75,39 +88,16 @@ class PivitEnv(gym.Env):
     def close(self):
         return
 
-    ##################
-    # Logic Function #
-    ##################
 
-    @staticmethod
-    def check_valid_square_red(board, lin, col):
-        piece_id = board[lin, col]
-
-        # Pieces with positive ids are red 
-        if piece_id > 0: return False
-        return True
-
-    @staticmethod
-    def check_valid_square_blue(board, lin, col):
-        piece_id = board[lin, col]
-
-        # Pieces with negative ids are red 
-        if piece_id < 0: return False
-        return True
-
-    @staticmethod
-    def check_piece_in(board, lin, col):
-        return not board[lin, col] == 0
-
-    @staticmethod
-    def check_piece_in_corner(lin, col):
-        return (lin == 0 and col == 0) or (lin == 0 and col == 7) or (lin == 7 and col == 7) or (lin == 7 and col == 0)
+    ##########################
+    # Gym Auxiliary Function #
+    ##########################
 
     @staticmethod
     def move_to_action(move):
         piece_id = move['piece_id']
         new_pos = move['new_pos']
-        return 64*(abs(piece_id) - 1) + (new_pos[0] * 8 + new_pos[1]).item()
+        return 64*(abs(piece_id) - 1) + (new_pos[0] * 8 + new_pos[1])
 
     @staticmethod
     def action_to_move(action, player):
@@ -120,6 +110,62 @@ class PivitEnv(gym.Env):
             'new_pos': np.array([int(row), int(column)]),
         }
 
+    def player_move(self, action):
+        move = action_to_move(action, player)
+
+        # Save move attributes for easier use
+        piece_id = move['piece_id']
+        pos = get_piece_position(piece_id)
+        new_pos = move['new_pos']
+
+        # Check if there is an enemy piece in the new position
+        if check_piece_in(board, new_pos[0], new_pos[1]):
+            kill(board[new_pos[0], new_pos[1]]) 
+
+        # Move the piece to the new square
+        board[new_pos[0], new_pos[1]] = board[pos[0], pos[1]]
+        board[pos[0], pos[1]] = '0'
+
+        if check_piece_in_corner(new_pos[0], new_pos[1]):
+            evolve[piece_id]
+
+        pivot(piece_id)
+
+
+
+    ##################
+    # Logic Function #
+    ##################
+
+    # Check if a red piece can move to a square
+    @staticmethod
+    def check_valid_square_red(board, lin, col):
+        piece_id = board[lin, col]
+
+        # Pieces with positive ids are red 
+        if piece_id > 0: return False
+        return True
+
+    # Check if a blue piece can move to a square
+    @staticmethod
+    def check_valid_square_blue(board, lin, col):
+        piece_id = board[lin, col]
+
+        # Pieces with negative ids are red 
+        if piece_id < 0: return False
+        return True
+
+    # Check if there is a piece in a square
+    @staticmethod
+    def check_piece_in(board, lin, col):
+        return not board[lin, col] == 0
+
+    # Check if a piece as reach the corner
+    @staticmethod
+    def check_piece_in_corner(lin, col):
+        return (lin == 0 and col == 0) or (lin == 0 and col == 7) or (lin == 7 and col == 7) or (lin == 7 and col == 0)
+
+    # Check if a piece is evolved
     def check_piece_evolved(self, id):
         # If the letter in the map is upper case then the piece is evolved
         if id > 0 and (self.redMap[id] == 'H' or self.redMap[id] == 'V'): 
@@ -128,9 +174,59 @@ class PivitEnv(gym.Env):
             return True
         return False
     
+    # Checks the orientation of the piece
     def get_piece_orientation(self, id):
         if id > 0: return self.redMap[id]
         return self.blueMap[id*(-1)]
+
+    # Inverts the orientation of the piece
+    def pivot(self, piece_id):
+        if piece_id > 0:
+            if self.redMap[piece_id] == 'v':
+                self.redMap[piece_id] = 'h'
+            elif self.redMap[piece_id] == 'h':
+                self.redMap[piece_id] = 'v'
+            elif self.redMap[piece_id] == 'V':
+                self.redMap[piece_id] = 'H'
+            elif self.redMap[piece_id] == 'H':
+                self.redMap[piece_id] = 'V'
+        else:
+            piece_id *= -1
+            if self.blueMap[piece_id] == 'v':
+                self.blueMap[piece_id] = 'h'
+            elif self.blueMap[piece_id] == 'h':
+                self.blueMap[piece_id] = 'v'
+            elif self.blueMap[piece_id] == 'V':
+                self.blueMap[piece_id] = 'H'
+            elif self.blueMap[piece_id] == 'H':
+                self.blueMap[piece_id] = 'V'
+    
+    # Evolves a piece
+    def evolve(self, piece_id):
+        if piece_id > 0:
+            self.redMap[piece_id].upper()
+        else:
+            self.blueMap[piece_id].upper()
+    
+    # Removes a piece from the game
+    def kill(self, piece_id):
+        if piece_id > 0:
+            self.redMap[piece_id] = 'none'
+        else:
+            self.blueMap[piece_id] = 'none'
+
+    # Checks if the game is over
+    def isDone(self):
+        for redStatus, blueStatus in zip(self.redMap, self.blueMap):
+            if (redStatus != 'none' and redStatus.islower()) or (blueStatus != 'none' and blueStatus.islower()) :
+                return False
+        return True
+
+    # Searches for a piece in the board
+    def get_piece_position(self, id):
+        for position, piece_id in np.ndenumerate(board):
+            if piece_id == id:
+                return position
 
     #####################
     # Movement Function #
@@ -356,44 +452,5 @@ class PivitEnv(gym.Env):
             })
 
         return total_moves
-
-    def pivot(self, piece_id):
-        if piece_id > 0:
-            if self.redMap[piece_id] == 'v':
-                self.redMap[piece_id] = 'h'
-            elif self.redMap[piece_id] == 'h':
-                self.redMap[piece_id] = 'v'
-            elif self.redMap[piece_id] == 'V':
-                self.redMap[piece_id] = 'H'
-            elif self.redMap[piece_id] == 'H':
-                self.redMap[piece_id] = 'V'
-        else:
-            piece_id *= -1
-            if self.blueMap[piece_id] == 'v':
-                self.blueMap[piece_id] = 'h'
-            elif self.blueMap[piece_id] == 'h':
-                self.blueMap[piece_id] = 'v'
-            elif self.blueMap[piece_id] == 'V':
-                self.blueMap[piece_id] = 'H'
-            elif self.blueMap[piece_id] == 'H':
-                self.blueMap[piece_id] = 'V'
-    
-    def evolve(self, piece_id):
-        if piece_id > 0:
-            self.redMap[piece_id].upper()
-        else:
-            self.blueMap[piece_id].upper()
-    
-    def kill(self, piece_id):
-        if piece_id > 0:
-            self.redMap[piece_id] = 'none'
-        else:
-            self.blueMap[piece_id] = 'none'
-
-    def isDone(self):
-        for redStatus, blueStatus in zip(self.redMap, self.blueMap):
-            if (redStatus != 'none' and redStatus.islower()) or (blueStatus != 'none' and blueStatus.islower()) :
-                return False
-        return True
 
     
