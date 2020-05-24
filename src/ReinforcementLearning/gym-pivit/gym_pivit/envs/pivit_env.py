@@ -43,14 +43,14 @@ class PivitEnv(gym.Env):
         self.redMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'v', 'v'] 
 
         # 8x8 board that has 0 if the spot is empty, the id of the piece that occupies it otherwise
-        self.board = [[0, -1, 1, -2, -3, 2, -4, 0],
-                     [3, 0, 0, 0, 0, 0, 0, 4],
-                     [-5, 0, 0, 0, 0, 0, 0, -6], 
-                     [5, 0, 0, 0, 0, 0, 0, 0, 6], 
-                     [7, 0, 0, 0, 0, 0, 0, 0, 8], 
-                     [-7, 0, 0, 0, 0, 0, 0, 0, -8],  
-                     [9, 0, 0, 0, 0, 0, 0, 0, 10], 
-                     [0, -9, 11, -10, -11, 12, -12, 0]]
+        self.board = np.array([[0, -1, 1, -2, -3, 2, -4, 0],
+                               [3, 0, 0, 0, 0, 0, 0, 4],
+                               [-5, 0, 0, 0, 0, 0, 0, -6],
+                               [5, 0, 0, 0, 0, 0, 0, 6],
+                               [7, 0, 0, 0, 0, 0, 0, 8],
+                               [-7, 0, 0, 0, 0, 0, 0, -8],
+                               [9, 0, 0, 0, 0, 0, 0, 10],
+                               [0, -9, 11, -10, -11, 12, -12, 0]])
 
     def __init__(self):
         # Representation of the 8x8 board game with 24 pieces with ids [-12, 12]
@@ -81,7 +81,7 @@ class PivitEnv(gym.Env):
 
     @staticmethod
     def check_valid_square_red(board, lin, col):
-        piece_id = board[lin][col]
+        piece_id = board[lin, col]
 
         # Pieces with positive ids are red 
         if piece_id > 0: return False
@@ -89,7 +89,7 @@ class PivitEnv(gym.Env):
 
     @staticmethod
     def check_valid_square_blue(board, lin, col):
-        piece_id = board[lin][col]
+        piece_id = board[lin, col]
 
         # Pieces with negative ids are red 
         if piece_id < 0: return False
@@ -97,7 +97,7 @@ class PivitEnv(gym.Env):
 
     @staticmethod
     def check_piece_in(board, lin, col):
-        return not board[lin][col] == 0
+        return not board[lin, col] == 0
 
     @staticmethod
     def check_piece_in_corner(lin, col):
@@ -163,7 +163,7 @@ class PivitEnv(gym.Env):
         total_moves = []
         
         # Get the piece id from the board
-        piece_id = board[lin][col]
+        piece_id = board[lin, col]
         
         # Initialize variables to help navigate the board
         i = 0
@@ -212,7 +212,7 @@ class PivitEnv(gym.Env):
         total_moves = []
         
         # Get the piece id from the board
-        piece_id = board[lin][col]
+        piece_id = board[lin, col]
         
         # Initialize variables to help navigate the board
         i = 0
@@ -261,7 +261,7 @@ class PivitEnv(gym.Env):
         total_moves = []
         
         # Get the piece id from the board
-        piece_id = board[lin][col]
+        piece_id = board[lin, col]
         
         # Initialize variables to help navigate the board
         i = 0
@@ -312,7 +312,7 @@ class PivitEnv(gym.Env):
         total_moves = []
         
         # Get the piece id from the board
-        piece_id = board[lin][col]
+        piece_id = board[lin, col]
         
         # Initialize variables to help navigate the board
         i = 0

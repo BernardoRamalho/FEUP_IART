@@ -1,3 +1,5 @@
+import numpy as np
+
 pieces_to_ids = {
     # Red Uninvolved Pieces
     'r1': 1, 'r2': 2, 'r3': 3, 'r4': 4,
@@ -21,32 +23,32 @@ blueMap = ['none', 'v', 'v', 'v', 'v', 'h', 'h',
            'h', 'h', 'v', 'v', 'v', 'v']  # CAPS if Evolved
 redMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h',
           'h', 'h', 'h', 'h', 'v', 'v']  # CAPS if Evolved
-board = [[0, -1, 1, -2, -3, 2, -4, 0],
+board = np.array([[0, -1, 1, -2, -3, 2, -4, 0],
          [3, 0, 0, 0, 0, 0, 0, 4],
-         [-5, 0, 0, 2, 0, 0, 0, -6],
-         [5, 0, 0, 0, 0, 0, 0, 0, 6],
-         [7, 0, 0, 0, 0, 0, 0, 0, 8],
-         [-7, 0, 0, 0, 0, 0, 0, 0, -8],
-         [9, 0, 0, 0, 0, 0, 0, 0, 10],
-         [0, -9, 11, -10, -11, 12, -12, 0]]
+         [-5, 0, 0, 0, 0, 0, 0, -6],
+         [5, 0, 0, 0, 0, 0, 0, 6],
+         [7, 0, 0, 0, 0, 0, 0, 8],
+         [-7, 0, 0, 0, 0, 0, 0, -8],
+         [9, 0, 0, 0, 0, 0, 0, 10],
+         [0, -9, 11, -10, -11, 12, -12, 0]])
 
 
 def check_valid_square_red(board, lin, col):
-    inPos = board[lin][col]
+    inPos = board[lin, col]
     if inPos > 0:
         return False
     return True
 
 
 def check_valid_square_blue(board, lin, col):
-    inPos = board[lin][col]
+    inPos = board[lin, col]
     if inPos < 0:
         return False
     return True
 
 
 def check_piece_in(board, lin, col):
-    return not board[lin][col] == 0
+    return not board[lin, col] == 0
 
 
 def check_piece_evolved(id):
@@ -69,7 +71,7 @@ def generate_valid_moves_rh(board, lin, col):
     total_moves = []
 
     # Get the piece id from the board
-    piece_id = board[lin][col]
+    piece_id = board[lin, col]
 
     # Initialize variables to help navigate the board
     i = 0
@@ -119,7 +121,7 @@ def generate_valid_moves_rv(board, lin, col):
     total_moves = []
 
     # Get the piece id from the board
-    piece_id = board[lin][col]
+    piece_id = board[lin, col]
 
     # Initialize variables to help navigate the board
     i = 0
@@ -169,7 +171,7 @@ def generate_valid_moves_bh(board, lin, col):
     total_moves = []
 
     # Get the piece id from the board
-    piece_id = board[lin][col]
+    piece_id = board[lin, col]
 
     # Initialize variables to help navigate the board
     i = 0
@@ -221,7 +223,7 @@ def generate_valid_moves_bv(board, lin, col):
     total_moves = []
 
     # Get the piece id from the board
-    piece_id = board[lin][col]
+    piece_id = board[lin, col]
 
     # Initialize variables to help navigate the board
     i = 0
@@ -282,28 +284,26 @@ def generate_valid_moves_bv(board, lin, col):
 
 def generate_valid_moves_b(board):
     valid_moves = []
-    lin = 0
-    col = 0
-    while lin < 8:
-        print(lin)
-        while col < 8:
-            piece_id = board[lin][col]
-            if piece_id < 0:
-                piece_id *= -1
-                if blueMap[piece_id] == 'h' or blueMap[piece_id] == 'H':
-                    valid_moves += generate_valid_moves_bh(board, lin, col)
-                    print(valid_moves)
-                elif blueMap[piece_id] != 'none':
-                    valid_moves += generate_valid_moves_bv(board, lin, col)
-                    print(valid_moves)
-                else: print(piece_id)
-            col += 1
-        lin += 1
+
+    for position, piece_id in np.ndenumerate(board):
+        if piece_id < 0:
+            piece_id *= -1
+            if blueMap[piece_id] == 'h' or blueMap[piece_id] == 'H':
+                valid_moves += generate_valid_moves_bh(board, position[0], position[1])
+
+            elif blueMap[piece_id] != 'none':
+                valid_moves += generate_valid_moves_bv(board, position[0], position[1])
+
+            else: print(piece_id)
+
     return valid_moves
 
-print(board)
-print("\n")
-list_o_moves_b = generate_valid_moves_b(board)
+
+#print(board[0, 1])
+print(generate_valid_moves_b(board))
+#print(board)
+#print("\n")
+#list_o_moves_b = generate_valid_moves_b(board)
 #print(list_o_moves_b)
 #list_o_moves_r = generate_valid_moves_r(board)
 #print(list_o_moves_r)
