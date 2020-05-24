@@ -28,7 +28,6 @@ pieces_to_ids = {
 
 #{
 # 'piece': piece_id,
-#   'pos': m[0],
 #    'new_pos': m[1],
 #    'type': 'move'
 #}
@@ -295,7 +294,6 @@ class PivitEnv(gym.Env):
         for m in valid_positions:
             total_moves.append({
                 'piece': piece_id,
-                'pos': m[0],
                 'new_pos': m[1],
                 'type': 'move'
             })
@@ -344,7 +342,6 @@ class PivitEnv(gym.Env):
         for m in valid_positions:
             total_moves.append({
                 'piece': piece_id,
-                'pos': m[0],
                 'new_pos': m[1],
                 'type': 'move'
             })
@@ -395,7 +392,6 @@ class PivitEnv(gym.Env):
         for m in valid_positions:
             total_moves.append({
                 'piece': piece_id,
-                'pos': m[0],
                 'new_pos': m[1],
                 'type': 'move'
             })
@@ -446,7 +442,6 @@ class PivitEnv(gym.Env):
         for m in valid_positions:
             total_moves.append({
                 'piece': piece_id,
-                'pos': m[0],
                 'new_pos': m[1],
                 'type': 'move'
             })
