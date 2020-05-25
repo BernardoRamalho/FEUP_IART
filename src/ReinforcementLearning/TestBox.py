@@ -1,4 +1,6 @@
 import numpy as np
+from gui import Gui
+import time
 
 pieces_to_ids = {
     # Red Uninvolved Pieces
@@ -25,7 +27,7 @@ redMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h',
           'h', 'h', 'h', 'h', 'v', 'v']  # CAPS if Evolved
 board = np.array([[0, -1, 1, -2, -3, 2, -4, 0],
          [3, 0, 0, 0, 0, 0, 0, 4],
-         [-5, 0, 0, 0, 0, 0, 0, -6],
+         [0, 0, -5, 0, 0, 0, 0, -6],
          [5, 0, 0, 0, 0, 0, 0, 6],
          [7, 0, 0, 0, 0, 0, 0, 8],
          [-7, 0, 0, 0, 0, 0, 0, -8],
@@ -333,10 +335,11 @@ def evolve(piece_id):
 
 # Removes a piece from the game
 def kill(piece_id):
+
     if piece_id > 0:
         redMap[piece_id] = 'none'
     else:
-        blueMap[piece_id] = 'none'
+        blueMap[piece_id * -1] = 'none'
 
 # Checks if the game is over
 def isDone():
@@ -388,16 +391,20 @@ def player_move(action, player):
 
         pivot(piece_id)
 
+gui = Gui()
+gui.draw(board, redMap, blueMap)
+time.sleep(4)
+
 move = {'piece_id': 1,
-        'new_pos': (4, 2)
+        'new_pos': (2, 2)
         }
 
 action = move_to_action(move)
 
-print(board)
 player_move(action, 1)
-print(board)
 
+gui.draw(board, redMap, blueMap)
+time.sleep(4)
 #print(generate_valid_moves_b(board))
 #print(board)
 #print("\n")
