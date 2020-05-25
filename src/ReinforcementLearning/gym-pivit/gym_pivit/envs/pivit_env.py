@@ -72,9 +72,9 @@ class PivitEnv(gym.Env):
 
     def step(self, action):
         # Validate action
-		#assert self.action_space.contains((action), "ACTION ERROR {}".format(action))
+        assert self.action_space.contains(action), "ATRION ERRO {}".format(action)
 
-        #move = action_to_move(action)
+        move = action_to_move(action)
 
         return
 
@@ -84,6 +84,7 @@ class PivitEnv(gym.Env):
 
     def render(self, mode='human'):
         self.gui.draw(self.board, self.redMap, self.blueMap)
+
         return
 
     def close(self):
@@ -233,7 +234,7 @@ class PivitEnv(gym.Env):
     # Movement Function #
     #####################
 
-    def generate_valid_moves_r(self, board):
+    def generate_valid_red_moves(self, board):
         valid_moves = []
         for position, piece_id in np.ndenumerate(board):
             if piece_id > 0:
@@ -243,7 +244,7 @@ class PivitEnv(gym.Env):
                     valid_moves += self.generate_valid_moves_rv(board, position[0], position[1])
         return valid_moves
     
-    def generate_valid_moves_b(self, board):
+    def generate_valid_blue_moves(self, board):
         valid_moves = []
         for position, piece_id in np.ndenumerate(board):
             if piece_id < 0:
