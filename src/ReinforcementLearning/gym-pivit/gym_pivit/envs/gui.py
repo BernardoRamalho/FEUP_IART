@@ -9,7 +9,10 @@ def get_screen_width():
 class Gui():
 
     def __init__(self):
+        # Initialize pygame
         pygame.init()
+
+        # Save the information of the screen
         screen_info = pygame.display.Info()
         
         # Variable Initiation
@@ -18,9 +21,13 @@ class Gui():
         self.screen = pygame.display.set_mode((self.screen_size, self.screen_size))
 
     def draw(self, board, redMap, blueMap):
+        # To remove delay, just to test
         pygame.time.delay(100)
+        
         self.drawBoard()
+
         self.drawPieces(board, redMap, blueMap)
+
         pygame.display.update()
 
     def drawBoard(self):
@@ -45,9 +52,10 @@ class Gui():
 
     def drawPieces(self, board, redMap, blueMap):
         for position, piece_id in np.ndenumerate(board):
-
+            # Draw Blue Piece
             if(piece_id < 0 and blueMap[piece_id * (-1)] != 'none'):
                 self.drawPiece(self.screen, -1, blueMap[piece_id * -1], position)
+            # Draw Red Piece
             elif (piece_id >0 and redMap[piece_id] != 'none'):
                 self.drawPiece(self.screen, 1, redMap[piece_id], position)
 
@@ -58,19 +66,26 @@ class Gui():
         # Transfom the position into a valid position for pygame
         board_position = [position[0] * self.square_side + self.square_side / 2, position[1] * self.square_side + self.square_side / 2] 
 
-        if player == 1:  # Red Pieces
+        # Red Pieces
+        if player == 1:  
+            # Evolved Pieces
             if direction.isupper():
                 colour = (255,160,122)
+            # Unenvolved Pieces
             else:
                 colour = (255, 0, 0)
-        else: # Blue Pieces
+        # Blue Pieces
+        else: 
+            # Evolved Pieces
             if direction.isupper():
                 colour = (118, 182, 255)
+            # Unenvolved Pieces
             else:
                 colour = (0, 185, 255)
             
 
         pygame.draw.circle(screen, colour, (int(board_position[0]), int(board_position[1])), int(radius))
+
         self.draw_triangle(screen, board_position, radius, direction.lower())
 
 
