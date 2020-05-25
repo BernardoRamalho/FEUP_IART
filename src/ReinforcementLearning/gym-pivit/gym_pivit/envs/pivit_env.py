@@ -3,6 +3,7 @@ from gym import error, spaces, utils
 from gym.utils import seeding
 from gui import Gui
 import numpy as np
+import time
 
 # Piece names:
 # Player color letter [r,R or b, B], Capped if evolved + Alignment -> Evolved Red Piece Horizontally Alligned = RH
@@ -73,12 +74,30 @@ class PivitEnv(gym.Env):
 
     def step(self, action):
         # Validate action
-        assert self.action_space.contains(action), "ATRION ERRO {}".format(action)
+        assert self.action_space.contains(action), "ACTION ERROR {}".format(action)
 
-        self.player_move(action, self.player_turn)
-        self.player_turn *= -1
+        reward = self.player_move(action, 1, False)
 
-        return
+        if self.isDone():
+            winner = self.whoWon()
+            if winner == 1:
+                reward += 1
+            else: reward -= 1
+
+        else:
+            opp_moves = self.generate_valid_blue_moves(self.board)
+            opp_move = np.random.choice(opp_moves)
+            print(opp_move)
+            opp_action = self.move_to_action(opp_move)
+            reward -= self.player_move(opp_action, -1, False)
+
+            if self.isDone():
+                winner = self.whoWon()
+                if winner == 1:
+                    reward += 1
+                else: reward -= 1
+        
+        return reward
 
     def reset(self):
         self.setup()
@@ -114,27 +133,36 @@ class PivitEnv(gym.Env):
             'new_pos': np.array([int(row), int(column)]),
         }
 
-    def player_move(self, action, player):
-        move = self.action_to_move(action, player)
+    def player_move(self, action, player_turn, greed):
+        move = self.action_to_move(action, player_turn)
 
         # Save move attributes for easier use
         piece_id = move['piece_id']
+        print("Piece_id: ")
+        print(piece_id)
         pos = self.get_piece_position(piece_id)
+        print("Piece_pos: ")
+        print(pos)
         new_pos = move['new_pos']
-
+        print("Piece_new_pos: ")
+        print(new_pos)
+        reward = 0
         # Check if there is an enemy piece in the new position
         if self.check_piece_in(self.board, new_pos[0], new_pos[1]):
             self.kill(self.board[new_pos[0], new_pos[1]]) 
+            reward += 0.1
 
         # Move the piece to the new square
         self.board[new_pos[0], new_pos[1]] = self.board[pos[0], pos[1]]
         self.board[pos[0], pos[1]] = '0'
 
         if self.check_piece_in_corner(new_pos[0], new_pos[1]):
-            self.evolve[piece_id]
+            self.evolve(piece_id)
+            reward += 0.2
 
         self.pivot(piece_id)
-
+        
+        return reward if greed else 0
 
 
     ##################
@@ -226,6 +254,22 @@ class PivitEnv(gym.Env):
                 return False
         return True
 
+    def whoWon(self):
+        redCount = 0
+        blueCount = 0
+        for redStatus, blueStatus in zip(self.redMap, self.blueMap):
+            if (redStatus.isupper()):
+                redCount += 1
+            if (blueStatus.isupper()):
+                blueCount += 1
+
+        if redCount > blueCount:
+            return 1
+        elif redCount < blueCount:
+            return -1
+
+        return 0
+
     # Searches for a piece in the board
     def get_piece_position(self, id):
         for position, piece_id in np.ndenumerate(self.board):
@@ -255,6 +299,7 @@ class PivitEnv(gym.Env):
                     valid_moves += self.generate_valid_moves_bh(board, position[0], position[1])
                 elif self.blueMap[piece_id] != 'none':
                     valid_moves += self.generate_valid_moves_bv(board, position[0], position[1])
+        return valid_moves
 
 
     def generate_valid_moves_rh(self, board, lin, col):
@@ -298,7 +343,7 @@ class PivitEnv(gym.Env):
         # Transforme Positions into moves
         for m in valid_positions:
             total_moves.append({
-                'piece': piece_id,
+                'piece_id': piece_id,
                 'new_pos': m[1],
                 'type': 'move'
             })
@@ -346,7 +391,7 @@ class PivitEnv(gym.Env):
         # Transforme Positions into moves
         for m in valid_positions:
             total_moves.append({
-                'piece': piece_id,
+                'piece_id': piece_id,
                 'new_pos': m[1],
                 'type': 'move'
             })
@@ -396,7 +441,7 @@ class PivitEnv(gym.Env):
         # Transforme Positions into moves   
         for m in valid_positions:
             total_moves.append({
-                'piece': piece_id,
+                'piece_id': piece_id,
                 'new_pos': m[1],
                 'type': 'move'
             })
@@ -446,7 +491,7 @@ class PivitEnv(gym.Env):
         # Transforme Positions into moves
         for m in valid_positions:
             total_moves.append({
-                'piece': piece_id,
+                'piece_id': piece_id,
                 'new_pos': m[1],
                 'type': 'move'
             })
