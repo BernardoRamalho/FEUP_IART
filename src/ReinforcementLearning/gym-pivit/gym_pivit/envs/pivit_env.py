@@ -13,17 +13,17 @@ pieces_to_ids = {
     'r5': 5, 'r6': 6, 'r7': 7, 'r8': 8,
     'r9': 9, 'r10': 10, 'r11': 11, 'r12': 12,
     # Red Envolved Pieces
-    'R1': 1, 'R2': 2, 'R3': 3, 'R4': 4,
-    'R5': 5, 'R6': 6, 'R7': 7, 'R8': 8,
-    'R9': 9, 'R10': 10, 'R11': 11, 'R12': 12,
+    #'R1': 1, 'R2': 2, 'R3': 3, 'R4': 4,
+    #'R5': 5, 'R6': 6, 'R7': 7, 'R8': 8,
+    #'R9': 9, 'R10': 10, 'R11': 11, 'R12': 12,
     # Blue Unevolved Pieces
     'b1': -1, 'b2': -2, 'b3': -3, 'b4': -4,
     'b5': -5, 'b6': -6, 'b7': -7, 'b8': -8,
     'b9': -9, 'b10': -10, 'b11': -11, 'b12': -12,
     # Blue Evolved
-    'B1': -1, 'B2': -2, 'B3': -3, 'B4': -4,
-    'B5': -5, 'B6': -6, 'B7': -7, 'B8': -8,
-    'B9': -9, 'B10': -10, 'B11': -11, 'B12': -12,
+    #'B1': -1, 'B2': -2, 'B3': -3, 'B4': -4,
+    #'B5': -5, 'B6': -6, 'B7': -7, 'B8': -8,
+    #'B9': -9, 'B10': -10, 'B11': -11, 'B12': -12,
 }
 
 #{
@@ -74,6 +74,7 @@ class PivitEnv(gym.Env):
 
         move = action_to_move(action)
 
+        
 
         return
 
@@ -212,7 +213,7 @@ class PivitEnv(gym.Env):
         if piece_id > 0:
             self.redMap[piece_id] = 'none'
         else:
-            self.blueMap[piece_id] = 'none'
+            self.blueMap[piece_id * -1] = 'none'
 
     # Checks if the game is over
     def isDone(self):
