@@ -1,3 +1,4 @@
+import numpy as np
 import gym
 import gym_pivit
 import time
@@ -18,5 +19,10 @@ env.step(action)
 
 time.sleep(4)
 env.render()
+
+#num_box = tuple((env.observation_space.high + np.ones(env.observation_space.shape)).astype(int))
+#q_table = np.zeros(num_box + (env.action_space.n,))
+
+#print(q_table)
 
 time.sleep(4)
