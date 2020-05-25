@@ -45,7 +45,7 @@ class PivitEnv(gym.Env):
         # The position in the array is equal to the id of the piece and it represents the orientation of the piece
         # v --> vertical; h --> horizontal
         # If the letter is Upper Case then the piece has evolved
-        self.blueMap = ['none', 'v', 'v', 'v', 'v', 'h', 'h', 'h', 'h', 'v', 'v', 'v', 'v'] 
+        self.blueMap = ['none', 'v', 'v', 'V', 'v', 'h', 'h', 'h', 'h', 'v', 'v', 'v', 'v'] 
         self.redMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'v', 'v'] 
 
         # 8x8 board that has 0 if the spot is empty, the id of the piece that occupies it otherwise
