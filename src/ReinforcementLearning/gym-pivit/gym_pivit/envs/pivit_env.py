@@ -58,6 +58,7 @@ class PivitEnv(gym.Env):
                                [9, 0, 0, 0, 0, 0, 0, 10],
                                [0, -9, 11, -10, -11, 12, -12, 0]])
 
+        self.player_turn = 1
         self.gui = Gui()
 
     def __init__(self):
@@ -74,7 +75,8 @@ class PivitEnv(gym.Env):
         # Validate action
         assert self.action_space.contains(action), "ATRION ERRO {}".format(action)
 
-        move = action_to_move(action)
+        self.player_move(action, self.player_turn)
+        self.player_turn *= -1
 
         return
 
