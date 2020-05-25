@@ -11,8 +11,9 @@ class Gui():
     def __init__(self):
         pygame.init()
         screen_info = pygame.display.Info()
+        
         # Variable Initiation
-        self.screen_size = int(screen_info.current_w / 2)
+        self.screen_size = int(screen_info.current_w / 3)
         self.square_side = self.screen_size / 8
         self.screen = pygame.display.set_mode((self.screen_size, self.screen_size))
 

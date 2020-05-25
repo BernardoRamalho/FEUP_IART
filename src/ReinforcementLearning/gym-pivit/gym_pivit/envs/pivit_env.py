@@ -1,7 +1,7 @@
 import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
-
+from gui import Gui
 import numpy as np
 
 # Piece names:
@@ -58,6 +58,8 @@ class PivitEnv(gym.Env):
                                [9, 0, 0, 0, 0, 0, 0, 10],
                                [0, -9, 11, -10, -11, 12, -12, 0]])
 
+        self.gui = Gui()
+
     def __init__(self):
         # Representation of the 8x8 board game with 24 pieces with ids [-12, 12]
         self.observation_space = spaces.Box(-12, 12, (8, 8))  
@@ -70,11 +72,9 @@ class PivitEnv(gym.Env):
 
     def step(self, action):
         # Validate action
-		assert self.action_space.contains(action), "ACTION ERROR {}".format(action)
+		#assert self.action_space.contains((action), "ACTION ERROR {}".format(action))
 
-        move = action_to_move(action)
-
-        
+        #move = action_to_move(action)
 
         return
 
@@ -83,6 +83,7 @@ class PivitEnv(gym.Env):
         return
 
     def render(self, mode='human'):
+        self.gui.draw(self.board, self.redMap, self.blueMap)
         return
 
     def close(self):
@@ -119,17 +120,17 @@ class PivitEnv(gym.Env):
         new_pos = move['new_pos']
 
         # Check if there is an enemy piece in the new position
-        if self.check_piece_in(board, new_pos[0], new_pos[1]):
-            kill(board[new_pos[0], new_pos[1]]) 
+        if self.check_piece_in(self.board, new_pos[0], new_pos[1]):
+            self.kill(self.board[new_pos[0], new_pos[1]]) 
 
         # Move the piece to the new square
-        board[new_pos[0], new_pos[1]] = board[pos[0], pos[1]]
-        board[pos[0], pos[1]] = '0'
+        self.board[new_pos[0], new_pos[1]] = self.board[pos[0], pos[1]]
+        self.board[pos[0], pos[1]] = '0'
 
         if self.check_piece_in_corner(new_pos[0], new_pos[1]):
-            evolve[piece_id]
+            self.evolve[piece_id]
 
-        pivot(piece_id)
+        self.pivot(piece_id)
 
 
 
@@ -224,7 +225,7 @@ class PivitEnv(gym.Env):
 
     # Searches for a piece in the board
     def get_piece_position(self, id):
-        for position, piece_id in np.ndenumerate(board):
+        for position, piece_id in np.ndenumerate(self.board):
             if piece_id == id:
                 return position
 
