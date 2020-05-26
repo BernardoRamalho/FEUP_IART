@@ -62,7 +62,7 @@ class PivitEnv(gym.Env):
                                ])
 
         self.player_turn = 1
-        self.gui = Gui()
+
 
     def __init__(self):
         # Representation of the 8x8 board game with 24 pieces with ids [-12, 12]
@@ -72,6 +72,7 @@ class PivitEnv(gym.Env):
         # plus 64 places it can go with an action
         # That gives 64*11 + 64 = 64*12
         self.action_space = spaces.Discrete(64 * 12) 
+        self.gui = Gui()
         return
 
     def step(self, action):
@@ -80,7 +81,9 @@ class PivitEnv(gym.Env):
 
         reward = self.player_move(action, False)
 
-        if self.isDone():
+        isDone = self.isDone()
+
+        if isDone:
             winner = self.whoWon()
             if winner == 1:
                 reward += 1
@@ -88,7 +91,7 @@ class PivitEnv(gym.Env):
         
         self.player_turn *= -1
 
-        return reward
+        return reward, isDone
 
     def reset(self):
         self.setup()
@@ -119,6 +122,7 @@ class PivitEnv(gym.Env):
                     else: ret_str += 'e'
                     ret_str += self.blueMap[piece_id]
         return ret_str
+        
     ##########################
     # Gym Auxiliary Function #
     ##########################
@@ -127,6 +131,7 @@ class PivitEnv(gym.Env):
     def move_to_action(move):
         piece_id = move['piece_id']
         new_pos = move['new_pos']
+        pos = move['pos']
         return 64*(abs(piece_id) - 1) + (new_pos[0] * 8 + new_pos[1])
 
     @staticmethod
@@ -142,7 +147,7 @@ class PivitEnv(gym.Env):
 
     def player_move(self, action, greed):
         move = self.action_to_move(action, self.player_turn)
-
+        print(move)
         # Save move attributes for easier use
         piece_id = move['piece_id']
         pos = self.get_piece_position(piece_id)
@@ -154,6 +159,9 @@ class PivitEnv(gym.Env):
             reward += 0.1
 
         # Move the piece to the new square
+        print(new_pos)
+        print(pos)
+        print(self.board)
         self.board[new_pos[0], new_pos[1]] = self.board[pos[0], pos[1]]
         self.board[pos[0], pos[1]] = '0'
 

@@ -23,7 +23,8 @@ class Gui():
     def draw(self, board, redMap, blueMap):
         # To remove delay, just to test
         pygame.time.delay(100)
-        
+        print(self.square_side)
+        print(self.screen_size)
         self.drawBoard()
 
         self.drawPieces(board, redMap, blueMap)
