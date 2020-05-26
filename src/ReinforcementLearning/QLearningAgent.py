@@ -7,22 +7,24 @@ env = gym.make("pivit-v0")
 
 
 env.reset()
-env.render()
+# env.render()
 
 
-move = {'piece_id': 1,
-        'new_pos': (2, 2)
-        }
+# move = {'piece_id': 1,
+#         'new_pos': (2, 2)
+#         }
 
-action = env.move_to_action(move)
-env.step(action)
+# action = env.move_to_action(move)
+# env.step(action)
 
-time.sleep(4)
-env.render()
+# time.sleep(4)
+# env.render()
 
-#num_box = tuple((env.observation_space.high + np.ones(env.observation_space.shape)).astype(int))
-#q_table = np.zeros(num_box + (env.action_space.n,))
-
+test_str = env.state_to_string()
+q_table = {}
 #print(q_table)
 
-time.sleep(4)
+#time.sleep(4)
+
+print(test_str)
+print(hash(test_str))

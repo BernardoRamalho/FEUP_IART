@@ -46,7 +46,7 @@ class PivitEnv(gym.Env):
         # The position in the array is equal to the id of the piece and it represents the orientation of the piece
         # v --> vertical; h --> horizontal
         # If the letter is Upper Case then the piece has evolved
-        self.blueMap = ['none', 'v', 'v', 'V', 'v', 'h', 'h', 'h', 'h', 'v', 'v', 'v', 'v'] 
+        self.blueMap = ['none', 'v', 'v', 'v', 'v', 'h', 'h', 'h', 'h', 'v', 'v', 'v', 'v'] 
         self.redMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'v', 'v'] 
 
         # 8x8 board that has 0 if the spot is empty, the id of the piece that occupies it otherwise
@@ -66,7 +66,7 @@ class PivitEnv(gym.Env):
 
     def __init__(self):
         # Representation of the 8x8 board game with 24 pieces with ids [-12, 12]
-        self.observation_space = spaces.Box(-12, 12, (8, 8))  
+        self.observation_space = spaces.Box(-4, 4, (8, 8), dtype=np.int)  
 
         # All the possible actions: we have 11 possible piece ids (12 - 1, since we start at 0) that can be in 64 possible places
         # plus 64 places it can go with an action
@@ -114,6 +114,20 @@ class PivitEnv(gym.Env):
         return
 
 
+    def state_to_string(self):
+        ret_str = ""
+        for position, piece_id in np.ndenumerate(self.board):
+            if piece_id == 0:
+                ret_str += '0'
+            else:
+                if piece_id > 0:
+                    ret_str += 'r'
+                    ret_str += self.redMap[piece_id]
+                else:
+                    piece_id *= -1
+                    ret_str += 'b'
+                    ret_str += self.blueMap[piece_id]
+        return ret_str
     ##########################
     # Gym Auxiliary Function #
     ##########################
@@ -140,14 +154,8 @@ class PivitEnv(gym.Env):
 
         # Save move attributes for easier use
         piece_id = move['piece_id']
-        print("Piece_id: ")
-        print(piece_id)
         pos = self.get_piece_position(piece_id)
-        print("Piece_pos: ")
-        print(pos)
         new_pos = move['new_pos']
-        print("Piece_new_pos: ")
-        print(new_pos)
         reward = 0
         # Check if there is an enemy piece in the new position
         if self.check_piece_in(self.board, new_pos[0], new_pos[1]):
