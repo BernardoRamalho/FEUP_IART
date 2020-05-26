@@ -61,7 +61,7 @@ class SARSAAgent:
 
     
     #Function to choose the next action 
-    def choose_action(self, state): 
+    def choose_action(self, state, env): 
         action=0
         if random.uniform(0, 1) >= self.epsilon:
                 if state in self.q_table:
@@ -81,7 +81,7 @@ class SARSAAgent:
 
         new_state_mod = 0
         if state2 in self.q_table:
-            if action2 in q_table[state2]:
+            if action2 in self.q_table[state2]:
                 new_state_mod = self.q_table[state2, action2]
 
         target = reward + self.gamma * new_state_mod 
@@ -93,15 +93,14 @@ class SARSAAgent:
 
         # Starting the SARSA learning 
         for episode in range(self.num_episodes): 
-            t = 0
             env.reset()
             state1 = env.state_to_string()
-            action1 = choose_action(state1) 
+            action1 = self.choose_action(state1, env) 
             
             #Initializing the reward 
             rewards_current_episode = 0
         
-            for step in range(self.max_steps_per_episode) 
+            for step in range(self.max_steps_per_episode): 
                 #Visualizing the training 
                 env.render() 
                 
@@ -112,16 +111,16 @@ class SARSAAgent:
 
                 state2 = env.state_to_string()
                 #Choosing the next action 
-                action2 = choose_action(state2) 
+                action2 = self.choose_action(state2, env) 
 
-                 if state1 not in self.q_table:
+                if state1 not in self.q_table:
                         self.q_table[state1] = {}
-                        self.q_table[state1][action] = 0
-                elif action not in self.q_table[state1]:
-                        self.q_table[state1][action] = 0
+                        self.q_table[state1][action1] = 0
+                elif action1 not in self.q_table[state1]:
+                        self.q_table[state1][action1] = 0
                 
                 #Learning the Q-value 
-                update(state1, state2, reward, action1, action2) 
+                self.update(state1, state2, reward, action1, action2) 
         
                 state1 = state2 
                 action1 = action2 
