@@ -38,8 +38,33 @@ env.reset()
 # env.render()
 
 test_str = env.state_to_string()
-# = {'A':65, 'B':66, 'C':67}
+
 ql_agent = QLAgent("qtable.json")
 
-print(ql_agent.q_table)
+env.render()
+
+time.sleep(2)
+
+i = 0
+
+while i < 10:
+
+	move = np.random.choice(env.generate_valid_moves())
+
+	action = env.move_to_action(move)
+
+	env.step(action)
+
+	env.render()
+
+	time.sleep(2)
+	i += 1
+
+
+
+
+
+
+print(test_str)
+#print(ql_agent.q_table)
 #print(q_table)

@@ -78,27 +78,16 @@ class PivitEnv(gym.Env):
         # Validate action
         assert self.action_space.contains(action), "ACTION ERROR {}".format(action)
 
-        reward = self.player_move(action, 1, False)
+        reward = self.player_move(action, False)
 
         if self.isDone():
             winner = self.whoWon()
             if winner == 1:
                 reward += 1
             else: reward -= 1
-
-        else:
-            opp_moves = self.generate_valid_blue_moves(self.board)
-            opp_move = np.random.choice(opp_moves)
-            print(opp_move)
-            opp_action = self.move_to_action(opp_move)
-            reward -= self.player_move(opp_action, -1, False)
-
-            if self.isDone():
-                winner = self.whoWon()
-                if winner == 1:
-                    reward += 1
-                else: reward -= 1
         
+        self.player_turn *= -1
+
         return reward
 
     def reset(self):
@@ -121,11 +110,13 @@ class PivitEnv(gym.Env):
                 ret_str += '0'
             else:
                 if piece_id > 0:
-                    ret_str += 'r'
+                    if self.player_turn == 1: ret_str += 'f'
+                    else: ret_str += 'e'
                     ret_str += self.redMap[piece_id]
                 else:
                     piece_id *= -1
-                    ret_str += 'b'
+                    if self.player_turn == -1: ret_str += 'f'
+                    else: ret_str += 'e'
                     ret_str += self.blueMap[piece_id]
         return ret_str
     ##########################
@@ -139,18 +130,18 @@ class PivitEnv(gym.Env):
         return 64*(abs(piece_id) - 1) + (new_pos[0] * 8 + new_pos[1])
 
     @staticmethod
-    def action_to_move(action, player):
+    def action_to_move(action, player_turn):
         square = action % 64
         column = square % 8
         row = (square - column) // 8
         piece_id = (action - square) // 64 + 1
         return {
-            'piece_id': piece_id * player,
+            'piece_id': piece_id * player_turn,
             'new_pos': np.array([int(row), int(column)]),
         }
 
-    def player_move(self, action, player_turn, greed):
-        move = self.action_to_move(action, player_turn)
+    def player_move(self, action, greed):
+        move = self.action_to_move(action, self.player_turn)
 
         # Save move attributes for easier use
         piece_id = move['piece_id']
@@ -290,25 +281,31 @@ class PivitEnv(gym.Env):
     # Movement Function #
     #####################
 
-    def generate_valid_red_moves(self, board):
+    def generate_valid_moves(self):
+        if self.player_turn == 1:
+            return self.generate_valid_red_moves()
+        else:
+            return self.generate_valid_blue_moves()
+
+    def generate_valid_red_moves(self):
         valid_moves = []
-        for position, piece_id in np.ndenumerate(board):
+        for position, piece_id in np.ndenumerate(self.board):
             if piece_id > 0:
                 if self.redMap[piece_id] == 'h' or self.redMap[piece_id] == 'H':
-                    valid_moves += self.generate_valid_moves_rh(board, position[0], position[1])
+                    valid_moves += self.generate_valid_moves_rh(self.board, position[0], position[1])
                 elif self.redMap[piece_id] != 'none':
-                    valid_moves += self.generate_valid_moves_rv(board, position[0], position[1])
+                    valid_moves += self.generate_valid_moves_rv(self.board, position[0], position[1])
         return valid_moves
     
-    def generate_valid_blue_moves(self, board):
+    def generate_valid_blue_moves(self):
         valid_moves = []
-        for position, piece_id in np.ndenumerate(board):
+        for position, piece_id in np.ndenumerate(self.board):
             if piece_id < 0:
                 piece_id *= -1
                 if self.blueMap[piece_id] == 'h' or self.blueMap[piece_id] == 'H':
-                    valid_moves += self.generate_valid_moves_bh(board, position[0], position[1])
+                    valid_moves += self.generate_valid_moves_bh(self.board, position[0], position[1])
                 elif self.blueMap[piece_id] != 'none':
-                    valid_moves += self.generate_valid_moves_bv(board, position[0], position[1])
+                    valid_moves += self.generate_valid_moves_bv(self.board, position[0], position[1])
         return valid_moves
 
 
