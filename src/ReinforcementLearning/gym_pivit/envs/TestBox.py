@@ -21,16 +21,14 @@ def action_to_move(action):
 }
 
 
-blueMap = ['none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none'] 
-redMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'v', 'v']  
+redMap = ['none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none'] 
+blueMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'v', 'v']  
 
 def isDone():
         redCount = np.count_nonzero(np.array(redMap) == 'none')
         if redCount == len(redMap): return True
-        print(redCount)
         blueCount = np.count_nonzero(np.array(blueMap) == 'none')
         if blueCount == len(blueMap): return True
-        print(blueCount)
         for redStatus, blueStatus in zip(redMap, blueMap):
             if (redStatus != 'none' and redStatus.islower()) or (blueStatus != 'none' and blueStatus.islower()) :
                 return False
