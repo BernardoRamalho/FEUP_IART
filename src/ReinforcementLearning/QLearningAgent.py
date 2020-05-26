@@ -43,7 +43,7 @@ class QLAgent:
                         state = hash(env.state_to_string())
                         
                         for step in range(self.max_steps_per_episode):
-                                #env.render() 
+                                env.render() 
                                 exploration_rate_threshold = random.uniform(0, 1)
 
                                 if exploration_rate_threshold > self.exploration_rate:
@@ -100,12 +100,11 @@ env.setup()
 
 #test_str = env.state_to_string()
 
-ql_agent = QLAgent("qtable.json", 10, 100, 0.1, 0.99, 1, 1, 0.01, 0.01)
+ql_agent = QLAgent("qtable.json", 10, 150, 0.1, 0.99, 1, 1, 0.01, 0.01)
 
 ql_agent.train(env)
 
-print(ql_agent.rewards_all_episode
-)
+print(ql_agent.rewards_all_episodes)
 
 ql.write_qtable()
 
