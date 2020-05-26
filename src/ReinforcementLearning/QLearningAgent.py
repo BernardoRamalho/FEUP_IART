@@ -11,8 +11,9 @@ class QLAgent:
         def __init__(self, file_path, num_episodes, max_steps, learning_rate, discount_rate, exploration_rate, max_exploration_rate, min_exploration_rate, exploration_decay_rate):
                 self.file_path = file_path
                 self.q_table = {}
-                #if file_path != "":
-                        #self.read_qtable()
+
+                if file_path != "":
+                        self.read_qtable()
 
                 self.num_episodes = num_episodes
                 self.max_steps_per_episode = 100
@@ -32,6 +33,7 @@ class QLAgent:
         def read_qtable(self):
                 with open(self.file_path, 'r') as file:
                         self.q_table = json.load(file)
+                        
 
         def train(self, env):
                 self.rewards_all_episodes = []
@@ -41,7 +43,7 @@ class QLAgent:
 
                         done = False
                         rewards_current_episode = 0
-                        state = hash(env.state_to_string())
+                        state = env.state_to_string()
                         
                         for step in range(self.max_steps_per_episode):
                                 #env.render() 
@@ -58,7 +60,8 @@ class QLAgent:
                                         action = env.move_to_action(move)                       
 
                                 reward, done = env.step(action)
-                                new_state = hash(env.state_to_string())
+                                new_state = env.state_to_string()
+                                action = str(action)
 
                                 if state not in self.q_table:
                                         self.q_table[state] = {}
@@ -87,27 +90,29 @@ class QLAgent:
 start = timeit.default_timer()
 env = gym.make("pivit-v0")
 env.setup()
-# env.render()
+#env.render()
+#state = hash(env.state_to_string())
 
-# move = {'piece_id': 1,
+#move = {'pos': (0, 2),
 #         'new_pos': (2, 2)
 #         }
 
-# action = env.move_to_action(move)
-# env.step(action)
+#action = env.move_to_action(move)
+#print(type(action))
+#env.step(action)
 
-# time.sleep(4)
-# env.render()
+#time.sleep(4)
+#env.render()
 
 #test_str = env.state_to_string()
 
-ql_agent = QLAgent("qtable.json", 100, 150, 0.1, 0.99, 1, 1, 0.01, 0.01)
+ql_agent = QLAgent("qtable.json", 10, 150, 0.1, 0.99, 1, 1, 0.01, 0.01)
 
 ql_agent.train(env)
 stop = timeit.default_timer()
 print(stop)
 
-#ql_agent.write_qtable()
+ql_agent.write_qtable()
 
 #print(test_str)
 #print(ql_agent.q_table)
