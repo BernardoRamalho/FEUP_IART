@@ -282,6 +282,11 @@ class PivitEnv(gym.Env):
         elif redCount < blueCount:
             return -1
 
+        redCount = np.count_nonzero(np.array(self.redMap) == 'none')
+        if redCount == len(self.redMap): return -1
+        blueCount = np.count_nonzero(np.array(self.blueMap) == 'none')
+        if blueCount == len(self.blueMap): return 1
+
         return 0
 
     # Searches for a piece in the board

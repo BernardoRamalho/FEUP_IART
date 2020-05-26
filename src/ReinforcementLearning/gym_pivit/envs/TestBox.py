@@ -20,25 +20,27 @@ def action_to_move(action):
                 'new_pos': np.array([int(row), int(column)])
 }
 
+print(action_to_move(3697))
 
-redMap = ['none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none'] 
-blueMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'v', 'v']  
+# redMap = ['none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none'] 
+# blueMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'v', 'v']  
 
-def isDone():
-        redCount = np.count_nonzero(np.array(redMap) == 'none')
-        if redCount == len(redMap): return True
-        blueCount = np.count_nonzero(np.array(blueMap) == 'none')
-        if blueCount == len(blueMap): return True
-        for redStatus, blueStatus in zip(redMap, blueMap):
-            if (redStatus != 'none' and redStatus.islower()) or (blueStatus != 'none' and blueStatus.islower()) :
-                return False
-        return True
+# def isDone():
+#         redCount = np.count_nonzero(np.array(redMap) == 'none')
+#         if redCount == len(redMap): return True
+#         blueCount = np.count_nonzero(np.array(blueMap) == 'none')
+#         if blueCount == len(blueMap): return True
+#         for redStatus, blueStatus in zip(redMap, blueMap):
+#             if (redStatus != 'none' and redStatus.islower()) or (blueStatus != 'none' and blueStatus.islower()) :
+#                 return False
+#         return True
 
-print(isDone())
+# print(isDone())
 
-move = {'pos': (0, 2),
-        'new_pos': (2, 2)
-        }
+
+# move = {'pos': (0, 2),
+#         'new_pos': (2, 2)
+#         }
 
 # action = move_to_action(move)
 # print(action)
