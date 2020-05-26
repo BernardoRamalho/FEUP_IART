@@ -258,6 +258,8 @@ class PivitEnv(gym.Env):
     # Checks if the game is over
     def isDone(self):
 
+        if (not self.generate_valid_blue_moves()) or (not self.generate_valid_red_moves()): return True
+
         redCount = np.count_nonzero(np.array(self.redMap) == 'none')
         if redCount == len(self.redMap): return True
         blueCount = np.count_nonzero(np.array(self.blueMap) == 'none')
@@ -269,6 +271,12 @@ class PivitEnv(gym.Env):
         return True
 
     def whoWon(self):
+
+        if (not self.generate_valid_blue_moves()):
+            return 1
+        
+        if (not self.generate_valid_red_moves()):
+            return -1
         redCount = 0
         blueCount = 0
         for redStatus, blueStatus in zip(self.redMap, self.blueMap):

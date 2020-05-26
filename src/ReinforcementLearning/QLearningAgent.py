@@ -19,8 +19,8 @@ class QLAgent:
                 self.file_path = file_path
                 self.q_table = {}
 
-                #if file_path != "":
-                        #self.read_qtable()
+                if file_path != "":
+                        self.read_qtable()
 
                 self.num_episodes = num_episodes
                 self.max_steps_per_episode = max_steps
@@ -134,7 +134,7 @@ env.setup()
 
 #test_str = env.state_to_string()
 
-ql_agent = QLAgent("qtable.json", 1000, 250, 0.1, 0.9, 1, 1, 0.01, 0.01)
+ql_agent = QLAgent("qtable.json", 10000, 250, 0.1, 0.9, 1, 1, 0.01, 0.01)
 
 ql_agent.train(env)
 stop = timeit.default_timer()
