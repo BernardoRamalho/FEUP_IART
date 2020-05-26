@@ -1,7 +1,5 @@
 import numpy as np
 import time
-#from pivit_env import PivitEnv
-
 
 def move_to_action(move):
 
@@ -22,16 +20,31 @@ def action_to_move(action):
                 'new_pos': np.array([int(row), int(column)])
 }
 
-#env = PivitEnv()
-#env.setup()
+
+blueMap = ['none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none', 'none'] 
+redMap = ['none', 'v', 'v', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'h', 'v', 'v']  
+
+def isDone():
+        redCount = np.count_nonzero(np.array(redMap) == 'none')
+        if redCount == len(redMap): return True
+        print(redCount)
+        blueCount = np.count_nonzero(np.array(blueMap) == 'none')
+        if blueCount == len(blueMap): return True
+        print(blueCount)
+        for redStatus, blueStatus in zip(redMap, blueMap):
+            if (redStatus != 'none' and redStatus.islower()) or (blueStatus != 'none' and blueStatus.islower()) :
+                return False
+        return True
+
+print(isDone())
 
 move = {'pos': (0, 2),
         'new_pos': (2, 2)
         }
 
-action = move_to_action(move)
-print(action)
-print(action_to_move(action))
-#env.player_move(action, 1)
+# action = move_to_action(move)
+# print(action)
+# print(action_to_move(action))
+# #env.player_move(action, 1)
 
 
