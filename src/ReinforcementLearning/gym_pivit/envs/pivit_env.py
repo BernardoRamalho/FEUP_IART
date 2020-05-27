@@ -93,6 +93,8 @@ class PivitEnv(gym.Env):
             move = np.random.choice(self.generate_valid_moves())
             self.player_move(self.move_to_action(move), False)
 
+            isDone = self.isDone()
+            
             if isDone:
                 winner = self.whoWon()
                 if winner == 1:

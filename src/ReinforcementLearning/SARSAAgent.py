@@ -40,9 +40,12 @@ class SARSAAgent:
     def read_qtable(self):
             test = Path(self.file_path)
             if test.is_file():
-                with open(self.file_path, 'r') as file:
-                        self.q_table = json.load(file)
-
+                        try:
+                                with open(self.file_path, 'r') as file:
+                                        self.q_table = json.load(file)
+                        except:
+                                print("QTable file was empty")
+                                self.q_table = {}
     @staticmethod
     def move_to_action(move):
 
@@ -72,14 +75,10 @@ class SARSAAgent:
                         action = int(keywithmaxval(self.q_table[state]))
                 else:   
                         valid_moves = env.generate_valid_moves()
-                        if not valid_moves:
-                                return -1
-                        move = valid_moves[0]
+                        move = np.random.choice(valid_moves)
                         action = env.move_to_action(move) 
         else:
                 valid_moves = env.generate_valid_moves()
-                if not valid_moves:
-                        return -1
                 move = np.random.choice(valid_moves)
                 action = env.move_to_action(move)
 
@@ -172,7 +171,7 @@ class SARSAAgent:
 
 env = gym.make("pivit-v0")
 env.setup()
-sarsa_agent = SARSAAgent("sarsaQtable.json", 50000, 220, 0.8, 0.85, 0.95)
+sarsa_agent = SARSAAgent("sarsaQtable.json", 10000, 220, 0.8, 0.85, 0.95)
 
 sarsa_agent.train(env)
 
