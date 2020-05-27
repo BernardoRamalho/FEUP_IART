@@ -75,7 +75,7 @@ class PivitEnv(gym.Env):
         self.gui = Gui()
         return
 
-    def step(self, action):
+    def step(self, action, random = False):
         # Validate action
         assert self.action_space.contains(action), "ACTION ERROR {}".format(action)
 
@@ -85,11 +85,22 @@ class PivitEnv(gym.Env):
 
         if isDone:
             winner = self.whoWon()
-            if winner == 1:
+            if winner == self.player_turn:
                 reward += 1
             else: reward -= 1
-        
+        elif random:
+            self.player_turn *= -1
+            move = np.random.choice(self.generate_valid_moves())
+            self.player_move(self.move_to_action(move), False)
+
+            if isDone:
+                winner = self.whoWon()
+                if winner == 1:
+                    reward += 1
+                else: reward -= 1
+
         self.player_turn *= -1
+        
 
         return reward, isDone
 

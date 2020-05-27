@@ -19,8 +19,8 @@ class SARSAAgent:
             self.file_path = file_path
             self.q_table = {}
 
-            if file_path != "":
-                    self.read_qtable()
+            #if file_path != "":
+             #       self.read_qtable()
 
             self.num_episodes = num_episodes
             self.max_steps_per_episode = max_steps
@@ -70,8 +70,9 @@ class SARSAAgent:
                         move = env.generate_valid_moves()[0]
                         action = env.move_to_action(move) 
         else:
+                valid_moves = env.generate_valid_moves()
                 move = np.random.choice(env.generate_valid_moves())
-                action = env.move_to_action(move)   
+                action = env.move_to_action(move)
 
         return action 
 
@@ -82,7 +83,7 @@ class SARSAAgent:
         new_state_mod = 0
         if state2 in self.q_table:
             if action2 in self.q_table[state2]:
-                new_state_mod = self.q_table[state2, action2]
+                new_state_mod = self.q_table[state2][action2]
 
         target = reward + self.gamma * new_state_mod 
         self.q_table[state][action] = self.q_table[state][action] + self.alpha * (target - predict) 
@@ -105,9 +106,18 @@ class SARSAAgent:
                 env.render() 
                 
                 #Getting the next state 
-                reward, done = env.step(action1) 
+                reward, done = env.step(action1, True) 
 
                 rewards_current_episode += reward
+
+                #If at the end of learning process 
+                if done:
+                        if state1 not in self.q_table:
+                                self.q_table[state1] = {}
+                                self.q_table[state1][action1] = reward
+                        elif action1 not in self.q_table[state1]:
+                                self.q_table[state1][action1] = reward
+                        break
 
                 state2 = env.state_to_string()
                 #Choosing the next action 
@@ -124,10 +134,19 @@ class SARSAAgent:
         
                 state1 = state2 
                 action1 = action2 
-                
-                
-                #If at the end of learning process 
-                if done: 
-                    break
+
             
             self.rewards_all_episodes.append(rewards_current_episode)
+
+start = timeit.default_timer()
+env = gym.make("pivit-v0")
+env.setup()
+sarsa_agent = SARSAAgent("sarsaQtable.json", 1000, 220, 0.9, 0.85, 0.95)
+
+sarsa_agent.train(env)
+
+stop = timeit.default_timer()
+print(stop)
+
+sarsa_agent.write_qtable()
+print(sarsa_agent.rewards_all_episodes)
