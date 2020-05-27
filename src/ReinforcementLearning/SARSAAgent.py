@@ -98,72 +98,82 @@ class SARSAAgent:
         self.q_table[state][action] = self.q_table[state][action] + self.alpha * (target - predict) 
     
     def train(self, env):
-
+            
+        f = open("SARSAresults.txt", "w")
         self.rewards_all_episodes = []
-
+        f.write("Num episodes: " + str(self.num_episodes) + '\n')
+        f.write("Max_steps: " + str(self.max_steps_per_episode) + '\n')
+        start_time = timeit.default_timer()
         # Starting the SARSA learning 
         for episode in range(self.num_episodes): 
-            env.reset()
-            state1 = env.state_to_string()
-            action1 = self.choose_action(state1, env) 
-            print(episode)
-            #Initializing the reward   
-            rewards_current_episode = 0
-        
-            for step in range(self.max_steps_per_episode): 
-                #Visualizing the training 
-                #env.render() 
-                
-                #Getting the next state 
-                reward, done = env.step(action1, True) 
+                env.reset()
+                state1 = env.state_to_string()
+                action1 = self.choose_action(state1, env) 
+                #Initializing the reward   
+                rewards_current_episode = 0
+                print(episode)
+                for step in range(self.max_steps_per_episode): 
+                        #Visualizing the training 
+                        #env.render() 
+                        
+                        #Getting the next state 
+                        reward, done = env.step(action1, True) 
 
-                rewards_current_episode += reward
+                        rewards_current_episode += reward
 
-                #If at the end of learning process 
-                if done:
+                        #If at the end of learning process 
+                        if done:
+                                if state1 not in self.q_table:
+                                        self.q_table[state1] = {}
+                                        self.q_table[state1][action1] = reward
+                                elif action1 not in self.q_table[state1]:
+                                        self.q_table[state1][action1] = reward
+                                break
+
+                        state2 = env.state_to_string()
+                        #Choosing the next action 
+                        action2 = self.choose_action(state2, env) 
+                        if action2 == -1:
+                                done = True
+                                if state1 not in self.q_table:
+                                        self.q_table[state1] = {}
+                                        self.q_table[state1][action1] = -1
+                                elif action1 not in self.q_table[state1]:
+                                        self.q_table[state1][action1] = -1
+                                break
+
                         if state1 not in self.q_table:
                                 self.q_table[state1] = {}
-                                self.q_table[state1][action1] = reward
+                                self.q_table[state1][action1] = 0
                         elif action1 not in self.q_table[state1]:
-                                self.q_table[state1][action1] = reward
-                        break
-
-                state2 = env.state_to_string()
-                #Choosing the next action 
-                action2 = self.choose_action(state2, env) 
-                if action2 == -1:
-                        done = True
-                        if state1 not in self.q_table:
-                                self.q_table[state1] = {}
-                                self.q_table[state1][action1] = -1
-                        elif action1 not in self.q_table[state1]:
-                                self.q_table[state1][action1] = -1
-                        break
-
-                if state1 not in self.q_table:
-                        self.q_table[state1] = {}
-                        self.q_table[state1][action1] = 0
-                elif action1 not in self.q_table[state1]:
-                        self.q_table[state1][action1] = 0
+                                self.q_table[state1][action1] = 0
+                        
+                        #Learning the Q-value 
+                        self.update(state1, state2, reward, action1, action2) 
                 
-                #Learning the Q-value 
-                self.update(state1, state2, reward, action1, action2) 
-        
-                state1 = state2 
-                action1 = action2 
-
+                        state1 = state2 
+                        action1 = action2 
             
-            self.rewards_all_episodes.append(rewards_current_episode)
+                self.rewards_all_episodes.append(rewards_current_episode)
 
-start = timeit.default_timer()
+        rewards_per_thousand_episodes = np.split(np.array(self.rewards_all_episodes), self.num_episodes / 1000)
+
+        end_time = timeit.default_timer()
+        if end_time != -1:
+                f.write("Training Time:" + str(end_time - start_time) + '\n')
+        f.write("Average reward per thousand episodes\n")
+        count = 1000
+        for r in rewards_per_thousand_episodes:
+
+                f.write(str(count) + ': ' + str(sum(r/1000)) + '\n')
+                count += 1000
+        f.close()
+
+
 env = gym.make("pivit-v0")
 env.setup()
-sarsa_agent = SARSAAgent("sarsaQtable.json", 100, 220, 0.9, 0.85, 0.95)
+sarsa_agent = SARSAAgent("sarsaQtable.json", 50000, 220, 0.8, 0.85, 0.95)
 
 sarsa_agent.train(env)
 
-stop = timeit.default_timer()
-print(stop)
-
 sarsa_agent.write_qtable()
-print(sarsa_agent.rewards_all_episodes)
