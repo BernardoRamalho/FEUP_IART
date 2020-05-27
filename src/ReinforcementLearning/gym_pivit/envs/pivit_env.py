@@ -83,16 +83,18 @@ class PivitEnv(gym.Env):
 
         isDone = self.isDone()
 
+
         if isDone:
             winner = self.whoWon()
             if winner == 1:
                     reward += 1
             else: reward -= 1
+            return reward, isDone
+        
         elif random:
             self.player_turn *= -1
             move = np.random.choice(self.generate_valid_moves())
             self.player_move(self.move_to_action(move), True)
-
             isDone = self.isDone()
             
             if isDone:
@@ -103,7 +105,6 @@ class PivitEnv(gym.Env):
 
         self.player_turn *= -1
         
-
         return reward, isDone
 
 
