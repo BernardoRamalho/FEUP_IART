@@ -137,17 +137,17 @@ class QLAgent:
                         if step < self.max_steps_per_episode - 1:
                                 print("Winner:")
                                 print(env.whoWon())
-                rewards_per_thousand_episodes = np.split(np.array(self.rewards_all_episodes), self.num_episodes / 100)
+                rewards_per_thousand_episodes = np.split(np.array(self.rewards_all_episodes), self.num_episodes / 1000)
 
                 end_time = timeit.default_timer()
                 if end_time != -1:
                         f.write("Training Time:" + str(end_time - start_time) + '\n')
                 f.write("Average reward per thousand episodes\n")
 
-                count = 100
+                count = 1000
                 for r in rewards_per_thousand_episodes:
-                        f.write(str(count) + ': ' + str(sum(r/100)) + '\n')
-                        count += 100
+                        f.write(str(count) + ': ' + str(sum(r/1000)) + '\n')
+                        count += 1000
                 f.close()
 
 
@@ -204,7 +204,7 @@ env.setup()
 
 #test_str = env.state_to_string()
 
-ql_agent = QLAgent("qtableV2.json", 1000, 250, 0.4, 0.6, 1, 1, 0.01, 0.01)
+ql_agent = QLAgent("qtableV2.json", 10000, 250, 0.4, 0.6, 1, 1, 0.01, 0.01)
 
 
 ql_agent.train(env)
