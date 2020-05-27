@@ -17,4 +17,10 @@ https://github.com/genyrosk/gym-chess -> Link do Chess Environment
 - [ ] Defenir __init__ e reset do environment
 - [ ] Defenir step do agent (o que calcula e efetua um passo do agent)
 
-##### 3. Defenir algoritmos de Q-learning & SAC
+##### Que queremos:
+
+- Rewards/1000 episodes
+
+- Tempo que demora a treinar/1000 episódios
+
+- Comparar QL vs SARSA
