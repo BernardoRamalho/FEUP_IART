@@ -5,6 +5,7 @@ import gym_pivit
 import time
 import json
 import timeit
+import time
 
 from pathlib import Path
 
@@ -42,8 +43,12 @@ class QLAgent:
         def read_qtable(self):
             test = Path(self.file_path)
             if test.is_file():
-                with open(self.file_path, 'r') as file:
-                        self.q_table = json.load(file)
+                        try:
+                                with open(self.file_path, 'r') as file:
+                                        self.q_table = json.load(file)
+                        except:
+                                print("QTable file was empty")
+                                self.q_table = {}
 
 
         @staticmethod
@@ -68,12 +73,21 @@ class QLAgent:
 
         def train(self, env):
                 self.rewards_all_episodes = []
-
+                rewards_current_episode = 'a'
+                start_time = -1
+                end_time = -1
                 for episode in range(self.num_episodes):
                         env.reset()
-
+                        if end_time != -1:
+                                print("Time diff:")
+                                print(end_time - start_time)
+                        start_time = time.time()
+                        if rewards_current_episode != 'a':
+                                print("Rewards")
+                                print(rewards_current_episode)
                         done = False
                         rewards_current_episode = 0
+                        print("Episode Number")
                         print(episode)
                         for step in range(self.max_steps_per_episode):
                                 #env.render() 
@@ -110,6 +124,7 @@ class QLAgent:
                                 rewards_current_episode += reward
 
                                 if done == True:
+                                        end_time = time.time()
                                         break
 
                         self.exploration_rate = self.min_exploration_rate + (self.max_exploration_rate - self.min_exploration_rate) * np.exp(-self.exploration_decay_rate*episode)
@@ -117,7 +132,15 @@ class QLAgent:
                         self.rewards_all_episodes.append(rewards_current_episode)
                         
                         if step < self.max_steps_per_episode - 1:
+                                print("Winner:")
                                 print(env.whoWon())
+                        end_time = time.time()
+                if end_time != -1:
+                        print("Time diff:")
+                        print(end_time - start_time)
+                if rewards_current_episode != 'a':
+                        print("Rewards")
+                        print(rewards_current_episode)
 
 start = timeit.default_timer()
 env = gym.make("pivit-v0")
@@ -138,11 +161,11 @@ env.setup()
 
 #test_str = env.state_to_string()
 
-ql_agent = QLAgent("qtable.json", 100, 250, 0.1, 0.9, 1, 1, 0.01, 0.01)
+ql_agent = QLAgent("qtable.json", 2, 250, 0.1, 0.9, 1, 1, 0.01, 0.01)
 
 ql_agent.train(env)
 stop = timeit.default_timer()
-print(stop)
+#print(stop)
 
 ql_agent.write_qtable()
 
