@@ -1,0 +1,7998 @@
+pygame 1.9.6
+Hello from the pygame community. https://www.pygame.org/contribute.html
+Episode Number
+0
+Winner:
+1
+Time diff:
+0.08800172805786133
+Rewards
+1
+Episode Number
+1
+Winner:
+1
+Time diff:
+0.05553627014160156
+Rewards
+1
+Episode Number
+2
+Winner:
+-1
+Time diff:
+0.0901036262512207
+Rewards
+-1
+Episode Number
+3
+Winner:
+-1
+Time diff:
+0.09710836410522461
+Rewards
+-1
+Episode Number
+4
+Winner:
+1
+Time diff:
+0.05207395553588867
+Rewards
+1
+Episode Number
+5
+Winner:
+-1
+Time diff:
+0.06550168991088867
+Rewards
+-1
+Episode Number
+6
+Winner:
+1
+Time diff:
+0.03797459602355957
+Rewards
+1
+Episode Number
+7
+Winner:
+-1
+Time diff:
+0.02557659149169922
+Rewards
+0
+Episode Number
+8
+Winner:
+1
+Time diff:
+0.05965590476989746
+Rewards
+1
+Episode Number
+9
+Winner:
+-1
+Time diff:
+0.06235766410827637
+Rewards
+0
+Episode Number
+10
+Winner:
+-1
+Time diff:
+0.0437321662902832
+Rewards
+-1
+Episode Number
+11
+Winner:
+-1
+Time diff:
+0.04371976852416992
+Rewards
+-1
+Episode Number
+12
+Winner:
+-1
+Time diff:
+0.04159903526306152
+Rewards
+-1
+Episode Number
+13
+Winner:
+-1
+Time diff:
+0.04915475845336914
+Rewards
+-1
+Episode Number
+14
+Winner:
+-1
+Time diff:
+0.052156925201416016
+Rewards
+-1
+Episode Number
+15
+Winner:
+-1
+Time diff:
+0.0479888916015625
+Rewards
+-1
+Episode Number
+16
+Winner:
+-1
+Time diff:
+0.05601811408996582
+Rewards
+-1
+Episode Number
+17
+Winner:
+-1
+Time diff:
+0.03456449508666992
+Rewards
+-1
+Episode Number
+18
+Winner:
+-1
+Time diff:
+0.04068613052368164
+Rewards
+-1
+Episode Number
+19
+Winner:
+-1
+Time diff:
+0.034216880798339844
+Rewards
+0
+Episode Number
+20
+Winner:
+-1
+Time diff:
+0.03545665740966797
+Rewards
+-1
+Episode Number
+21
+Winner:
+-1
+Time diff:
+0.035156965255737305
+Rewards
+-1
+Episode Number
+22
+Winner:
+-1
+Time diff:
+0.04777264595031738
+Rewards
+-1
+Episode Number
+23
+Winner:
+-1
+Time diff:
+0.023705482482910156
+Rewards
+-1
+Episode Number
+24
+Winner:
+-1
+Time diff:
+0.037514686584472656
+Rewards
+-1
+Episode Number
+25
+Winner:
+-1
+Time diff:
+0.03511857986450195
+Rewards
+-1
+Episode Number
+26
+Winner:
+-1
+Time diff:
+0.043511152267456055
+Rewards
+-1
+Episode Number
+27
+Winner:
+-1
+Time diff:
+0.03525352478027344
+Rewards
+-1
+Episode Number
+28
+Winner:
+-1
+Time diff:
+0.04765605926513672
+Rewards
+-1
+Episode Number
+29
+Winner:
+-1
+Time diff:
+0.03835558891296387
+Rewards
+-1
+Episode Number
+30
+Winner:
+-1
+Time diff:
+0.04219770431518555
+Rewards
+-1
+Episode Number
+31
+Winner:
+-1
+Time diff:
+0.02893686294555664
+Rewards
+-1
+Episode Number
+32
+Winner:
+-1
+Time diff:
+0.03300881385803223
+Rewards
+-1
+Episode Number
+33
+Winner:
+-1
+Time diff:
+0.026146650314331055
+Rewards
+-1
+Episode Number
+34
+Winner:
+-1
+Time diff:
+0.02266836166381836
+Rewards
+-1
+Episode Number
+35
+Winner:
+-1
+Time diff:
+0.037528276443481445
+Rewards
+-1
+Episode Number
+36
+Winner:
+-1
+Time diff:
+0.0427241325378418
+Rewards
+-1
+Episode Number
+37
+Winner:
+-1
+Time diff:
+0.027906179428100586
+Rewards
+0
+Episode Number
+38
+Winner:
+-1
+Time diff:
+0.032076358795166016
+Rewards
+-1
+Episode Number
+39
+Winner:
+-1
+Time diff:
+0.03921222686767578
+Rewards
+0
+Episode Number
+40
+Winner:
+-1
+Time diff:
+0.03137063980102539
+Rewards
+0
+Episode Number
+41
+Winner:
+-1
+Time diff:
+0.027418851852416992
+Rewards
+-1
+Episode Number
+42
+Winner:
+-1
+Time diff:
+0.0307004451751709
+Rewards
+-1
+Episode Number
+43
+Winner:
+-1
+Time diff:
+0.03361678123474121
+Rewards
+-1
+Episode Number
+44
+Winner:
+-1
+Time diff:
+0.030114412307739258
+Rewards
+-1
+Episode Number
+45
+Winner:
+-1
+Time diff:
+0.02714371681213379
+Rewards
+-1
+Episode Number
+46
+Winner:
+-1
+Time diff:
+0.02988409996032715
+Rewards
+-1
+Episode Number
+47
+Winner:
+-1
+Time diff:
+0.028020143508911133
+Rewards
+-1
+Episode Number
+48
+Winner:
+-1
+Time diff:
+0.03703618049621582
+Rewards
+0
+Episode Number
+49
+Winner:
+-1
+Time diff:
+0.025035619735717773
+Rewards
+-1
+Episode Number
+50
+Winner:
+-1
+Time diff:
+0.02369093894958496
+Rewards
+-1
+Episode Number
+51
+Winner:
+-1
+Time diff:
+0.02937602996826172
+Rewards
+-1
+Episode Number
+52
+Winner:
+-1
+Time diff:
+0.02456521987915039
+Rewards
+-1
+Episode Number
+53
+Winner:
+-1
+Time diff:
+0.02642083168029785
+Rewards
+-1
+Episode Number
+54
+Winner:
+-1
+Time diff:
+0.03043222427368164
+Rewards
+-1
+Episode Number
+55
+Winner:
+-1
+Time diff:
+0.023822307586669922
+Rewards
+-1
+Episode Number
+56
+Winner:
+-1
+Time diff:
+0.03165698051452637
+Rewards
+-1
+Episode Number
+57
+Winner:
+-1
+Time diff:
+0.023821592330932617
+Rewards
+-1
+Episode Number
+58
+Winner:
+-1
+Time diff:
+0.031805992126464844
+Rewards
+-1
+Episode Number
+59
+Winner:
+-1
+Time diff:
+0.033477067947387695
+Rewards
+-1
+Episode Number
+60
+Winner:
+-1
+Time diff:
+0.031211137771606445
+Rewards
+-1
+Episode Number
+61
+Winner:
+-1
+Time diff:
+0.02884531021118164
+Rewards
+-1
+Episode Number
+62
+Winner:
+-1
+Time diff:
+0.028834104537963867
+Rewards
+-1
+Episode Number
+63
+Winner:
+-1
+Time diff:
+0.029513835906982422
+Rewards
+-1
+Episode Number
+64
+Winner:
+-1
+Time diff:
+0.026194334030151367
+Rewards
+-1
+Episode Number
+65
+Winner:
+-1
+Time diff:
+0.0267791748046875
+Rewards
+-1
+Episode Number
+66
+Winner:
+-1
+Time diff:
+0.027664899826049805
+Rewards
+-1
+Episode Number
+67
+Winner:
+-1
+Time diff:
+0.028020620346069336
+Rewards
+-1
+Episode Number
+68
+Winner:
+-1
+Time diff:
+0.020468711853027344
+Rewards
+-1
+Episode Number
+69
+Winner:
+-1
+Time diff:
+0.025456905364990234
+Rewards
+-1
+Episode Number
+70
+Winner:
+-1
+Time diff:
+0.02656078338623047
+Rewards
+-1
+Episode Number
+71
+Winner:
+-1
+Time diff:
+0.03232145309448242
+Rewards
+-1
+Episode Number
+72
+Winner:
+-1
+Time diff:
+0.03072357177734375
+Rewards
+-1
+Episode Number
+73
+Winner:
+-1
+Time diff:
+0.02560114860534668
+Rewards
+-1
+Episode Number
+74
+Winner:
+-1
+Time diff:
+0.029954910278320312
+Rewards
+-1
+Episode Number
+75
+Winner:
+-1
+Time diff:
+0.028088808059692383
+Rewards
+-1
+Episode Number
+76
+Winner:
+-1
+Time diff:
+0.02669358253479004
+Rewards
+-1
+Episode Number
+77
+Winner:
+-1
+Time diff:
+0.024052858352661133
+Rewards
+-1
+Episode Number
+78
+Winner:
+-1
+Time diff:
+0.0240175724029541
+Rewards
+-1
+Episode Number
+79
+Winner:
+-1
+Time diff:
+0.02005171775817871
+Rewards
+-1
+Episode Number
+80
+Winner:
+-1
+Time diff:
+0.028959989547729492
+Rewards
+-1
+Episode Number
+81
+Winner:
+-1
+Time diff:
+0.029355764389038086
+Rewards
+-1
+Episode Number
+82
+Winner:
+-1
+Time diff:
+0.02415156364440918
+Rewards
+-1
+Episode Number
+83
+Winner:
+-1
+Time diff:
+0.027265071868896484
+Rewards
+-1
+Episode Number
+84
+Winner:
+-1
+Time diff:
+0.034854888916015625
+Rewards
+-1
+Episode Number
+85
+Winner:
+-1
+Time diff:
+0.04493856430053711
+Rewards
+-1
+Episode Number
+86
+Winner:
+-1
+Time diff:
+0.030386924743652344
+Rewards
+0
+Episode Number
+87
+Winner:
+-1
+Time diff:
+0.029143333435058594
+Rewards
+-1
+Episode Number
+88
+Winner:
+-1
+Time diff:
+0.032205820083618164
+Rewards
+-1
+Episode Number
+89
+Winner:
+-1
+Time diff:
+0.0345301628112793
+Rewards
+-1
+Episode Number
+90
+Winner:
+-1
+Time diff:
+0.026790618896484375
+Rewards
+-1
+Episode Number
+91
+Winner:
+-1
+Time diff:
+0.029288053512573242
+Rewards
+-1
+Episode Number
+92
+Winner:
+-1
+Time diff:
+0.040869712829589844
+Rewards
+-1
+Episode Number
+93
+Winner:
+-1
+Time diff:
+0.022907495498657227
+Rewards
+-1
+Episode Number
+94
+Winner:
+-1
+Time diff:
+0.026569843292236328
+Rewards
+-1
+Episode Number
+95
+Winner:
+-1
+Time diff:
+0.024919509887695312
+Rewards
+-1
+Episode Number
+96
+Winner:
+-1
+Time diff:
+0.037058353424072266
+Rewards
+-1
+Episode Number
+97
+Winner:
+-1
+Time diff:
+0.025869369506835938
+Rewards
+-1
+Episode Number
+98
+Winner:
+-1
+Time diff:
+0.017220735549926758
+Rewards
+-1
+Episode Number
+99
+Winner:
+-1
+Time diff:
+0.026180267333984375
+Rewards
+-1
+Episode Number
+100
+Winner:
+-1
+Time diff:
+0.02675342559814453
+Rewards
+-1
+Episode Number
+101
+Winner:
+-1
+Time diff:
+0.02613520622253418
+Rewards
+-1
+Episode Number
+102
+Winner:
+-1
+Time diff:
+0.026334047317504883
+Rewards
+-1
+Episode Number
+103
+Winner:
+-1
+Time diff:
+0.020343542098999023
+Rewards
+-1
+Episode Number
+104
+Winner:
+-1
+Time diff:
+0.02287435531616211
+Rewards
+-1
+Episode Number
+105
+Winner:
+-1
+Time diff:
+0.0334165096282959
+Rewards
+-1
+Episode Number
+106
+Winner:
+-1
+Time diff:
+0.02693772315979004
+Rewards
+-1
+Episode Number
+107
+Winner:
+-1
+Time diff:
+0.034981727600097656
+Rewards
+-1
+Episode Number
+108
+Winner:
+-1
+Time diff:
+0.024670839309692383
+Rewards
+-1
+Episode Number
+109
+Winner:
+-1
+Time diff:
+0.047183990478515625
+Rewards
+-1
+Episode Number
+110
+Winner:
+-1
+Time diff:
+0.023868560791015625
+Rewards
+0
+Episode Number
+111
+Winner:
+-1
+Time diff:
+0.027071475982666016
+Rewards
+-1
+Episode Number
+112
+Winner:
+-1
+Time diff:
+0.03871560096740723
+Rewards
+-1
+Episode Number
+113
+Winner:
+-1
+Time diff:
+0.030268430709838867
+Rewards
+0
+Episode Number
+114
+Winner:
+-1
+Time diff:
+0.029898405075073242
+Rewards
+-1
+Episode Number
+115
+Winner:
+-1
+Time diff:
+0.023221254348754883
+Rewards
+0
+Episode Number
+116
+Winner:
+-1
+Time diff:
+0.022448062896728516
+Rewards
+-1
+Episode Number
+117
+Winner:
+-1
+Time diff:
+0.030274391174316406
+Rewards
+-1
+Episode Number
+118
+Winner:
+-1
+Time diff:
+0.024796247482299805
+Rewards
+-1
+Episode Number
+119
+Winner:
+-1
+Time diff:
+0.0231478214263916
+Rewards
+-1
+Episode Number
+120
+Winner:
+-1
+Time diff:
+0.03562331199645996
+Rewards
+-1
+Episode Number
+121
+Winner:
+-1
+Time diff:
+0.0391993522644043
+Rewards
+-1
+Episode Number
+122
+Winner:
+-1
+Time diff:
+0.04045510292053223
+Rewards
+-1
+Episode Number
+123
+Winner:
+-1
+Time diff:
+0.03948783874511719
+Rewards
+-1
+Episode Number
+124
+Winner:
+-1
+Time diff:
+0.03336024284362793
+Rewards
+-1
+Episode Number
+125
+Winner:
+-1
+Time diff:
+0.03180217742919922
+Rewards
+-1
+Episode Number
+126
+Winner:
+-1
+Time diff:
+0.036536216735839844
+Rewards
+0
+Episode Number
+127
+Winner:
+-1
+Time diff:
+0.036126136779785156
+Rewards
+-1
+Episode Number
+128
+Winner:
+-1
+Time diff:
+0.03453803062438965
+Rewards
+-1
+Episode Number
+129
+Winner:
+-1
+Time diff:
+0.030068159103393555
+Rewards
+-1
+Episode Number
+130
+Winner:
+-1
+Time diff:
+0.03234457969665527
+Rewards
+-1
+Episode Number
+131
+Winner:
+-1
+Time diff:
+0.031123638153076172
+Rewards
+-1
+Episode Number
+132
+Winner:
+-1
+Time diff:
+0.02683258056640625
+Rewards
+-1
+Episode Number
+133
+Winner:
+-1
+Time diff:
+0.026173114776611328
+Rewards
+-1
+Episode Number
+134
+Winner:
+-1
+Time diff:
+0.027457475662231445
+Rewards
+-1
+Episode Number
+135
+Winner:
+-1
+Time diff:
+0.039820194244384766
+Rewards
+-1
+Episode Number
+136
+Winner:
+-1
+Time diff:
+0.03272366523742676
+Rewards
+0
+Episode Number
+137
+Winner:
+-1
+Time diff:
+0.03177332878112793
+Rewards
+-1
+Episode Number
+138
+Winner:
+-1
+Time diff:
+0.031951904296875
+Rewards
+-1
+Episode Number
+139
+Winner:
+-1
+Time diff:
+0.03405308723449707
+Rewards
+-1
+Episode Number
+140
+Winner:
+-1
+Time diff:
+0.026399612426757812
+Rewards
+-1
+Episode Number
+141
+Winner:
+-1
+Time diff:
+0.04358482360839844
+Rewards
+-1
+Episode Number
+142
+Winner:
+-1
+Time diff:
+0.03473305702209473
+Rewards
+-1
+Episode Number
+143
+Winner:
+-1
+Time diff:
+0.029909372329711914
+Rewards
+-1
+Episode Number
+144
+Winner:
+-1
+Time diff:
+0.03244757652282715
+Rewards
+-1
+Episode Number
+145
+Winner:
+-1
+Time diff:
+0.031882286071777344
+Rewards
+0
+Episode Number
+146
+Winner:
+-1
+Time diff:
+0.036458730697631836
+Rewards
+-1
+Episode Number
+147
+Winner:
+-1
+Time diff:
+0.037718772888183594
+Rewards
+-1
+Episode Number
+148
+Winner:
+-1
+Time diff:
+0.053579092025756836
+Rewards
+-1
+Episode Number
+149
+Winner:
+-1
+Time diff:
+0.033384084701538086
+Rewards
+-1
+Episode Number
+150
+Winner:
+-1
+Time diff:
+0.03744363784790039
+Rewards
+-1
+Episode Number
+151
+Winner:
+-1
+Time diff:
+0.033010244369506836
+Rewards
+-1
+Episode Number
+152
+Winner:
+-1
+Time diff:
+0.03733348846435547
+Rewards
+-1
+Episode Number
+153
+Winner:
+-1
+Time diff:
+0.03112030029296875
+Rewards
+0
+Episode Number
+154
+Winner:
+-1
+Time diff:
+0.03951430320739746
+Rewards
+-1
+Episode Number
+155
+Winner:
+-1
+Time diff:
+0.02839064598083496
+Rewards
+-1
+Episode Number
+156
+Winner:
+-1
+Time diff:
+0.030771493911743164
+Rewards
+-1
+Episode Number
+157
+Winner:
+-1
+Time diff:
+0.02544426918029785
+Rewards
+-1
+Episode Number
+158
+Winner:
+-1
+Time diff:
+0.04022359848022461
+Rewards
+-1
+Episode Number
+159
+Winner:
+-1
+Time diff:
+0.03939461708068848
+Rewards
+-1
+Episode Number
+160
+Winner:
+-1
+Time diff:
+0.04178166389465332
+Rewards
+-1
+Episode Number
+161
+Winner:
+-1
+Time diff:
+0.03448152542114258
+Rewards
+-1
+Episode Number
+162
+Winner:
+-1
+Time diff:
+0.045720815658569336
+Rewards
+-1
+Episode Number
+163
+Winner:
+-1
+Time diff:
+0.03177523612976074
+Rewards
+-1
+Episode Number
+164
+Winner:
+-1
+Time diff:
+0.034589529037475586
+Rewards
+-1
+Episode Number
+165
+Winner:
+-1
+Time diff:
+0.044046640396118164
+Rewards
+-1
+Episode Number
+166
+Winner:
+-1
+Time diff:
+0.03008556365966797
+Rewards
+-1
+Episode Number
+167
+Winner:
+-1
+Time diff:
+0.04391074180603027
+Rewards
+-1
+Episode Number
+168
+Winner:
+-1
+Time diff:
+0.03809809684753418
+Rewards
+-1
+Episode Number
+169
+Winner:
+-1
+Time diff:
+0.042838335037231445
+Rewards
+-1
+Episode Number
+170
+Winner:
+-1
+Time diff:
+0.04122352600097656
+Rewards
+-1
+Episode Number
+171
+Winner:
+-1
+Time diff:
+0.03228116035461426
+Rewards
+-1
+Episode Number
+172
+Winner:
+-1
+Time diff:
+0.0319361686706543
+Rewards
+-1
+Episode Number
+173
+Winner:
+-1
+Time diff:
+0.04351186752319336
+Rewards
+-1
+Episode Number
+174
+Winner:
+-1
+Time diff:
+0.04416036605834961
+Rewards
+-1
+Episode Number
+175
+Winner:
+-1
+Time diff:
+0.028750181198120117
+Rewards
+0
+Episode Number
+176
+Winner:
+-1
+Time diff:
+0.026940345764160156
+Rewards
+-1
+Episode Number
+177
+Winner:
+-1
+Time diff:
+0.043439388275146484
+Rewards
+-1
+Episode Number
+178
+Winner:
+-1
+Time diff:
+0.033469438552856445
+Rewards
+-1
+Episode Number
+179
+Winner:
+-1
+Time diff:
+0.039946794509887695
+Rewards
+-1
+Episode Number
+180
+Winner:
+-1
+Time diff:
+0.0447232723236084
+Rewards
+-1
+Episode Number
+181
+Winner:
+-1
+Time diff:
+0.03973698616027832
+Rewards
+-1
+Episode Number
+182
+Winner:
+-1
+Time diff:
+0.030790090560913086
+Rewards
+-1
+Episode Number
+183
+Winner:
+-1
+Time diff:
+0.03516268730163574
+Rewards
+-1
+Episode Number
+184
+Winner:
+-1
+Time diff:
+0.030931711196899414
+Rewards
+-1
+Episode Number
+185
+Winner:
+-1
+Time diff:
+0.03168654441833496
+Rewards
+-1
+Episode Number
+186
+Winner:
+-1
+Time diff:
+0.0341649055480957
+Rewards
+-1
+Episode Number
+187
+Winner:
+-1
+Time diff:
+0.048087120056152344
+Rewards
+-1
+Episode Number
+188
+Winner:
+-1
+Time diff:
+0.030686378479003906
+Rewards
+-1
+Episode Number
+189
+Winner:
+-1
+Time diff:
+0.039997100830078125
+Rewards
+-1
+Episode Number
+190
+Winner:
+-1
+Time diff:
+0.027112722396850586
+Rewards
+-1
+Episode Number
+191
+Winner:
+-1
+Time diff:
+0.027688264846801758
+Rewards
+-1
+Episode Number
+192
+Winner:
+-1
+Time diff:
+0.036322832107543945
+Rewards
+0
+Episode Number
+193
+Winner:
+-1
+Time diff:
+0.028500080108642578
+Rewards
+-1
+Episode Number
+194
+Winner:
+-1
+Time diff:
+0.03683733940124512
+Rewards
+-1
+Episode Number
+195
+Winner:
+-1
+Time diff:
+0.03263497352600098
+Rewards
+-1
+Episode Number
+196
+Winner:
+-1
+Time diff:
+0.0305941104888916
+Rewards
+-1
+Episode Number
+197
+Winner:
+-1
+Time diff:
+0.05213212966918945
+Rewards
+-1
+Episode Number
+198
+Winner:
+-1
+Time diff:
+0.03302621841430664
+Rewards
+-1
+Episode Number
+199
+Winner:
+-1
+Time diff:
+0.04023861885070801
+Rewards
+-1
+Episode Number
+200
+Winner:
+-1
+Time diff:
+0.03938698768615723
+Rewards
+-1
+Episode Number
+201
+Winner:
+-1
+Time diff:
+0.04441189765930176
+Rewards
+-1
+Episode Number
+202
+Winner:
+-1
+Time diff:
+0.03903388977050781
+Rewards
+0
+Episode Number
+203
+Winner:
+-1
+Time diff:
+0.04098677635192871
+Rewards
+-1
+Episode Number
+204
+Winner:
+-1
+Time diff:
+0.03728294372558594
+Rewards
+0
+Episode Number
+205
+Winner:
+-1
+Time diff:
+0.02915787696838379
+Rewards
+-1
+Episode Number
+206
+Winner:
+-1
+Time diff:
+0.04429888725280762
+Rewards
+-1
+Episode Number
+207
+Winner:
+-1
+Time diff:
+0.05428004264831543
+Rewards
+-1
+Episode Number
+208
+Winner:
+-1
+Time diff:
+0.04948782920837402
+Rewards
+-1
+Episode Number
+209
+Winner:
+-1
+Time diff:
+0.04951739311218262
+Rewards
+-1
+Episode Number
+210
+Winner:
+-1
+Time diff:
+0.04695892333984375
+Rewards
+-1
+Episode Number
+211
+Winner:
+-1
+Time diff:
+0.03644371032714844
+Rewards
+-1
+Episode Number
+212
+Winner:
+-1
+Time diff:
+0.05434751510620117
+Rewards
+-1
+Episode Number
+213
+Winner:
+-1
+Time diff:
+0.03310275077819824
+Rewards
+-1
+Episode Number
+214
+Winner:
+-1
+Time diff:
+0.035384178161621094
+Rewards
+0
+Episode Number
+215
+Winner:
+-1
+Time diff:
+0.049480438232421875
+Rewards
+-1
+Episode Number
+216
+Winner:
+-1
+Time diff:
+0.043862104415893555
+Rewards
+-1
+Episode Number
+217
+Winner:
+-1
+Time diff:
+0.041960716247558594
+Rewards
+0
+Episode Number
+218
+Winner:
+-1
+Time diff:
+0.049056053161621094
+Rewards
+-1
+Episode Number
+219
+Winner:
+-1
+Time diff:
+0.040305137634277344
+Rewards
+-1
+Episode Number
+220
+Winner:
+-1
+Time diff:
+0.04635119438171387
+Rewards
+-1
+Episode Number
+221
+Winner:
+-1
+Time diff:
+0.03392934799194336
+Rewards
+-1
+Episode Number
+222
+Winner:
+-1
+Time diff:
+0.06040024757385254
+Rewards
+0
+Episode Number
+223
+Winner:
+-1
+Time diff:
+0.044234275817871094
+Rewards
+-1
+Episode Number
+224
+Winner:
+-1
+Time diff:
+0.0552213191986084
+Rewards
+-1
+Episode Number
+225
+Winner:
+-1
+Time diff:
+0.03733181953430176
+Rewards
+0
+Episode Number
+226
+Winner:
+-1
+Time diff:
+0.06524801254272461
+Rewards
+-1
+Episode Number
+227
+Winner:
+-1
+Time diff:
+0.032032012939453125
+Rewards
+-1
+Episode Number
+228
+Winner:
+-1
+Time diff:
+0.04718780517578125
+Rewards
+-1
+Episode Number
+229
+Winner:
+-1
+Time diff:
+0.044019222259521484
+Rewards
+-1
+Episode Number
+230
+Winner:
+-1
+Time diff:
+0.053521156311035156
+Rewards
+-1
+Episode Number
+231
+Winner:
+-1
+Time diff:
+0.03087329864501953
+Rewards
+-1
+Episode Number
+232
+Winner:
+-1
+Time diff:
+0.04225587844848633
+Rewards
+-1
+Episode Number
+233
+Winner:
+-1
+Time diff:
+0.05719923973083496
+Rewards
+-1
+Episode Number
+234
+Winner:
+-1
+Time diff:
+0.042244672775268555
+Rewards
+-1
+Episode Number
+235
+Winner:
+-1
+Time diff:
+0.05249476432800293
+Rewards
+-1
+Episode Number
+236
+Winner:
+-1
+Time diff:
+0.05083489418029785
+Rewards
+-1
+Episode Number
+237
+Winner:
+-1
+Time diff:
+0.0572662353515625
+Rewards
+-1
+Episode Number
+238
+Winner:
+-1
+Time diff:
+0.04438900947570801
+Rewards
+-1
+Episode Number
+239
+Winner:
+-1
+Time diff:
+0.03708195686340332
+Rewards
+-1
+Episode Number
+240
+Winner:
+-1
+Time diff:
+0.04606127738952637
+Rewards
+-1
+Episode Number
+241
+Winner:
+-1
+Time diff:
+0.0615537166595459
+Rewards
+-1
+Episode Number
+242
+Winner:
+-1
+Time diff:
+0.03148031234741211
+Rewards
+-1
+Episode Number
+243
+Winner:
+-1
+Time diff:
+0.04324960708618164
+Rewards
+-1
+Episode Number
+244
+Winner:
+-1
+Time diff:
+0.055924415588378906
+Rewards
+-1
+Episode Number
+245
+Winner:
+-1
+Time diff:
+0.06318187713623047
+Rewards
+-1
+Episode Number
+246
+Winner:
+-1
+Time diff:
+0.043686628341674805
+Rewards
+-1
+Episode Number
+247
+Winner:
+-1
+Time diff:
+0.06270790100097656
+Rewards
+-1
+Episode Number
+248
+Winner:
+-1
+Time diff:
+0.03649163246154785
+Rewards
+0
+Episode Number
+249
+Winner:
+-1
+Time diff:
+0.055101633071899414
+Rewards
+0
+Episode Number
+250
+Winner:
+-1
+Time diff:
+0.05630779266357422
+Rewards
+0
+Episode Number
+251
+Winner:
+-1
+Time diff:
+0.03371071815490723
+Rewards
+-1
+Episode Number
+252
+Winner:
+-1
+Time diff:
+0.03961038589477539
+Rewards
+-1
+Episode Number
+253
+Winner:
+-1
+Time diff:
+0.04603266716003418
+Rewards
+-1
+Episode Number
+254
+Winner:
+-1
+Time diff:
+0.03831934928894043
+Rewards
+-1
+Episode Number
+255
+Winner:
+-1
+Time diff:
+0.03550267219543457
+Rewards
+-1
+Episode Number
+256
+Winner:
+-1
+Time diff:
+0.05366921424865723
+Rewards
+-1
+Episode Number
+257
+Winner:
+-1
+Time diff:
+0.04319620132446289
+Rewards
+-1
+Episode Number
+258
+Winner:
+-1
+Time diff:
+0.042244672775268555
+Rewards
+0
+Episode Number
+259
+Winner:
+-1
+Time diff:
+0.049368858337402344
+Rewards
+-1
+Episode Number
+260
+Winner:
+-1
+Time diff:
+0.07116436958312988
+Rewards
+-1
+Episode Number
+261
+Winner:
+-1
+Time diff:
+0.07013440132141113
+Rewards
+0
+Episode Number
+262
+Winner:
+-1
+Time diff:
+0.05432295799255371
+Rewards
+-1
+Episode Number
+263
+Winner:
+-1
+Time diff:
+0.04567885398864746
+Rewards
+-1
+Episode Number
+264
+Winner:
+-1
+Time diff:
+0.038527727127075195
+Rewards
+-1
+Episode Number
+265
+Winner:
+-1
+Time diff:
+0.04551577568054199
+Rewards
+-1
+Episode Number
+266
+Winner:
+-1
+Time diff:
+0.08099985122680664
+Rewards
+-1
+Episode Number
+267
+Winner:
+-1
+Time diff:
+0.06653523445129395
+Rewards
+-1
+Episode Number
+268
+Winner:
+-1
+Time diff:
+0.06071782112121582
+Rewards
+0
+Episode Number
+269
+Winner:
+-1
+Time diff:
+0.04542994499206543
+Rewards
+-1
+Episode Number
+270
+Winner:
+-1
+Time diff:
+0.0739145278930664
+Rewards
+-1
+Episode Number
+271
+Winner:
+-1
+Time diff:
+0.04483222961425781
+Rewards
+-1
+Episode Number
+272
+Winner:
+-1
+Time diff:
+0.06446671485900879
+Rewards
+0
+Episode Number
+273
+Winner:
+-1
+Time diff:
+0.03887319564819336
+Rewards
+-1
+Episode Number
+274
+Winner:
+-1
+Time diff:
+0.06664323806762695
+Rewards
+-1
+Episode Number
+275
+Winner:
+-1
+Time diff:
+0.0397946834564209
+Rewards
+-1
+Episode Number
+276
+Winner:
+-1
+Time diff:
+0.03955531120300293
+Rewards
+-1
+Episode Number
+277
+Winner:
+-1
+Time diff:
+0.05897235870361328
+Rewards
+-1
+Episode Number
+278
+Winner:
+-1
+Time diff:
+0.03841590881347656
+Rewards
+0
+Episode Number
+279
+Winner:
+-1
+Time diff:
+0.04622960090637207
+Rewards
+-1
+Episode Number
+280
+Winner:
+-1
+Time diff:
+0.08224892616271973
+Rewards
+-1
+Episode Number
+281
+Winner:
+-1
+Time diff:
+0.04808640480041504
+Rewards
+-1
+Episode Number
+282
+Winner:
+-1
+Time diff:
+0.05971097946166992
+Rewards
+-1
+Episode Number
+283
+Winner:
+-1
+Time diff:
+0.0602571964263916
+Rewards
+-1
+Episode Number
+284
+Winner:
+-1
+Time diff:
+0.05443167686462402
+Rewards
+-1
+Episode Number
+285
+Winner:
+-1
+Time diff:
+0.0564422607421875
+Rewards
+-1
+Episode Number
+286
+Winner:
+-1
+Time diff:
+0.044733524322509766
+Rewards
+-1
+Episode Number
+287
+Winner:
+-1
+Time diff:
+0.051439523696899414
+Rewards
+0
+Episode Number
+288
+Winner:
+-1
+Time diff:
+0.05510902404785156
+Rewards
+-1
+Episode Number
+289
+Winner:
+-1
+Time diff:
+0.039392948150634766
+Rewards
+-1
+Episode Number
+290
+Winner:
+-1
+Time diff:
+0.04078936576843262
+Rewards
+-1
+Episode Number
+291
+Winner:
+-1
+Time diff:
+0.05214190483093262
+Rewards
+-1
+Episode Number
+292
+Winner:
+-1
+Time diff:
+0.026662826538085938
+Rewards
+-1
+Episode Number
+293
+Winner:
+-1
+Time diff:
+0.03470754623413086
+Rewards
+-1
+Episode Number
+294
+Winner:
+-1
+Time diff:
+0.02884817123413086
+Rewards
+-1
+Episode Number
+295
+Winner:
+-1
+Time diff:
+0.029676198959350586
+Rewards
+-1
+Episode Number
+296
+Winner:
+-1
+Time diff:
+0.05125761032104492
+Rewards
+0
+Episode Number
+297
+Winner:
+-1
+Time diff:
+0.05181479454040527
+Rewards
+-1
+Episode Number
+298
+Winner:
+-1
+Time diff:
+0.08765220642089844
+Rewards
+-1
+Episode Number
+299
+Winner:
+-1
+Time diff:
+0.0559847354888916
+Rewards
+0
+Episode Number
+300
+Winner:
+-1
+Time diff:
+0.0873253345489502
+Rewards
+0
+Episode Number
+301
+Winner:
+-1
+Time diff:
+0.11113715171813965
+Rewards
+-1
+Episode Number
+302
+Winner:
+-1
+Time diff:
+0.03331732749938965
+Rewards
+0
+Episode Number
+303
+Winner:
+-1
+Time diff:
+0.06717085838317871
+Rewards
+-1
+Episode Number
+304
+Winner:
+-1
+Time diff:
+0.06897783279418945
+Rewards
+0
+Episode Number
+305
+Winner:
+-1
+Time diff:
+0.0502932071685791
+Rewards
+-1
+Episode Number
+306
+Winner:
+-1
+Time diff:
+0.06269717216491699
+Rewards
+0
+Episode Number
+307
+Winner:
+-1
+Time diff:
+0.05054163932800293
+Rewards
+-1
+Episode Number
+308
+Winner:
+-1
+Time diff:
+0.05976247787475586
+Rewards
+-1
+Episode Number
+309
+Winner:
+-1
+Time diff:
+0.06270289421081543
+Rewards
+-1
+Episode Number
+310
+Winner:
+-1
+Time diff:
+0.07597923278808594
+Rewards
+-1
+Episode Number
+311
+Winner:
+-1
+Time diff:
+0.09054207801818848
+Rewards
+-1
+Episode Number
+312
+Winner:
+-1
+Time diff:
+0.046328067779541016
+Rewards
+-1
+Episode Number
+313
+Winner:
+-1
+Time diff:
+0.050933837890625
+Rewards
+-1
+Episode Number
+314
+Winner:
+-1
+Time diff:
+0.07685685157775879
+Rewards
+0
+Episode Number
+315
+Winner:
+-1
+Time diff:
+0.07464432716369629
+Rewards
+-1
+Episode Number
+316
+Winner:
+-1
+Time diff:
+0.0880579948425293
+Rewards
+0
+Episode Number
+317
+Winner:
+-1
+Time diff:
+0.04575824737548828
+Rewards
+-1
+Episode Number
+318
+Winner:
+-1
+Time diff:
+0.043193817138671875
+Rewards
+-1
+Episode Number
+319
+Winner:
+-1
+Time diff:
+0.08810949325561523
+Rewards
+-1
+Episode Number
+320
+Winner:
+-1
+Time diff:
+0.06338381767272949
+Rewards
+-1
+Episode Number
+321
+Winner:
+-1
+Time diff:
+0.03914356231689453
+Rewards
+-1
+Episode Number
+322
+Winner:
+-1
+Time diff:
+0.07384133338928223
+Rewards
+-1
+Episode Number
+323
+Winner:
+-1
+Time diff:
+0.06750655174255371
+Rewards
+-1
+Episode Number
+324
+Winner:
+-1
+Time diff:
+0.03522944450378418
+Rewards
+0
+Episode Number
+325
+Winner:
+-1
+Time diff:
+0.06090664863586426
+Rewards
+0
+Episode Number
+326
+Winner:
+-1
+Time diff:
+0.031068801879882812
+Rewards
+-1
+Episode Number
+327
+Winner:
+-1
+Time diff:
+0.05448770523071289
+Rewards
+-1
+Episode Number
+328
+Winner:
+-1
+Time diff:
+0.04911661148071289
+Rewards
+0
+Episode Number
+329
+Winner:
+-1
+Time diff:
+0.038756608963012695
+Rewards
+-1
+Episode Number
+330
+Winner:
+-1
+Time diff:
+0.07360148429870605
+Rewards
+-1
+Episode Number
+331
+Winner:
+-1
+Time diff:
+0.07854890823364258
+Rewards
+0
+Episode Number
+332
+Winner:
+-1
+Time diff:
+0.07862591743469238
+Rewards
+0
+Episode Number
+333
+Winner:
+-1
+Time diff:
+0.05914497375488281
+Rewards
+0
+Episode Number
+334
+Winner:
+-1
+Time diff:
+0.07987737655639648
+Rewards
+-1
+Episode Number
+335
+Winner:
+-1
+Time diff:
+0.062484025955200195
+Rewards
+0
+Episode Number
+336
+Winner:
+-1
+Time diff:
+0.06918835639953613
+Rewards
+0
+Episode Number
+337
+Winner:
+-1
+Time diff:
+0.08501768112182617
+Rewards
+-1
+Episode Number
+338
+Winner:
+-1
+Time diff:
+0.09495115280151367
+Rewards
+-1
+Episode Number
+339
+Winner:
+-1
+Time diff:
+0.054208993911743164
+Rewards
+-1
+Episode Number
+340
+Winner:
+-1
+Time diff:
+0.07016634941101074
+Rewards
+0
+Episode Number
+341
+Winner:
+-1
+Time diff:
+0.061324119567871094
+Rewards
+-1
+Episode Number
+342
+Winner:
+-1
+Time diff:
+0.08051490783691406
+Rewards
+0
+Episode Number
+343
+Winner:
+-1
+Time diff:
+0.03565263748168945
+Rewards
+-1
+Episode Number
+344
+Winner:
+-1
+Time diff:
+0.04483819007873535
+Rewards
+0
+Episode Number
+345
+Winner:
+-1
+Time diff:
+0.04880332946777344
+Rewards
+0
+Episode Number
+346
+Winner:
+-1
+Time diff:
+0.0675513744354248
+Rewards
+-1
+Episode Number
+347
+Winner:
+-1
+Time diff:
+0.03860831260681152
+Rewards
+-1
+Episode Number
+348
+Winner:
+-1
+Time diff:
+0.048175811767578125
+Rewards
+-1
+Episode Number
+349
+Winner:
+-1
+Time diff:
+0.06787109375
+Rewards
+0
+Episode Number
+350
+Winner:
+-1
+Time diff:
+0.05561542510986328
+Rewards
+-1
+Episode Number
+351
+Winner:
+-1
+Time diff:
+0.046254873275756836
+Rewards
+-1
+Episode Number
+352
+Winner:
+-1
+Time diff:
+0.05495166778564453
+Rewards
+0
+Episode Number
+353
+Winner:
+-1
+Time diff:
+0.06970548629760742
+Rewards
+-1
+Episode Number
+354
+Winner:
+-1
+Time diff:
+0.04170989990234375
+Rewards
+-1
+Episode Number
+355
+Winner:
+-1
+Time diff:
+0.06732010841369629
+Rewards
+-1
+Episode Number
+356
+Winner:
+-1
+Time diff:
+0.05523991584777832
+Rewards
+-1
+Episode Number
+357
+Winner:
+-1
+Time diff:
+0.09458160400390625
+Rewards
+-1
+Episode Number
+358
+Winner:
+-1
+Time diff:
+0.07199692726135254
+Rewards
+-1
+Episode Number
+359
+Winner:
+-1
+Time diff:
+0.057720184326171875
+Rewards
+-1
+Episode Number
+360
+Winner:
+-1
+Time diff:
+0.030643939971923828
+Rewards
+-1
+Episode Number
+361
+Winner:
+-1
+Time diff:
+0.06359648704528809
+Rewards
+-1
+Episode Number
+362
+Winner:
+-1
+Time diff:
+0.06807541847229004
+Rewards
+-1
+Episode Number
+363
+Winner:
+-1
+Time diff:
+0.05504202842712402
+Rewards
+-1
+Episode Number
+364
+Winner:
+-1
+Time diff:
+0.08469820022583008
+Rewards
+-1
+Episode Number
+365
+Winner:
+-1
+Time diff:
+0.09187173843383789
+Rewards
+-1
+Episode Number
+366
+Winner:
+-1
+Time diff:
+0.09937071800231934
+Rewards
+-1
+Episode Number
+367
+Winner:
+-1
+Time diff:
+0.06717205047607422
+Rewards
+0
+Episode Number
+368
+Winner:
+-1
+Time diff:
+0.0790555477142334
+Rewards
+-1
+Episode Number
+369
+Winner:
+-1
+Time diff:
+0.042189836502075195
+Rewards
+-1
+Episode Number
+370
+Winner:
+-1
+Time diff:
+0.09168457984924316
+Rewards
+-1
+Episode Number
+371
+Winner:
+-1
+Time diff:
+0.036940574645996094
+Rewards
+-1
+Episode Number
+372
+Winner:
+-1
+Time diff:
+0.07823801040649414
+Rewards
+0
+Episode Number
+373
+Winner:
+-1
+Time diff:
+0.04576373100280762
+Rewards
+-1
+Episode Number
+374
+Winner:
+-1
+Time diff:
+0.0448918342590332
+Rewards
+0
+Episode Number
+375
+Winner:
+-1
+Time diff:
+0.08887529373168945
+Rewards
+-1
+Episode Number
+376
+Winner:
+-1
+Time diff:
+0.033402442932128906
+Rewards
+-1
+Episode Number
+377
+Winner:
+-1
+Time diff:
+0.1127009391784668
+Rewards
+-1
+Episode Number
+378
+Winner:
+-1
+Time diff:
+0.07783198356628418
+Rewards
+-1
+Episode Number
+379
+Winner:
+-1
+Time diff:
+0.08134102821350098
+Rewards
+0
+Episode Number
+380
+Winner:
+-1
+Time diff:
+0.08686614036560059
+Rewards
+0
+Episode Number
+381
+Winner:
+-1
+Time diff:
+0.06894183158874512
+Rewards
+-1
+Episode Number
+382
+Winner:
+-1
+Time diff:
+0.04778337478637695
+Rewards
+0
+Episode Number
+383
+Winner:
+-1
+Time diff:
+0.05677390098571777
+Rewards
+0
+Episode Number
+384
+Winner:
+-1
+Time diff:
+0.07058048248291016
+Rewards
+-1
+Episode Number
+385
+Winner:
+-1
+Time diff:
+0.058380126953125
+Rewards
+0
+Episode Number
+386
+Winner:
+-1
+Time diff:
+0.04261445999145508
+Rewards
+-1
+Episode Number
+387
+Winner:
+-1
+Time diff:
+0.04764962196350098
+Rewards
+-1
+Episode Number
+388
+Winner:
+-1
+Time diff:
+0.09852814674377441
+Rewards
+0
+Episode Number
+389
+Winner:
+-1
+Time diff:
+0.07233905792236328
+Rewards
+-1
+Episode Number
+390
+Winner:
+-1
+Time diff:
+0.10341930389404297
+Rewards
+0
+Episode Number
+391
+Winner:
+-1
+Time diff:
+0.0699772834777832
+Rewards
+-1
+Episode Number
+392
+Winner:
+-1
+Time diff:
+0.06601691246032715
+Rewards
+-1
+Episode Number
+393
+Winner:
+-1
+Time diff:
+0.04652571678161621
+Rewards
+0
+Episode Number
+394
+Winner:
+-1
+Time diff:
+0.07382059097290039
+Rewards
+-1
+Episode Number
+395
+Winner:
+-1
+Time diff:
+0.040445804595947266
+Rewards
+-1
+Episode Number
+396
+Winner:
+-1
+Time diff:
+0.0947117805480957
+Rewards
+-1
+Episode Number
+397
+Winner:
+-1
+Time diff:
+0.09976625442504883
+Rewards
+-1
+Episode Number
+398
+Winner:
+-1
+Time diff:
+0.03149127960205078
+Rewards
+-1
+Episode Number
+399
+Winner:
+-1
+Time diff:
+0.07160663604736328
+Rewards
+-1
+Episode Number
+400
+Winner:
+-1
+Time diff:
+0.06471896171569824
+Rewards
+-1
+Episode Number
+401
+Winner:
+-1
+Time diff:
+0.024208784103393555
+Rewards
+-1
+Episode Number
+402
+Winner:
+-1
+Time diff:
+0.0847012996673584
+Rewards
+-1
+Episode Number
+403
+Winner:
+-1
+Time diff:
+0.06583595275878906
+Rewards
+-1
+Episode Number
+404
+Winner:
+-1
+Time diff:
+0.051752328872680664
+Rewards
+0
+Episode Number
+405
+Winner:
+-1
+Time diff:
+0.053922176361083984
+Rewards
+0
+Episode Number
+406
+Winner:
+-1
+Time diff:
+0.08799219131469727
+Rewards
+-1
+Episode Number
+407
+Winner:
+-1
+Time diff:
+0.11393976211547852
+Rewards
+-1
+Episode Number
+408
+Winner:
+-1
+Time diff:
+0.0958707332611084
+Rewards
+0
+Episode Number
+409
+Winner:
+-1
+Time diff:
+0.06999444961547852
+Rewards
+-1
+Episode Number
+410
+Winner:
+-1
+Time diff:
+0.06366896629333496
+Rewards
+-1
+Episode Number
+411
+Winner:
+-1
+Time diff:
+0.07441544532775879
+Rewards
+0
+Episode Number
+412
+Winner:
+-1
+Time diff:
+0.07577753067016602
+Rewards
+0
+Episode Number
+413
+Winner:
+-1
+Time diff:
+0.08174943923950195
+Rewards
+-1
+Episode Number
+414
+Winner:
+-1
+Time diff:
+0.05570840835571289
+Rewards
+-1
+Episode Number
+415
+Winner:
+-1
+Time diff:
+0.09959626197814941
+Rewards
+-1
+Episode Number
+416
+Winner:
+-1
+Time diff:
+0.056130409240722656
+Rewards
+0
+Episode Number
+417
+Winner:
+-1
+Time diff:
+0.06449246406555176
+Rewards
+-1
+Episode Number
+418
+Winner:
+-1
+Time diff:
+0.05802297592163086
+Rewards
+0
+Episode Number
+419
+Winner:
+-1
+Time diff:
+0.050478219985961914
+Rewards
+-1
+Episode Number
+420
+Winner:
+-1
+Time diff:
+0.08855938911437988
+Rewards
+-1
+Episode Number
+421
+Winner:
+-1
+Time diff:
+0.054370880126953125
+Rewards
+-1
+Episode Number
+422
+Winner:
+-1
+Time diff:
+0.0885164737701416
+Rewards
+-1
+Episode Number
+423
+Winner:
+-1
+Time diff:
+0.08020544052124023
+Rewards
+0
+Episode Number
+424
+Winner:
+-1
+Time diff:
+0.06386399269104004
+Rewards
+0
+Episode Number
+425
+Winner:
+-1
+Time diff:
+0.06586980819702148
+Rewards
+-1
+Episode Number
+426
+Winner:
+-1
+Time diff:
+0.05498003959655762
+Rewards
+-1
+Episode Number
+427
+Winner:
+-1
+Time diff:
+0.07251572608947754
+Rewards
+0
+Episode Number
+428
+Winner:
+-1
+Time diff:
+0.0683588981628418
+Rewards
+-1
+Episode Number
+429
+Winner:
+-1
+Time diff:
+0.08939671516418457
+Rewards
+-1
+Episode Number
+430
+Winner:
+-1
+Time diff:
+0.05013751983642578
+Rewards
+0
+Episode Number
+431
+Winner:
+-1
+Time diff:
+0.06550931930541992
+Rewards
+-1
+Episode Number
+432
+Winner:
+-1
+Time diff:
+0.07821083068847656
+Rewards
+-1
+Episode Number
+433
+Winner:
+-1
+Time diff:
+0.05328202247619629
+Rewards
+-1
+Episode Number
+434
+Winner:
+-1
+Time diff:
+0.05171513557434082
+Rewards
+0
+Episode Number
+435
+Winner:
+-1
+Time diff:
+0.08200931549072266
+Rewards
+-1
+Episode Number
+436
+Winner:
+-1
+Time diff:
+0.07067179679870605
+Rewards
+-1
+Episode Number
+437
+Winner:
+-1
+Time diff:
+0.08769440650939941
+Rewards
+0
+Episode Number
+438
+Winner:
+-1
+Time diff:
+0.04327249526977539
+Rewards
+-1
+Episode Number
+439
+Winner:
+-1
+Time diff:
+0.07933878898620605
+Rewards
+0
+Episode Number
+440
+Winner:
+-1
+Time diff:
+0.07498598098754883
+Rewards
+0
+Episode Number
+441
+Winner:
+-1
+Time diff:
+0.06957221031188965
+Rewards
+0
+Episode Number
+442
+Winner:
+-1
+Time diff:
+0.06322145462036133
+Rewards
+-1
+Episode Number
+443
+Winner:
+-1
+Time diff:
+0.09403324127197266
+Rewards
+-1
+Episode Number
+444
+Winner:
+-1
+Time diff:
+0.055932044982910156
+Rewards
+0
+Episode Number
+445
+Winner:
+-1
+Time diff:
+0.06092071533203125
+Rewards
+0
+Episode Number
+446
+Winner:
+-1
+Time diff:
+0.0714108943939209
+Rewards
+-1
+Episode Number
+447
+Winner:
+-1
+Time diff:
+0.05328512191772461
+Rewards
+0
+Episode Number
+448
+Winner:
+-1
+Time diff:
+0.1067509651184082
+Rewards
+0
+Episode Number
+449
+Winner:
+-1
+Time diff:
+0.04616427421569824
+Rewards
+0
+Episode Number
+450
+Winner:
+-1
+Time diff:
+0.10802555084228516
+Rewards
+-1
+Episode Number
+451
+Winner:
+-1
+Time diff:
+0.08313226699829102
+Rewards
+0
+Episode Number
+452
+Winner:
+-1
+Time diff:
+0.07945632934570312
+Rewards
+-1
+Episode Number
+453
+Winner:
+-1
+Time diff:
+0.08494782447814941
+Rewards
+-1
+Episode Number
+454
+Winner:
+-1
+Time diff:
+0.1560213565826416
+Rewards
+-1
+Episode Number
+455
+Winner:
+-1
+Time diff:
+0.08570194244384766
+Rewards
+-1
+Episode Number
+456
+Winner:
+-1
+Time diff:
+0.06740570068359375
+Rewards
+-1
+Episode Number
+457
+Winner:
+-1
+Time diff:
+0.07962417602539062
+Rewards
+0
+Episode Number
+458
+Winner:
+-1
+Time diff:
+0.039769887924194336
+Rewards
+0
+Episode Number
+459
+Winner:
+-1
+Time diff:
+0.0687718391418457
+Rewards
+0
+Episode Number
+460
+Winner:
+-1
+Time diff:
+0.053727149963378906
+Rewards
+-1
+Episode Number
+461
+Winner:
+-1
+Time diff:
+0.07775282859802246
+Rewards
+-1
+Episode Number
+462
+Winner:
+-1
+Time diff:
+0.06924700736999512
+Rewards
+0
+Episode Number
+463
+Winner:
+-1
+Time diff:
+0.061327457427978516
+Rewards
+-1
+Episode Number
+464
+Winner:
+-1
+Time diff:
+0.0628514289855957
+Rewards
+-1
+Episode Number
+465
+Winner:
+-1
+Time diff:
+0.1104428768157959
+Rewards
+-1
+Episode Number
+466
+Winner:
+-1
+Time diff:
+0.04724240303039551
+Rewards
+-1
+Episode Number
+467
+Winner:
+-1
+Time diff:
+0.08885693550109863
+Rewards
+-1
+Episode Number
+468
+Winner:
+-1
+Time diff:
+0.057434797286987305
+Rewards
+0
+Episode Number
+469
+Winner:
+-1
+Time diff:
+0.07572197914123535
+Rewards
+-1
+Episode Number
+470
+Winner:
+-1
+Time diff:
+0.1141660213470459
+Rewards
+0
+Episode Number
+471
+Winner:
+-1
+Time diff:
+0.06555676460266113
+Rewards
+-1
+Episode Number
+472
+Winner:
+-1
+Time diff:
+0.05414104461669922
+Rewards
+-1
+Episode Number
+473
+Winner:
+-1
+Time diff:
+0.1081082820892334
+Rewards
+-1
+Episode Number
+474
+Winner:
+-1
+Time diff:
+0.08963680267333984
+Rewards
+0
+Episode Number
+475
+Winner:
+-1
+Time diff:
+0.10857605934143066
+Rewards
+-1
+Episode Number
+476
+Winner:
+-1
+Time diff:
+0.06874537467956543
+Rewards
+-1
+Episode Number
+477
+Winner:
+-1
+Time diff:
+0.06715202331542969
+Rewards
+-1
+Episode Number
+478
+Winner:
+-1
+Time diff:
+0.05463457107543945
+Rewards
+-1
+Episode Number
+479
+Winner:
+-1
+Time diff:
+0.0708317756652832
+Rewards
+0
+Episode Number
+480
+Winner:
+-1
+Time diff:
+0.06371688842773438
+Rewards
+0
+Episode Number
+481
+Winner:
+-1
+Time diff:
+0.05730938911437988
+Rewards
+-1
+Episode Number
+482
+Winner:
+-1
+Time diff:
+0.07562255859375
+Rewards
+-1
+Episode Number
+483
+Winner:
+-1
+Time diff:
+0.07992744445800781
+Rewards
+0
+Episode Number
+484
+Winner:
+-1
+Time diff:
+0.07954931259155273
+Rewards
+0
+Episode Number
+485
+Winner:
+-1
+Time diff:
+0.07107424736022949
+Rewards
+-1
+Episode Number
+486
+Winner:
+-1
+Time diff:
+0.08024740219116211
+Rewards
+0
+Episode Number
+487
+Winner:
+-1
+Time diff:
+0.11000847816467285
+Rewards
+0
+Episode Number
+488
+Winner:
+-1
+Time diff:
+0.12772727012634277
+Rewards
+-1
+Episode Number
+489
+Winner:
+-1
+Time diff:
+0.08681917190551758
+Rewards
+-1
+Episode Number
+490
+Winner:
+-1
+Time diff:
+0.13344144821166992
+Rewards
+-1
+Episode Number
+491
+Winner:
+-1
+Time diff:
+0.07089829444885254
+Rewards
+-1
+Episode Number
+492
+Winner:
+-1
+Time diff:
+0.10056734085083008
+Rewards
+-1
+Episode Number
+493
+Winner:
+-1
+Time diff:
+0.05965709686279297
+Rewards
+0
+Episode Number
+494
+Winner:
+-1
+Time diff:
+0.15453386306762695
+Rewards
+-1
+Episode Number
+495
+Winner:
+-1
+Time diff:
+0.11005449295043945
+Rewards
+-1
+Episode Number
+496
+Winner:
+-1
+Time diff:
+0.06442117691040039
+Rewards
+0
+Episode Number
+497
+Winner:
+-1
+Time diff:
+0.0765988826751709
+Rewards
+0
+Episode Number
+498
+Winner:
+-1
+Time diff:
+0.06623578071594238
+Rewards
+0
+Episode Number
+499
+Winner:
+-1
+Time diff:
+0.09969544410705566
+Rewards
+0
+Episode Number
+500
+Winner:
+-1
+Time diff:
+0.058851003646850586
+Rewards
+0
+Episode Number
+501
+Winner:
+-1
+Time diff:
+0.07877445220947266
+Rewards
+0
+Episode Number
+502
+Winner:
+-1
+Time diff:
+0.07406926155090332
+Rewards
+0
+Episode Number
+503
+Winner:
+-1
+Time diff:
+0.06187295913696289
+Rewards
+0
+Episode Number
+504
+Winner:
+-1
+Time diff:
+0.06450533866882324
+Rewards
+0
+Episode Number
+505
+Winner:
+-1
+Time diff:
+0.06886959075927734
+Rewards
+-1
+Episode Number
+506
+Winner:
+-1
+Time diff:
+0.05870509147644043
+Rewards
+0
+Episode Number
+507
+Winner:
+-1
+Time diff:
+0.09137630462646484
+Rewards
+0
+Episode Number
+508
+Winner:
+-1
+Time diff:
+0.08915972709655762
+Rewards
+-1
+Episode Number
+509
+Winner:
+-1
+Time diff:
+0.053511857986450195
+Rewards
+0
+Episode Number
+510
+Winner:
+-1
+Time diff:
+0.05759906768798828
+Rewards
+0
+Episode Number
+511
+Winner:
+-1
+Time diff:
+0.1187591552734375
+Rewards
+0
+Episode Number
+512
+Winner:
+-1
+Time diff:
+0.07594847679138184
+Rewards
+-1
+Episode Number
+513
+Winner:
+-1
+Time diff:
+0.0783240795135498
+Rewards
+0
+Episode Number
+514
+Winner:
+-1
+Time diff:
+0.08245205879211426
+Rewards
+-1
+Episode Number
+515
+Winner:
+-1
+Time diff:
+0.0902564525604248
+Rewards
+-1
+Episode Number
+516
+Winner:
+-1
+Time diff:
+0.10221481323242188
+Rewards
+-1
+Episode Number
+517
+Winner:
+-1
+Time diff:
+0.11320209503173828
+Rewards
+0
+Episode Number
+518
+Winner:
+-1
+Time diff:
+0.10265278816223145
+Rewards
+0
+Episode Number
+519
+Winner:
+-1
+Time diff:
+0.06600022315979004
+Rewards
+0
+Episode Number
+520
+Winner:
+-1
+Time diff:
+0.06984448432922363
+Rewards
+-1
+Episode Number
+521
+Winner:
+-1
+Time diff:
+0.08473014831542969
+Rewards
+0
+Episode Number
+522
+Winner:
+-1
+Time diff:
+0.13737130165100098
+Rewards
+-1
+Episode Number
+523
+Winner:
+-1
+Time diff:
+0.06267309188842773
+Rewards
+0
+Episode Number
+524
+Winner:
+-1
+Time diff:
+0.07855653762817383
+Rewards
+0
+Episode Number
+525
+Winner:
+-1
+Time diff:
+0.0651559829711914
+Rewards
+-1
+Episode Number
+526
+Winner:
+-1
+Time diff:
+0.06921672821044922
+Rewards
+-1
+Episode Number
+527
+Winner:
+-1
+Time diff:
+0.11279082298278809
+Rewards
+0
+Episode Number
+528
+Winner:
+-1
+Time diff:
+0.06901907920837402
+Rewards
+-1
+Episode Number
+529
+Winner:
+-1
+Time diff:
+0.06257295608520508
+Rewards
+-1
+Episode Number
+530
+Winner:
+-1
+Time diff:
+0.06666350364685059
+Rewards
+0
+Episode Number
+531
+Winner:
+-1
+Time diff:
+0.10041594505310059
+Rewards
+0
+Episode Number
+532
+Winner:
+-1
+Time diff:
+0.08950495719909668
+Rewards
+-1
+Episode Number
+533
+Winner:
+-1
+Time diff:
+0.05823016166687012
+Rewards
+0
+Episode Number
+534
+Winner:
+-1
+Time diff:
+0.09635663032531738
+Rewards
+0
+Episode Number
+535
+Winner:
+-1
+Time diff:
+0.11540651321411133
+Rewards
+0
+Episode Number
+536
+Winner:
+-1
+Time diff:
+0.0426485538482666
+Rewards
+-1
+Episode Number
+537
+Winner:
+-1
+Time diff:
+0.1166074275970459
+Rewards
+0
+Episode Number
+538
+Winner:
+-1
+Time diff:
+0.05743885040283203
+Rewards
+0
+Episode Number
+539
+Winner:
+-1
+Time diff:
+0.11502456665039062
+Rewards
+-1
+Episode Number
+540
+Winner:
+-1
+Time diff:
+0.14910125732421875
+Rewards
+0
+Episode Number
+541
+Winner:
+-1
+Time diff:
+0.07454228401184082
+Rewards
+-1
+Episode Number
+542
+Winner:
+-1
+Time diff:
+0.1125495433807373
+Rewards
+0
+Episode Number
+543
+Winner:
+-1
+Time diff:
+0.11356306076049805
+Rewards
+0
+Episode Number
+544
+Winner:
+-1
+Time diff:
+0.11397337913513184
+Rewards
+-1
+Episode Number
+545
+Winner:
+-1
+Time diff:
+0.07888269424438477
+Rewards
+0
+Episode Number
+546
+Winner:
+-1
+Time diff:
+0.09719276428222656
+Rewards
+0
+Episode Number
+547
+Winner:
+-1
+Time diff:
+0.10608482360839844
+Rewards
+0
+Episode Number
+548
+Winner:
+-1
+Time diff:
+0.08797502517700195
+Rewards
+0
+Episode Number
+549
+Winner:
+-1
+Time diff:
+0.07763004302978516
+Rewards
+0
+Episode Number
+550
+Winner:
+-1
+Time diff:
+0.07682299613952637
+Rewards
+-1
+Episode Number
+551
+Winner:
+-1
+Time diff:
+0.05163836479187012
+Rewards
+0
+Episode Number
+552
+Winner:
+-1
+Time diff:
+0.05074310302734375
+Rewards
+0
+Episode Number
+553
+Winner:
+-1
+Time diff:
+0.07184696197509766
+Rewards
+-1
+Episode Number
+554
+Winner:
+-1
+Time diff:
+0.09752631187438965
+Rewards
+0
+Episode Number
+555
+Winner:
+-1
+Time diff:
+0.08965826034545898
+Rewards
+0
+Episode Number
+556
+Winner:
+-1
+Time diff:
+0.07594990730285645
+Rewards
+0
+Episode Number
+557
+Winner:
+-1
+Time diff:
+0.12376928329467773
+Rewards
+0
+Episode Number
+558
+Winner:
+-1
+Time diff:
+0.09563040733337402
+Rewards
+-1
+Episode Number
+559
+Winner:
+-1
+Time diff:
+0.08007454872131348
+Rewards
+-1
+Episode Number
+560
+Winner:
+-1
+Time diff:
+0.09974861145019531
+Rewards
+0
+Episode Number
+561
+Winner:
+-1
+Time diff:
+0.08527135848999023
+Rewards
+-1
+Episode Number
+562
+Winner:
+-1
+Time diff:
+0.07548308372497559
+Rewards
+-1
+Episode Number
+563
+Winner:
+-1
+Time diff:
+0.05499124526977539
+Rewards
+-1
+Episode Number
+564
+Winner:
+-1
+Time diff:
+0.09163522720336914
+Rewards
+0
+Episode Number
+565
+Winner:
+-1
+Time diff:
+0.08277130126953125
+Rewards
+-1
+Episode Number
+566
+Winner:
+-1
+Time diff:
+0.08403730392456055
+Rewards
+-1
+Episode Number
+567
+Winner:
+-1
+Time diff:
+0.10829782485961914
+Rewards
+0
+Episode Number
+568
+Winner:
+-1
+Time diff:
+0.10903525352478027
+Rewards
+-1
+Episode Number
+569
+Winner:
+-1
+Time diff:
+0.08752560615539551
+Rewards
+0
+Episode Number
+570
+Winner:
+-1
+Time diff:
+0.11552023887634277
+Rewards
+0
+Episode Number
+571
+Winner:
+-1
+Time diff:
+0.1014249324798584
+Rewards
+0
+Episode Number
+572
+Winner:
+-1
+Time diff:
+0.09545350074768066
+Rewards
+0
+Episode Number
+573
+Winner:
+-1
+Time diff:
+0.1315774917602539
+Rewards
+0
+Episode Number
+574
+Winner:
+-1
+Time diff:
+0.14693975448608398
+Rewards
+-1
+Episode Number
+575
+Winner:
+-1
+Time diff:
+0.11069917678833008
+Rewards
+0
+Episode Number
+576
+Winner:
+-1
+Time diff:
+0.15750980377197266
+Rewards
+-1
+Episode Number
+577
+Winner:
+-1
+Time diff:
+0.1147150993347168
+Rewards
+0
+Episode Number
+578
+Winner:
+-1
+Time diff:
+0.10924935340881348
+Rewards
+-1
+Episode Number
+579
+Winner:
+-1
+Time diff:
+0.09529352188110352
+Rewards
+0
+Episode Number
+580
+Winner:
+-1
+Time diff:
+0.07427740097045898
+Rewards
+0
+Episode Number
+581
+Winner:
+-1
+Time diff:
+0.11921262741088867
+Rewards
+0
+Episode Number
+582
+Winner:
+-1
+Time diff:
+0.11422204971313477
+Rewards
+-1
+Episode Number
+583
+Winner:
+-1
+Time diff:
+0.1274263858795166
+Rewards
+-1
+Episode Number
+584
+Winner:
+-1
+Time diff:
+0.16620564460754395
+Rewards
+-1
+Episode Number
+585
+Winner:
+-1
+Time diff:
+0.10367703437805176
+Rewards
+-1
+Episode Number
+586
+Winner:
+-1
+Time diff:
+0.1345503330230713
+Rewards
+-1
+Episode Number
+587
+Winner:
+-1
+Time diff:
+0.09155774116516113
+Rewards
+0
+Episode Number
+588
+Winner:
+-1
+Time diff:
+0.08506989479064941
+Rewards
+-1
+Episode Number
+589
+Winner:
+-1
+Time diff:
+0.08686041831970215
+Rewards
+0
+Episode Number
+590
+Winner:
+-1
+Time diff:
+0.08609366416931152
+Rewards
+0
+Episode Number
+591
+Winner:
+-1
+Time diff:
+0.12169671058654785
+Rewards
+0
+Episode Number
+592
+Winner:
+-1
+Time diff:
+0.16457819938659668
+Rewards
+0
+Episode Number
+593
+Winner:
+-1
+Time diff:
+0.1248629093170166
+Rewards
+-1
+Episode Number
+594
+Winner:
+-1
+Time diff:
+0.11086416244506836
+Rewards
+0
+Episode Number
+595
+Winner:
+-1
+Time diff:
+0.08494973182678223
+Rewards
+0
+Episode Number
+596
+Winner:
+-1
+Time diff:
+0.12008166313171387
+Rewards
+0
+Episode Number
+597
+Winner:
+-1
+Time diff:
+0.08052873611450195
+Rewards
+-1
+Episode Number
+598
+Winner:
+-1
+Time diff:
+0.12529301643371582
+Rewards
+0
+Episode Number
+599
+Winner:
+-1
+Time diff:
+0.08878970146179199
+Rewards
+0
+Episode Number
+600
+Winner:
+-1
+Time diff:
+0.13451194763183594
+Rewards
+0
+Episode Number
+601
+Winner:
+-1
+Time diff:
+0.13173794746398926
+Rewards
+0
+Episode Number
+602
+Winner:
+-1
+Time diff:
+0.08062863349914551
+Rewards
+-1
+Episode Number
+603
+Winner:
+-1
+Time diff:
+0.11163973808288574
+Rewards
+-1
+Episode Number
+604
+Winner:
+-1
+Time diff:
+0.06968069076538086
+Rewards
+0
+Episode Number
+605
+Winner:
+-1
+Time diff:
+0.1762866973876953
+Rewards
+0
+Episode Number
+606
+Winner:
+-1
+Time diff:
+0.1222696304321289
+Rewards
+0
+Episode Number
+607
+Winner:
+-1
+Time diff:
+0.07330632209777832
+Rewards
+-1
+Episode Number
+608
+Winner:
+-1
+Time diff:
+0.0799551010131836
+Rewards
+-1
+Episode Number
+609
+Winner:
+-1
+Time diff:
+0.12585186958312988
+Rewards
+0
+Episode Number
+610
+Winner:
+-1
+Time diff:
+0.12560653686523438
+Rewards
+0
+Episode Number
+611
+Winner:
+-1
+Time diff:
+0.0892796516418457
+Rewards
+-1
+Episode Number
+612
+Winner:
+-1
+Time diff:
+0.13105535507202148
+Rewards
+-1
+Episode Number
+613
+Winner:
+-1
+Time diff:
+0.10161066055297852
+Rewards
+-1
+Episode Number
+614
+Winner:
+-1
+Time diff:
+0.0720512866973877
+Rewards
+0
+Episode Number
+615
+Winner:
+-1
+Time diff:
+0.08839178085327148
+Rewards
+-1
+Episode Number
+616
+Winner:
+-1
+Time diff:
+0.1111149787902832
+Rewards
+-1
+Episode Number
+617
+Winner:
+-1
+Time diff:
+0.0639500617980957
+Rewards
+-1
+Episode Number
+618
+Winner:
+-1
+Time diff:
+0.1082925796508789
+Rewards
+0
+Episode Number
+619
+Winner:
+-1
+Time diff:
+0.15376639366149902
+Rewards
+0
+Episode Number
+620
+Winner:
+-1
+Time diff:
+0.13956570625305176
+Rewards
+0
+Episode Number
+621
+Winner:
+-1
+Time diff:
+0.23344206809997559
+Rewards
+0
+Episode Number
+622
+Winner:
+-1
+Time diff:
+0.08219528198242188
+Rewards
+0
+Episode Number
+623
+Winner:
+-1
+Time diff:
+0.12830328941345215
+Rewards
+0
+Episode Number
+624
+Winner:
+-1
+Time diff:
+0.12488007545471191
+Rewards
+-1
+Episode Number
+625
+Winner:
+-1
+Time diff:
+0.12976861000061035
+Rewards
+0
+Episode Number
+626
+Winner:
+-1
+Time diff:
+0.11724066734313965
+Rewards
+0
+Episode Number
+627
+Winner:
+-1
+Time diff:
+0.16253447532653809
+Rewards
+0
+Episode Number
+628
+Winner:
+-1
+Time diff:
+0.08522891998291016
+Rewards
+-1
+Episode Number
+629
+Winner:
+-1
+Time diff:
+0.08444809913635254
+Rewards
+-1
+Episode Number
+630
+Winner:
+-1
+Time diff:
+0.08883237838745117
+Rewards
+0
+Episode Number
+631
+Winner:
+-1
+Time diff:
+0.1279757022857666
+Rewards
+0
+Episode Number
+632
+Winner:
+-1
+Time diff:
+0.12094378471374512
+Rewards
+0
+Episode Number
+633
+Winner:
+-1
+Time diff:
+0.1428990364074707
+Rewards
+0
+Episode Number
+634
+Winner:
+-1
+Time diff:
+0.12308335304260254
+Rewards
+0
+Episode Number
+635
+Winner:
+-1
+Time diff:
+0.06403779983520508
+Rewards
+0
+Episode Number
+636
+Winner:
+-1
+Time diff:
+0.08719944953918457
+Rewards
+0
+Episode Number
+637
+Winner:
+-1
+Time diff:
+0.09759211540222168
+Rewards
+0
+Episode Number
+638
+Winner:
+-1
+Time diff:
+0.08082222938537598
+Rewards
+0
+Episode Number
+639
+Winner:
+-1
+Time diff:
+0.2395646572113037
+Rewards
+0
+Episode Number
+640
+Winner:
+-1
+Time diff:
+0.1564648151397705
+Rewards
+-1
+Episode Number
+641
+Winner:
+-1
+Time diff:
+0.1286923885345459
+Rewards
+0
+Episode Number
+642
+Winner:
+-1
+Time diff:
+0.1076662540435791
+Rewards
+0
+Episode Number
+643
+Winner:
+-1
+Time diff:
+0.11781597137451172
+Rewards
+-1
+Episode Number
+644
+Winner:
+-1
+Time diff:
+0.17494416236877441
+Rewards
+0
+Episode Number
+645
+Winner:
+-1
+Time diff:
+0.08228397369384766
+Rewards
+0
+Episode Number
+646
+Winner:
+-1
+Time diff:
+0.1374835968017578
+Rewards
+0
+Episode Number
+647
+Winner:
+-1
+Time diff:
+0.15325164794921875
+Rewards
+0
+Episode Number
+648
+Winner:
+-1
+Time diff:
+0.1598813533782959
+Rewards
+0
+Episode Number
+649
+Winner:
+-1
+Time diff:
+0.12507963180541992
+Rewards
+0
+Episode Number
+650
+Winner:
+-1
+Time diff:
+0.1476907730102539
+Rewards
+0
+Episode Number
+651
+Winner:
+-1
+Time diff:
+0.06801891326904297
+Rewards
+0
+Episode Number
+652
+Winner:
+-1
+Time diff:
+0.10694670677185059
+Rewards
+-1
+Episode Number
+653
+Winner:
+-1
+Time diff:
+0.09553742408752441
+Rewards
+-1
+Episode Number
+654
+Winner:
+-1
+Time diff:
+0.09379196166992188
+Rewards
+0
+Episode Number
+655
+Winner:
+-1
+Time diff:
+0.05515313148498535
+Rewards
+0
+Episode Number
+656
+Winner:
+-1
+Time diff:
+0.09281206130981445
+Rewards
+-1
+Episode Number
+657
+Winner:
+-1
+Time diff:
+0.09760665893554688
+Rewards
+-1
+Episode Number
+658
+Winner:
+-1
+Time diff:
+0.13001203536987305
+Rewards
+0
+Episode Number
+659
+Winner:
+-1
+Time diff:
+0.08408188819885254
+Rewards
+0
+Episode Number
+660
+Winner:
+-1
+Time diff:
+0.07069587707519531
+Rewards
+-1
+Episode Number
+661
+Winner:
+-1
+Time diff:
+0.12305402755737305
+Rewards
+-1
+Episode Number
+662
+Winner:
+-1
+Time diff:
+0.11646246910095215
+Rewards
+0
+Episode Number
+663
+Winner:
+-1
+Time diff:
+0.05725264549255371
+Rewards
+-1
+Episode Number
+664
+Winner:
+-1
+Time diff:
+0.13295507431030273
+Rewards
+0
+Episode Number
+665
+Winner:
+-1
+Time diff:
+0.06397509574890137
+Rewards
+0
+Episode Number
+666
+Winner:
+-1
+Time diff:
+0.10005784034729004
+Rewards
+0
+Episode Number
+667
+Winner:
+-1
+Time diff:
+0.10807657241821289
+Rewards
+0
+Episode Number
+668
+Winner:
+-1
+Time diff:
+0.11612343788146973
+Rewards
+0
+Episode Number
+669
+Winner:
+-1
+Time diff:
+0.07040166854858398
+Rewards
+-1
+Episode Number
+670
+Winner:
+-1
+Time diff:
+0.09017252922058105
+Rewards
+-1
+Episode Number
+671
+Winner:
+-1
+Time diff:
+0.07452011108398438
+Rewards
+-1
+Episode Number
+672
+Winner:
+-1
+Time diff:
+0.0968630313873291
+Rewards
+-1
+Episode Number
+673
+Winner:
+-1
+Time diff:
+0.08248162269592285
+Rewards
+0
+Episode Number
+674
+Winner:
+-1
+Time diff:
+0.1248621940612793
+Rewards
+0
+Episode Number
+675
+Winner:
+-1
+Time diff:
+0.11037492752075195
+Rewards
+0
+Episode Number
+676
+Winner:
+-1
+Time diff:
+0.07897782325744629
+Rewards
+0
+Episode Number
+677
+Winner:
+-1
+Time diff:
+0.10355138778686523
+Rewards
+0
+Episode Number
+678
+Winner:
+-1
+Time diff:
+0.12343120574951172
+Rewards
+0
+Episode Number
+679
+Winner:
+-1
+Time diff:
+0.11811590194702148
+Rewards
+0
+Episode Number
+680
+Winner:
+-1
+Time diff:
+0.10085797309875488
+Rewards
+0
+Episode Number
+681
+Winner:
+-1
+Time diff:
+0.04984712600708008
+Rewards
+0
+Episode Number
+682
+Winner:
+-1
+Time diff:
+0.06298518180847168
+Rewards
+0
+Episode Number
+683
+Time diff:
+0.2179722785949707
+Rewards
+0
+Episode Number
+684
+Winner:
+-1
+Time diff:
+0.09638094902038574
+Rewards
+0
+Episode Number
+685
+Winner:
+-1
+Time diff:
+0.10106062889099121
+Rewards
+0
+Episode Number
+686
+Winner:
+-1
+Time diff:
+0.1667642593383789
+Rewards
+0
+Episode Number
+687
+Winner:
+-1
+Time diff:
+0.08478498458862305
+Rewards
+0
+Episode Number
+688
+Winner:
+-1
+Time diff:
+0.0922849178314209
+Rewards
+0
+Episode Number
+689
+Winner:
+-1
+Time diff:
+0.07757568359375
+Rewards
+0
+Episode Number
+690
+Winner:
+-1
+Time diff:
+0.09492278099060059
+Rewards
+-1
+Episode Number
+691
+Winner:
+-1
+Time diff:
+0.07500529289245605
+Rewards
+-1
+Episode Number
+692
+Winner:
+-1
+Time diff:
+0.09795784950256348
+Rewards
+-1
+Episode Number
+693
+Winner:
+-1
+Time diff:
+0.10117840766906738
+Rewards
+-1
+Episode Number
+694
+Winner:
+-1
+Time diff:
+0.07352900505065918
+Rewards
+-1
+Episode Number
+695
+Winner:
+-1
+Time diff:
+0.09145236015319824
+Rewards
+0
+Episode Number
+696
+Winner:
+-1
+Time diff:
+0.06323480606079102
+Rewards
+0
+Episode Number
+697
+Winner:
+-1
+Time diff:
+0.11151647567749023
+Rewards
+0
+Episode Number
+698
+Winner:
+-1
+Time diff:
+0.07207059860229492
+Rewards
+0
+Episode Number
+699
+Winner:
+-1
+Time diff:
+0.11737966537475586
+Rewards
+0
+Episode Number
+700
+Winner:
+-1
+Time diff:
+0.06892132759094238
+Rewards
+0
+Episode Number
+701
+Winner:
+-1
+Time diff:
+0.11759805679321289
+Rewards
+-1
+Episode Number
+702
+Winner:
+-1
+Time diff:
+0.07455039024353027
+Rewards
+0
+Episode Number
+703
+Winner:
+-1
+Time diff:
+0.1739358901977539
+Rewards
+0
+Episode Number
+704
+Winner:
+-1
+Time diff:
+0.08142852783203125
+Rewards
+-1
+Episode Number
+705
+Winner:
+-1
+Time diff:
+0.13303470611572266
+Rewards
+-1
+Episode Number
+706
+Winner:
+-1
+Time diff:
+0.10395407676696777
+Rewards
+0
+Episode Number
+707
+Winner:
+-1
+Time diff:
+0.10814237594604492
+Rewards
+-1
+Episode Number
+708
+Winner:
+-1
+Time diff:
+0.0979776382446289
+Rewards
+0
+Episode Number
+709
+Winner:
+-1
+Time diff:
+0.13615798950195312
+Rewards
+0
+Episode Number
+710
+Winner:
+-1
+Time diff:
+0.18898797035217285
+Rewards
+0
+Episode Number
+711
+Winner:
+-1
+Time diff:
+0.0810091495513916
+Rewards
+0
+Episode Number
+712
+Winner:
+-1
+Time diff:
+0.10466957092285156
+Rewards
+-1
+Episode Number
+713
+Winner:
+-1
+Time diff:
+0.05937480926513672
+Rewards
+-1
+Episode Number
+714
+Winner:
+-1
+Time diff:
+0.06620454788208008
+Rewards
+0
+Episode Number
+715
+Winner:
+-1
+Time diff:
+0.10158872604370117
+Rewards
+0
+Episode Number
+716
+Winner:
+-1
+Time diff:
+0.08912444114685059
+Rewards
+0
+Episode Number
+717
+Winner:
+-1
+Time diff:
+0.08424139022827148
+Rewards
+-1
+Episode Number
+718
+Winner:
+-1
+Time diff:
+0.12058424949645996
+Rewards
+-1
+Episode Number
+719
+Winner:
+-1
+Time diff:
+0.12598299980163574
+Rewards
+0
+Episode Number
+720
+Winner:
+-1
+Time diff:
+0.1278090476989746
+Rewards
+0
+Episode Number
+721
+Winner:
+-1
+Time diff:
+0.08008146286010742
+Rewards
+-1
+Episode Number
+722
+Winner:
+-1
+Time diff:
+0.07399749755859375
+Rewards
+0
+Episode Number
+723
+Winner:
+-1
+Time diff:
+0.05274319648742676
+Rewards
+0
+Episode Number
+724
+Winner:
+-1
+Time diff:
+0.07580137252807617
+Rewards
+0
+Episode Number
+725
+Winner:
+-1
+Time diff:
+0.12375712394714355
+Rewards
+-1
+Episode Number
+726
+Winner:
+-1
+Time diff:
+0.08697104454040527
+Rewards
+0
+Episode Number
+727
+Winner:
+-1
+Time diff:
+0.11788129806518555
+Rewards
+-1
+Episode Number
+728
+Winner:
+-1
+Time diff:
+0.1303567886352539
+Rewards
+0
+Episode Number
+729
+Winner:
+-1
+Time diff:
+0.12612438201904297
+Rewards
+0
+Episode Number
+730
+Winner:
+-1
+Time diff:
+0.1258392333984375
+Rewards
+0
+Episode Number
+731
+Winner:
+-1
+Time diff:
+0.08226227760314941
+Rewards
+-1
+Episode Number
+732
+Winner:
+-1
+Time diff:
+0.11359405517578125
+Rewards
+0
+Episode Number
+733
+Winner:
+-1
+Time diff:
+0.09852719306945801
+Rewards
+0
+Episode Number
+734
+Winner:
+-1
+Time diff:
+0.1622326374053955
+Rewards
+-1
+Episode Number
+735
+Winner:
+-1
+Time diff:
+0.06450724601745605
+Rewards
+-1
+Episode Number
+736
+Winner:
+-1
+Time diff:
+0.08093786239624023
+Rewards
+-1
+Episode Number
+737
+Winner:
+-1
+Time diff:
+0.11088728904724121
+Rewards
+0
+Episode Number
+738
+Winner:
+-1
+Time diff:
+0.08635830879211426
+Rewards
+0
+Episode Number
+739
+Winner:
+-1
+Time diff:
+0.10884857177734375
+Rewards
+0
+Episode Number
+740
+Winner:
+-1
+Time diff:
+0.05758500099182129
+Rewards
+-1
+Episode Number
+741
+Winner:
+-1
+Time diff:
+0.1263887882232666
+Rewards
+0
+Episode Number
+742
+Winner:
+-1
+Time diff:
+0.07323122024536133
+Rewards
+0
+Episode Number
+743
+Winner:
+-1
+Time diff:
+0.11931800842285156
+Rewards
+0
+Episode Number
+744
+Winner:
+-1
+Time diff:
+0.2052450180053711
+Rewards
+0
+Episode Number
+745
+Winner:
+-1
+Time diff:
+0.07942700386047363
+Rewards
+0
+Episode Number
+746
+Winner:
+-1
+Time diff:
+0.07466316223144531
+Rewards
+0
+Episode Number
+747
+Winner:
+-1
+Time diff:
+0.09596681594848633
+Rewards
+-1
+Episode Number
+748
+Winner:
+-1
+Time diff:
+0.08083176612854004
+Rewards
+-1
+Episode Number
+749
+Winner:
+-1
+Time diff:
+0.08733248710632324
+Rewards
+0
+Episode Number
+750
+Winner:
+-1
+Time diff:
+0.09267210960388184
+Rewards
+0
+Episode Number
+751
+Winner:
+-1
+Time diff:
+0.09235119819641113
+Rewards
+0
+Episode Number
+752
+Winner:
+-1
+Time diff:
+0.13031482696533203
+Rewards
+-1
+Episode Number
+753
+Winner:
+-1
+Time diff:
+0.09533977508544922
+Rewards
+0
+Episode Number
+754
+Winner:
+-1
+Time diff:
+0.11261200904846191
+Rewards
+0
+Episode Number
+755
+Winner:
+-1
+Time diff:
+0.07252383232116699
+Rewards
+-1
+Episode Number
+756
+Winner:
+-1
+Time diff:
+0.1396489143371582
+Rewards
+0
+Episode Number
+757
+Winner:
+-1
+Time diff:
+0.0971074104309082
+Rewards
+-1
+Episode Number
+758
+Winner:
+-1
+Time diff:
+0.09584283828735352
+Rewards
+-1
+Episode Number
+759
+Winner:
+-1
+Time diff:
+0.1109616756439209
+Rewards
+-1
+Episode Number
+760
+Winner:
+-1
+Time diff:
+0.11073780059814453
+Rewards
+0
+Episode Number
+761
+Winner:
+-1
+Time diff:
+0.08025145530700684
+Rewards
+0
+Episode Number
+762
+Winner:
+-1
+Time diff:
+0.10724902153015137
+Rewards
+-1
+Episode Number
+763
+Winner:
+-1
+Time diff:
+0.12704086303710938
+Rewards
+0
+Episode Number
+764
+Winner:
+-1
+Time diff:
+0.2121751308441162
+Rewards
+-1
+Episode Number
+765
+Winner:
+-1
+Time diff:
+0.13541007041931152
+Rewards
+0
+Episode Number
+766
+Winner:
+-1
+Time diff:
+0.08136796951293945
+Rewards
+0
+Episode Number
+767
+Winner:
+-1
+Time diff:
+0.08761954307556152
+Rewards
+-1
+Episode Number
+768
+Winner:
+-1
+Time diff:
+0.15526723861694336
+Rewards
+0
+Episode Number
+769
+Winner:
+-1
+Time diff:
+0.10674118995666504
+Rewards
+0
+Episode Number
+770
+Winner:
+-1
+Time diff:
+0.11077117919921875
+Rewards
+0
+Episode Number
+771
+Winner:
+-1
+Time diff:
+0.0666348934173584
+Rewards
+-1
+Episode Number
+772
+Winner:
+-1
+Time diff:
+0.09999465942382812
+Rewards
+0
+Episode Number
+773
+Winner:
+-1
+Time diff:
+0.12961268424987793
+Rewards
+-1
+Episode Number
+774
+Winner:
+-1
+Time diff:
+0.11443471908569336
+Rewards
+0
+Episode Number
+775
+Winner:
+-1
+Time diff:
+0.10420751571655273
+Rewards
+0
+Episode Number
+776
+Winner:
+-1
+Time diff:
+0.08967471122741699
+Rewards
+0
+Episode Number
+777
+Winner:
+-1
+Time diff:
+0.05129694938659668
+Rewards
+0
+Episode Number
+778
+Winner:
+-1
+Time diff:
+0.10112500190734863
+Rewards
+-1
+Episode Number
+779
+Winner:
+-1
+Time diff:
+0.1236426830291748
+Rewards
+0
+Episode Number
+780
+Winner:
+-1
+Time diff:
+0.1231083869934082
+Rewards
+-1
+Episode Number
+781
+Winner:
+-1
+Time diff:
+0.07764959335327148
+Rewards
+0
+Episode Number
+782
+Winner:
+-1
+Time diff:
+0.11938953399658203
+Rewards
+0
+Episode Number
+783
+Winner:
+-1
+Time diff:
+0.16001081466674805
+Rewards
+-1
+Episode Number
+784
+Winner:
+-1
+Time diff:
+0.05654096603393555
+Rewards
+0
+Episode Number
+785
+Winner:
+-1
+Time diff:
+0.15570592880249023
+Rewards
+0
+Episode Number
+786
+Winner:
+-1
+Time diff:
+0.20442676544189453
+Rewards
+0
+Episode Number
+787
+Winner:
+-1
+Time diff:
+0.09601259231567383
+Rewards
+0
+Episode Number
+788
+Winner:
+-1
+Time diff:
+0.11017870903015137
+Rewards
+0
+Episode Number
+789
+Winner:
+-1
+Time diff:
+0.08815383911132812
+Rewards
+0
+Episode Number
+790
+Winner:
+-1
+Time diff:
+0.1255183219909668
+Rewards
+0
+Episode Number
+791
+Winner:
+-1
+Time diff:
+0.1021428108215332
+Rewards
+-1
+Episode Number
+792
+Winner:
+-1
+Time diff:
+0.11494803428649902
+Rewards
+0
+Episode Number
+793
+Winner:
+-1
+Time diff:
+0.08282804489135742
+Rewards
+0
+Episode Number
+794
+Winner:
+-1
+Time diff:
+0.11839604377746582
+Rewards
+-1
+Episode Number
+795
+Winner:
+-1
+Time diff:
+0.11651945114135742
+Rewards
+0
+Episode Number
+796
+Winner:
+-1
+Time diff:
+0.07825207710266113
+Rewards
+-1
+Episode Number
+797
+Winner:
+-1
+Time diff:
+0.08249950408935547
+Rewards
+0
+Episode Number
+798
+Winner:
+-1
+Time diff:
+0.12076759338378906
+Rewards
+-1
+Episode Number
+799
+Winner:
+-1
+Time diff:
+0.10126209259033203
+Rewards
+-1
+Episode Number
+800
+Winner:
+-1
+Time diff:
+0.11398482322692871
+Rewards
+-1
+Episode Number
+801
+Winner:
+-1
+Time diff:
+0.16548538208007812
+Rewards
+0
+Episode Number
+802
+Winner:
+-1
+Time diff:
+0.05323171615600586
+Rewards
+-1
+Episode Number
+803
+Winner:
+-1
+Time diff:
+0.07674145698547363
+Rewards
+0
+Episode Number
+804
+Winner:
+-1
+Time diff:
+0.1316971778869629
+Rewards
+0
+Episode Number
+805
+Winner:
+-1
+Time diff:
+0.10810995101928711
+Rewards
+-1
+Episode Number
+806
+Winner:
+-1
+Time diff:
+0.08825969696044922
+Rewards
+-1
+Episode Number
+807
+Winner:
+-1
+Time diff:
+0.08664894104003906
+Rewards
+0
+Episode Number
+808
+Winner:
+-1
+Time diff:
+0.11315512657165527
+Rewards
+0
+Episode Number
+809
+Winner:
+-1
+Time diff:
+0.0866847038269043
+Rewards
+-1
+Episode Number
+810
+Winner:
+-1
+Time diff:
+0.11494779586791992
+Rewards
+0
+Episode Number
+811
+Winner:
+-1
+Time diff:
+0.08859491348266602
+Rewards
+-1
+Episode Number
+812
+Winner:
+-1
+Time diff:
+0.17569971084594727
+Rewards
+0
+Episode Number
+813
+Winner:
+-1
+Time diff:
+0.07363748550415039
+Rewards
+0
+Episode Number
+814
+Winner:
+-1
+Time diff:
+0.13810396194458008
+Rewards
+-1
+Episode Number
+815
+Winner:
+-1
+Time diff:
+0.12487959861755371
+Rewards
+-1
+Episode Number
+816
+Winner:
+-1
+Time diff:
+0.11487841606140137
+Rewards
+0
+Episode Number
+817
+Winner:
+-1
+Time diff:
+0.1359727382659912
+Rewards
+0
+Episode Number
+818
+Winner:
+-1
+Time diff:
+0.12924599647521973
+Rewards
+-1
+Episode Number
+819
+Winner:
+-1
+Time diff:
+0.07574987411499023
+Rewards
+0
+Episode Number
+820
+Winner:
+-1
+Time diff:
+0.0668342113494873
+Rewards
+-1
+Episode Number
+821
+Winner:
+-1
+Time diff:
+0.08238053321838379
+Rewards
+0
+Episode Number
+822
+Winner:
+-1
+Time diff:
+0.10355591773986816
+Rewards
+0
+Episode Number
+823
+Winner:
+-1
+Time diff:
+0.09270882606506348
+Rewards
+0
+Episode Number
+824
+Winner:
+-1
+Time diff:
+0.07406210899353027
+Rewards
+0
+Episode Number
+825
+Winner:
+-1
+Time diff:
+0.13060665130615234
+Rewards
+0
+Episode Number
+826
+Winner:
+-1
+Time diff:
+0.055864810943603516
+Rewards
+0
+Episode Number
+827
+Winner:
+-1
+Time diff:
+0.1060633659362793
+Rewards
+0
+Episode Number
+828
+Winner:
+-1
+Time diff:
+0.18272972106933594
+Rewards
+-1
+Episode Number
+829
+Winner:
+-1
+Time diff:
+0.10767197608947754
+Rewards
+0
+Episode Number
+830
+Winner:
+-1
+Time diff:
+0.11466765403747559
+Rewards
+-1
+Episode Number
+831
+Winner:
+-1
+Time diff:
+0.07666707038879395
+Rewards
+-1
+Episode Number
+832
+Winner:
+-1
+Time diff:
+0.11744260787963867
+Rewards
+0
+Episode Number
+833
+Winner:
+-1
+Time diff:
+0.10067939758300781
+Rewards
+0
+Episode Number
+834
+Winner:
+-1
+Time diff:
+0.07871055603027344
+Rewards
+0
+Episode Number
+835
+Winner:
+-1
+Time diff:
+0.08778810501098633
+Rewards
+0
+Episode Number
+836
+Winner:
+-1
+Time diff:
+0.10857796669006348
+Rewards
+0
+Episode Number
+837
+Winner:
+-1
+Time diff:
+0.10381603240966797
+Rewards
+0
+Episode Number
+838
+Winner:
+-1
+Time diff:
+0.13292336463928223
+Rewards
+0
+Episode Number
+839
+Winner:
+-1
+Time diff:
+0.11190271377563477
+Rewards
+-1
+Episode Number
+840
+Winner:
+-1
+Time diff:
+0.08042454719543457
+Rewards
+-1
+Episode Number
+841
+Winner:
+-1
+Time diff:
+0.07661032676696777
+Rewards
+0
+Episode Number
+842
+Winner:
+-1
+Time diff:
+0.0931401252746582
+Rewards
+0
+Episode Number
+843
+Winner:
+-1
+Time diff:
+0.08212709426879883
+Rewards
+0
+Episode Number
+844
+Winner:
+-1
+Time diff:
+0.1363382339477539
+Rewards
+0
+Episode Number
+845
+Winner:
+-1
+Time diff:
+0.131880521774292
+Rewards
+0
+Episode Number
+846
+Winner:
+-1
+Time diff:
+0.1521897315979004
+Rewards
+-1
+Episode Number
+847
+Winner:
+-1
+Time diff:
+0.09369277954101562
+Rewards
+0
+Episode Number
+848
+Winner:
+-1
+Time diff:
+0.08097100257873535
+Rewards
+-1
+Episode Number
+849
+Winner:
+-1
+Time diff:
+0.12845969200134277
+Rewards
+0
+Episode Number
+850
+Winner:
+-1
+Time diff:
+0.13604426383972168
+Rewards
+0
+Episode Number
+851
+Winner:
+-1
+Time diff:
+0.16060972213745117
+Rewards
+0
+Episode Number
+852
+Winner:
+-1
+Time diff:
+0.07034802436828613
+Rewards
+-1
+Episode Number
+853
+Winner:
+-1
+Time diff:
+0.10415101051330566
+Rewards
+0
+Episode Number
+854
+Winner:
+-1
+Time diff:
+0.09050798416137695
+Rewards
+0
+Episode Number
+855
+Winner:
+-1
+Time diff:
+0.0837092399597168
+Rewards
+0
+Episode Number
+856
+Winner:
+-1
+Time diff:
+0.11217212677001953
+Rewards
+0
+Episode Number
+857
+Winner:
+-1
+Time diff:
+0.14444875717163086
+Rewards
+-1
+Episode Number
+858
+Winner:
+-1
+Time diff:
+0.04456019401550293
+Rewards
+0
+Episode Number
+859
+Winner:
+-1
+Time diff:
+0.09782719612121582
+Rewards
+0
+Episode Number
+860
+Winner:
+-1
+Time diff:
+0.08602738380432129
+Rewards
+0
+Episode Number
+861
+Winner:
+-1
+Time diff:
+0.08245730400085449
+Rewards
+-1
+Episode Number
+862
+Winner:
+-1
+Time diff:
+0.09522652626037598
+Rewards
+-1
+Episode Number
+863
+Winner:
+-1
+Time diff:
+0.099334716796875
+Rewards
+0
+Episode Number
+864
+Winner:
+-1
+Time diff:
+0.0980219841003418
+Rewards
+-1
+Episode Number
+865
+Winner:
+-1
+Time diff:
+0.11068940162658691
+Rewards
+-1
+Episode Number
+866
+Winner:
+-1
+Time diff:
+0.09952712059020996
+Rewards
+-1
+Episode Number
+867
+Winner:
+-1
+Time diff:
+0.09503173828125
+Rewards
+0
+Episode Number
+868
+Winner:
+-1
+Time diff:
+0.14615797996520996
+Rewards
+0
+Episode Number
+869
+Winner:
+-1
+Time diff:
+0.10157585144042969
+Rewards
+-1
+Episode Number
+870
+Winner:
+-1
+Time diff:
+0.18113374710083008
+Rewards
+0
+Episode Number
+871
+Winner:
+-1
+Time diff:
+0.1079549789428711
+Rewards
+0
+Episode Number
+872
+Winner:
+-1
+Time diff:
+0.08764100074768066
+Rewards
+-1
+Episode Number
+873
+Winner:
+-1
+Time diff:
+0.11690020561218262
+Rewards
+0
+Episode Number
+874
+Winner:
+-1
+Time diff:
+0.10898113250732422
+Rewards
+0
+Episode Number
+875
+Winner:
+-1
+Time diff:
+0.1138451099395752
+Rewards
+0
+Episode Number
+876
+Winner:
+-1
+Time diff:
+0.13554620742797852
+Rewards
+-1
+Episode Number
+877
+Winner:
+-1
+Time diff:
+0.10609173774719238
+Rewards
+-1
+Episode Number
+878
+Winner:
+-1
+Time diff:
+0.1351625919342041
+Rewards
+-1
+Episode Number
+879
+Winner:
+-1
+Time diff:
+0.1873316764831543
+Rewards
+0
+Episode Number
+880
+Winner:
+-1
+Time diff:
+0.0816648006439209
+Rewards
+0
+Episode Number
+881
+Winner:
+-1
+Time diff:
+0.12312769889831543
+Rewards
+0
+Episode Number
+882
+Winner:
+-1
+Time diff:
+0.08625960350036621
+Rewards
+-1
+Episode Number
+883
+Winner:
+-1
+Time diff:
+0.08769822120666504
+Rewards
+0
+Episode Number
+884
+Winner:
+-1
+Time diff:
+0.09501314163208008
+Rewards
+0
+Episode Number
+885
+Winner:
+-1
+Time diff:
+0.13177084922790527
+Rewards
+0
+Episode Number
+886
+Winner:
+-1
+Time diff:
+0.0759284496307373
+Rewards
+0
+Episode Number
+887
+Winner:
+-1
+Time diff:
+0.1324465274810791
+Rewards
+0
+Episode Number
+888
+Winner:
+-1
+Time diff:
+0.1342148780822754
+Rewards
+0
+Episode Number
+889
+Winner:
+-1
+Time diff:
+0.09686517715454102
+Rewards
+-1
+Episode Number
+890
+Winner:
+-1
+Time diff:
+0.15021300315856934
+Rewards
+-1
+Episode Number
+891
+Winner:
+-1
+Time diff:
+0.10629844665527344
+Rewards
+0
+Episode Number
+892
+Winner:
+-1
+Time diff:
+0.14519405364990234
+Rewards
+0
+Episode Number
+893
+Winner:
+-1
+Time diff:
+0.12938308715820312
+Rewards
+-1
+Episode Number
+894
+Winner:
+-1
+Time diff:
+0.10927295684814453
+Rewards
+0
+Episode Number
+895
+Winner:
+-1
+Time diff:
+0.10192084312438965
+Rewards
+0
+Episode Number
+896
+Winner:
+-1
+Time diff:
+0.10475587844848633
+Rewards
+-1
+Episode Number
+897
+Winner:
+-1
+Time diff:
+0.13681721687316895
+Rewards
+-1
+Episode Number
+898
+Winner:
+-1
+Time diff:
+0.10655784606933594
+Rewards
+0
+Episode Number
+899
+Winner:
+-1
+Time diff:
+0.136582612991333
+Rewards
+0
+Episode Number
+900
+Winner:
+-1
+Time diff:
+0.1318221092224121
+Rewards
+-1
+Episode Number
+901
+Winner:
+-1
+Time diff:
+0.10610246658325195
+Rewards
+0
+Episode Number
+902
+Winner:
+-1
+Time diff:
+0.07087159156799316
+Rewards
+-1
+Episode Number
+903
+Winner:
+-1
+Time diff:
+0.07335424423217773
+Rewards
+0
+Episode Number
+904
+Winner:
+-1
+Time diff:
+0.13290047645568848
+Rewards
+0
+Episode Number
+905
+Winner:
+-1
+Time diff:
+0.14822912216186523
+Rewards
+-1
+Episode Number
+906
+Winner:
+-1
+Time diff:
+0.08745861053466797
+Rewards
+-1
+Episode Number
+907
+Winner:
+-1
+Time diff:
+0.11986351013183594
+Rewards
+0
+Episode Number
+908
+Winner:
+-1
+Time diff:
+0.0726015567779541
+Rewards
+-1
+Episode Number
+909
+Winner:
+-1
+Time diff:
+0.08528542518615723
+Rewards
+0
+Episode Number
+910
+Winner:
+-1
+Time diff:
+0.07496786117553711
+Rewards
+0
+Episode Number
+911
+Winner:
+-1
+Time diff:
+0.07250404357910156
+Rewards
+0
+Episode Number
+912
+Winner:
+-1
+Time diff:
+0.047994136810302734
+Rewards
+0
+Episode Number
+913
+Winner:
+-1
+Time diff:
+0.10717439651489258
+Rewards
+0
+Episode Number
+914
+Winner:
+-1
+Time diff:
+0.07338786125183105
+Rewards
+-1
+Episode Number
+915
+Winner:
+-1
+Time diff:
+0.09289813041687012
+Rewards
+0
+Episode Number
+916
+Winner:
+-1
+Time diff:
+0.09648823738098145
+Rewards
+-1
+Episode Number
+917
+Winner:
+-1
+Time diff:
+0.04335665702819824
+Rewards
+-1
+Episode Number
+918
+Winner:
+-1
+Time diff:
+0.13156485557556152
+Rewards
+-1
+Episode Number
+919
+Winner:
+-1
+Time diff:
+0.10669636726379395
+Rewards
+0
+Episode Number
+920
+Winner:
+-1
+Time diff:
+0.07431793212890625
+Rewards
+0
+Episode Number
+921
+Winner:
+-1
+Time diff:
+0.09562897682189941
+Rewards
+0
+Episode Number
+922
+Winner:
+-1
+Time diff:
+0.10818791389465332
+Rewards
+0
+Episode Number
+923
+Winner:
+-1
+Time diff:
+0.12991738319396973
+Rewards
+-1
+Episode Number
+924
+Winner:
+-1
+Time diff:
+0.11069893836975098
+Rewards
+0
+Episode Number
+925
+Winner:
+-1
+Time diff:
+0.06338143348693848
+Rewards
+0
+Episode Number
+926
+Winner:
+-1
+Time diff:
+0.07037639617919922
+Rewards
+-1
+Episode Number
+927
+Winner:
+-1
+Time diff:
+0.10106182098388672
+Rewards
+-1
+Episode Number
+928
+Winner:
+-1
+Time diff:
+0.041094303131103516
+Rewards
+-1
+Episode Number
+929
+Winner:
+-1
+Time diff:
+0.1362898349761963
+Rewards
+-1
+Episode Number
+930
+Winner:
+-1
+Time diff:
+0.11963653564453125
+Rewards
+0
+Episode Number
+931
+Winner:
+-1
+Time diff:
+0.10311126708984375
+Rewards
+0
+Episode Number
+932
+Winner:
+-1
+Time diff:
+0.11221504211425781
+Rewards
+0
+Episode Number
+933
+Winner:
+-1
+Time diff:
+0.15701818466186523
+Rewards
+0
+Episode Number
+934
+Winner:
+-1
+Time diff:
+0.12243199348449707
+Rewards
+-1
+Episode Number
+935
+Winner:
+-1
+Time diff:
+0.07545733451843262
+Rewards
+0
+Episode Number
+936
+Winner:
+-1
+Time diff:
+0.12816238403320312
+Rewards
+0
+Episode Number
+937
+Winner:
+-1
+Time diff:
+0.07601118087768555
+Rewards
+-1
+Episode Number
+938
+Winner:
+-1
+Time diff:
+0.1452336311340332
+Rewards
+0
+Episode Number
+939
+Winner:
+-1
+Time diff:
+0.09508442878723145
+Rewards
+0
+Episode Number
+940
+Winner:
+-1
+Time diff:
+0.15414643287658691
+Rewards
+0
+Episode Number
+941
+Winner:
+-1
+Time diff:
+0.1594841480255127
+Rewards
+-1
+Episode Number
+942
+Winner:
+-1
+Time diff:
+0.03912520408630371
+Rewards
+0
+Episode Number
+943
+Winner:
+-1
+Time diff:
+0.06780767440795898
+Rewards
+-1
+Episode Number
+944
+Winner:
+-1
+Time diff:
+0.07773709297180176
+Rewards
+0
+Episode Number
+945
+Winner:
+-1
+Time diff:
+0.19535112380981445
+Rewards
+0
+Episode Number
+946
+Winner:
+-1
+Time diff:
+0.08275151252746582
+Rewards
+0
+Episode Number
+947
+Winner:
+-1
+Time diff:
+0.11052560806274414
+Rewards
+0
+Episode Number
+948
+Winner:
+-1
+Time diff:
+0.09791946411132812
+Rewards
+-1
+Episode Number
+949
+Winner:
+-1
+Time diff:
+0.09266304969787598
+Rewards
+0
+Episode Number
+950
+Winner:
+-1
+Time diff:
+0.09148454666137695
+Rewards
+-1
+Episode Number
+951
+Winner:
+-1
+Time diff:
+0.14751863479614258
+Rewards
+-1
+Episode Number
+952
+Winner:
+-1
+Time diff:
+0.06627964973449707
+Rewards
+0
+Episode Number
+953
+Winner:
+-1
+Time diff:
+0.07253670692443848
+Rewards
+0
+Episode Number
+954
+Winner:
+-1
+Time diff:
+0.06356239318847656
+Rewards
+0
+Episode Number
+955
+Winner:
+-1
+Time diff:
+0.08350205421447754
+Rewards
+0
+Episode Number
+956
+Winner:
+-1
+Time diff:
+0.11450552940368652
+Rewards
+0
+Episode Number
+957
+Winner:
+-1
+Time diff:
+0.11682605743408203
+Rewards
+0
+Episode Number
+958
+Winner:
+-1
+Time diff:
+0.12347960472106934
+Rewards
+0
+Episode Number
+959
+Winner:
+-1
+Time diff:
+0.19102191925048828
+Rewards
+0
+Episode Number
+960
+Winner:
+-1
+Time diff:
+0.0743403434753418
+Rewards
+0
+Episode Number
+961
+Winner:
+-1
+Time diff:
+0.14918875694274902
+Rewards
+0
+Episode Number
+962
+Winner:
+-1
+Time diff:
+0.09687256813049316
+Rewards
+-1
+Episode Number
+963
+Winner:
+-1
+Time diff:
+0.14238190650939941
+Rewards
+0
+Episode Number
+964
+Winner:
+-1
+Time diff:
+0.14683079719543457
+Rewards
+0
+Episode Number
+965
+Winner:
+-1
+Time diff:
+0.08573126792907715
+Rewards
+0
+Episode Number
+966
+Winner:
+-1
+Time diff:
+0.1283252239227295
+Rewards
+0
+Episode Number
+967
+Winner:
+-1
+Time diff:
+0.09542179107666016
+Rewards
+0
+Episode Number
+968
+Winner:
+-1
+Time diff:
+0.12076282501220703
+Rewards
+0
+Episode Number
+969
+Winner:
+-1
+Time diff:
+0.08541607856750488
+Rewards
+0
+Episode Number
+970
+Winner:
+-1
+Time diff:
+0.14944696426391602
+Rewards
+-1
+Episode Number
+971
+Winner:
+-1
+Time diff:
+0.15670061111450195
+Rewards
+-1
+Episode Number
+972
+Winner:
+-1
+Time diff:
+0.14117002487182617
+Rewards
+0
+Episode Number
+973
+Winner:
+-1
+Time diff:
+0.11808657646179199
+Rewards
+0
+Episode Number
+974
+Winner:
+-1
+Time diff:
+0.08855223655700684
+Rewards
+-1
+Episode Number
+975
+Winner:
+-1
+Time diff:
+0.14954209327697754
+Rewards
+0
+Episode Number
+976
+Winner:
+-1
+Time diff:
+0.08157539367675781
+Rewards
+0
+Episode Number
+977
+Winner:
+-1
+Time diff:
+0.11805200576782227
+Rewards
+0
+Episode Number
+978
+Winner:
+-1
+Time diff:
+0.07790064811706543
+Rewards
+0
+Episode Number
+979
+Winner:
+-1
+Time diff:
+0.08940529823303223
+Rewards
+0
+Episode Number
+980
+Winner:
+-1
+Time diff:
+0.1265125274658203
+Rewards
+0
+Episode Number
+981
+Winner:
+-1
+Time diff:
+0.12697339057922363
+Rewards
+-1
+Episode Number
+982
+Winner:
+-1
+Time diff:
+0.1157073974609375
+Rewards
+-1
+Episode Number
+983
+Winner:
+-1
+Time diff:
+0.1138448715209961
+Rewards
+0
+Episode Number
+984
+Winner:
+-1
+Time diff:
+0.09637665748596191
+Rewards
+0
+Episode Number
+985
+Winner:
+-1
+Time diff:
+0.1781313419342041
+Rewards
+0
+Episode Number
+986
+Winner:
+-1
+Time diff:
+0.08622503280639648
+Rewards
+0
+Episode Number
+987
+Winner:
+-1
+Time diff:
+0.07337141036987305
+Rewards
+-1
+Episode Number
+988
+Winner:
+-1
+Time diff:
+0.08681607246398926
+Rewards
+0
+Episode Number
+989
+Winner:
+-1
+Time diff:
+0.10439324378967285
+Rewards
+-1
+Episode Number
+990
+Winner:
+-1
+Time diff:
+0.18336892127990723
+Rewards
+0
+Episode Number
+991
+Winner:
+-1
+Time diff:
+0.10465764999389648
+Rewards
+0
+Episode Number
+992
+Winner:
+-1
+Time diff:
+0.14296293258666992
+Rewards
+-1
+Episode Number
+993
+Winner:
+-1
+Time diff:
+0.17328286170959473
+Rewards
+0
+Episode Number
+994
+Winner:
+-1
+Time diff:
+0.0743401050567627
+Rewards
+-1
+Episode Number
+995
+Winner:
+-1
+Time diff:
+0.10445284843444824
+Rewards
+-1
+Episode Number
+996
+Winner:
+-1
+Time diff:
+0.0957951545715332
+Rewards
+0
+Episode Number
+997
+Winner:
+-1
+Time diff:
+0.09166836738586426
+Rewards
+0
+Episode Number
+998
+Time diff:
+0.23881745338439941
+Rewards
+0
+Episode Number
+999
+Winner:
+-1
+Time diff:
+0.07612371444702148
+Rewards
+0

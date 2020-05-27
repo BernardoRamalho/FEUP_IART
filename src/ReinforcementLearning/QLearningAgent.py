@@ -97,13 +97,20 @@ class QLAgent:
                                         if state in self.q_table:
                                                 action = int(keywithmaxval(self.q_table[state]))
                                         else:
-                                                move = env.generate_valid_moves()[0]
+                                                valid_moves = env.generate_valid_moves()
+                                                if not valid_moves:
+                                                        done = True
+                                                        break
                                                 action = env.move_to_action(move) 
-                                else:
-                                        move = np.random.choice(env.generate_valid_moves())
+                                else:   
+                                        valid_moves = env.generate_valid_moves()
+                                        if not valid_moves:
+                                                done = True
+                                                break
+                                        move = np.random.choice(valid_moves)
                                         action = env.move_to_action(move)                       
                                 
-                                reward, done = env.step(action)
+                                reward, done = env.step(action, True)
                                 new_state = env.state_to_string()
                                 action = str(action)
 
@@ -142,6 +149,33 @@ class QLAgent:
                         print("Rewards")
                         print(rewards_current_episode)
 
+        def test(self, env):
+                done = False
+                while not done:
+                        env.render()
+                        state = env.state_to_string()
+                        if state in self.q_table:
+                                action = int(keywithmaxval(self.q_table[state]))
+                        else:
+                                valid_moves = env.generate_valid_moves()
+                                if not valid_moves:
+                                        done = True
+                                        break
+                                action = env.move_to_action(valid_moves[0]) 
+
+                        reward, done = env.step(action, True)
+
+                        if done == True:
+                                end_time = time.time()
+                                print("Winner:")
+                                print(env.whoWon())
+                                break
+                
+
+                
+                        
+
+
 start = timeit.default_timer()
 env = gym.make("pivit-v0")
 env.setup()
@@ -161,9 +195,9 @@ env.setup()
 
 #test_str = env.state_to_string()
 
-ql_agent = QLAgent("qtable.json", 2, 250, 0.1, 0.9, 1, 1, 0.01, 0.01)
+ql_agent = QLAgent("qtableV2.json", 1000, 300, 0.1, 0.9, 1, 1, 0.01, 0.01)
 
-ql_agent.train(env)
+ql_agent.test(env)
 stop = timeit.default_timer()
 #print(stop)
 
