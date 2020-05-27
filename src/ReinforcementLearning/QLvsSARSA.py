@@ -35,7 +35,7 @@ def QLvsSARSA():
     done = False
     i = 0
     env.setup()
-    while not done:
+    while not done and i < 500:
         #env.render()
         state = env.state_to_string()
         #QL
@@ -59,6 +59,12 @@ def QLvsSARSA():
 			
 
         if done == True:
+            print("Winner:")
             print(env.whoWon())
             break
         i += 1
+
+i = 0
+while i < 1000:
+	QLvsSARSA()
+	i += 1

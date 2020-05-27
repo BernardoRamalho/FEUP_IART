@@ -74,7 +74,7 @@ class QLAgent:
         def train(self, env):
                 vict = 0
                 defe = 0
-                f = open("QLResults2.txt", "w")
+                f = open("QLResults.txt", "w")
                 f.write("Num episodes: " + str(self.num_episodes) + '\n')
                 f.write("Max_steps: " + str(self.max_steps_per_episode) + '\n')
                 self.rewards_all_episodes = []
@@ -178,7 +178,7 @@ if __name__ == "__main__":
         start = timeit.default_timer()
         env = gym.make("pivit-v0")
         env.setup()
-        ql_agent = QLAgent("QLQT2.json", 20000, 220, 0.1, 0.99, 1, 1, 0.01, 0.01)
+        ql_agent = QLAgent("QLQT.json", 20000, 220, 0.1, 0.99, 1, 1, 0.01, 0.01)
         ql_agent.train(env)
         stop = timeit.default_timer()
         ql_agent.write_qtable()

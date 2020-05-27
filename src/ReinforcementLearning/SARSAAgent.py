@@ -182,7 +182,7 @@ class SARSAAgent:
 if __name__ == "__main__":
         env = gym.make("pivit-v0")
         env.setup()
-        sarsa_agent = SARSAAgent("sarsaQtable.json", 10000, 220, 0.8, 0.85, 0.95)
+        sarsa_agent = SARSAAgent("SARSAQT.json", 10000, 220, 0.8, 0.85, 0.95)
 
         sarsa_agent.train(env)
 
