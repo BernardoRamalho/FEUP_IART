@@ -6,6 +6,8 @@ import time
 import json
 import timeit
 
+from pathlib import Path
+
 def keywithmaxval(d):
      """ a) create a list of the dict's keys and values; 
          b) return the key with the max value"""  
@@ -38,8 +40,11 @@ class QLAgent:
                         file.write(json.dumps(self.q_table))
 
         def read_qtable(self):
+            test = Path(self.file_path)
+            if test.is_file():
                 with open(self.file_path, 'r') as file:
                         self.q_table = json.load(file)
+
 
         @staticmethod
         def move_to_action(move):
@@ -69,6 +74,7 @@ class QLAgent:
 
                         done = False
                         rewards_current_episode = 0
+                        print(episode)
                         for step in range(self.max_steps_per_episode):
                                 #env.render() 
                                 state = env.state_to_string()
@@ -132,7 +138,7 @@ env.setup()
 
 #test_str = env.state_to_string()
 
-ql_agent = QLAgent("qtable.json", 10000, 250, 0.1, 0.9, 1, 1, 0.01, 0.01)
+ql_agent = QLAgent("qtable.json", 100, 250, 0.1, 0.9, 1, 1, 0.01, 0.01)
 
 ql_agent.train(env)
 stop = timeit.default_timer()
