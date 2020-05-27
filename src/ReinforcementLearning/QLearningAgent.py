@@ -110,8 +110,6 @@ class QLAgent:
                         
                         self.rewards_all_episodes.append(rewards_current_episode)
                         
-                        print("Steps: ")
-                        print(step)
                         if step < self.max_steps_per_episode - 1:
                                 print(env.whoWon())
 
