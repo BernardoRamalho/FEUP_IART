@@ -179,11 +179,11 @@ class SARSAAgent:
         f.write("\nDefeats:" + str(defe) + "\n")
         f.close()
 
+if __name__ == "__main__":
+        env = gym.make("pivit-v0")
+        env.setup()
+        sarsa_agent = SARSAAgent("sarsaQtable.json", 10000, 220, 0.8, 0.85, 0.95)
 
-env = gym.make("pivit-v0")
-env.setup()
-sarsa_agent = SARSAAgent("sarsaQtable.json", 10000, 220, 0.8, 0.85, 0.95)
+        sarsa_agent.train(env)
 
-sarsa_agent.train(env)
-
-sarsa_agent.write_qtable()
+        sarsa_agent.write_qtable()

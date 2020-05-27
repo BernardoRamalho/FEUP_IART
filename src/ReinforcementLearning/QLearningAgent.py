@@ -74,7 +74,7 @@ class QLAgent:
         def train(self, env):
                 vict = 0
                 defe = 0
-                f = open("QLResults.txt", "w")
+                f = open("QLResults2.txt", "w")
                 f.write("Num episodes: " + str(self.num_episodes) + '\n')
                 f.write("Max_steps: " + str(self.max_steps_per_episode) + '\n')
                 self.rewards_all_episodes = []
@@ -155,9 +155,6 @@ class QLAgent:
                         time.sleep(1)
                         env.render()
                         state = env.state_to_string()
-                        print("turn:")
-                        print(env.player_turn)
-                        print(env.board)
                         if state in self.q_table:
                                 print(self.q_table[state])
                                 action = int(keywithmaxval(self.q_table[state]))
@@ -167,8 +164,6 @@ class QLAgent:
                                         done = True
                                         break
                                 action = env.move_to_action(np.random.choice(valid_moves))
-                        print("Picked:")
-                        print(action)
                         reward, done = env.step(action, True)
 
                         if done == True:
@@ -178,38 +173,13 @@ class QLAgent:
                                 break
                 
 
-                
-                        
+        
+if __name__ == "__main__":
+        start = timeit.default_timer()
+        env = gym.make("pivit-v0")
+        env.setup()
+        ql_agent = QLAgent("QLQT2.json", 20000, 220, 0.1, 0.99, 1, 1, 0.01, 0.01)
+        ql_agent.train(env)
+        stop = timeit.default_timer()
+        ql_agent.write_qtable()
 
-
-start = timeit.default_timer()
-env = gym.make("pivit-v0")
-env.setup()
-#env.render()
-#state = hash(env.state_to_string())
-
-#move = {'pos': (0, 2),
-#         'new_pos': (2, 2)
-#         }
-
-#action = env.move_to_action(move)
-#print(type(action))
-#env.step(action)
-
-#time.sleep(4)
-#env.render()
-
-#test_str = env.state_to_string()
-
-ql_agent = QLAgent("QLQT.json", 10000, 220, 0.2, 0.8, 1, 1, 0.01, 0.01)
-
-
-ql_agent.train(env)
-stop = timeit.default_timer()
-#print(stop)
-
-ql_agent.write_qtable()
-
-#print(test_str)
-#print(ql_agent.q_table)
-#print(q_table)
