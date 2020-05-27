@@ -91,7 +91,7 @@ class PivitEnv(gym.Env):
         elif random:
             self.player_turn *= -1
             move = np.random.choice(self.generate_valid_moves())
-            self.player_move(self.move_to_action(move), False)
+            self.player_move(self.move_to_action(move), True)
 
             isDone = self.isDone()
             
@@ -100,6 +100,38 @@ class PivitEnv(gym.Env):
                 if winner == 1:
                     reward += 1
                 else: reward -= 1
+
+        self.player_turn *= -1
+        
+
+        return reward, isDone
+
+
+    def step_greed(self, action, random = False):
+        # Validate action
+        assert self.action_space.contains(action), "ACTION ERROR {}".format(action)
+
+        reward = self.player_move(action, True)
+
+        isDone = self.isDone()
+
+        if isDone:
+            winner = self.whoWon()
+            if winner == 1:
+                    reward += 1
+            else: reward -= 1
+        elif random:
+            self.player_turn *= -1
+            move = np.random.choice(self.generate_valid_moves())
+            reward -= self.player_move(self.move_to_action(move), False)
+            
+            isDone = self.isDone()
+
+            if isDone:
+                winner = self.whoWon()
+                if winner == 1:
+                    reward += 1000
+                else: reward -= 1000
 
         self.player_turn *= -1
         
@@ -309,7 +341,7 @@ class PivitEnv(gym.Env):
             return 1
         elif redCount < blueCount:
             return -1
-            
+
         return 0
 
     # Searches for a piece in the board

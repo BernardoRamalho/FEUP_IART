@@ -97,7 +97,8 @@ class SARSAAgent:
         self.q_table[state][action] = self.q_table[state][action] + self.alpha * (target - predict) 
     
     def train(self, env):
-            
+        vict = 0
+        defe = 0
         f = open("SARSAresults.txt", "w")
         self.rewards_all_episodes = []
         f.write("Num episodes: " + str(self.num_episodes) + '\n')
@@ -152,8 +153,16 @@ class SARSAAgent:
                 
                         state1 = state2 
                         action1 = action2 
+
             
                 self.rewards_all_episodes.append(rewards_current_episode)
+                if step < self.max_steps_per_episode - 1:
+                                winner = env.whoWon()
+                                if winner == 1:
+                                        vict += 1
+                                elif winner == -1:
+                                        defe += 1
+                                
 
         rewards_per_thousand_episodes = np.split(np.array(self.rewards_all_episodes), self.num_episodes / 1000)
 
@@ -166,6 +175,8 @@ class SARSAAgent:
 
                 f.write(str(count) + ': ' + str(sum(r/1000)) + '\n')
                 count += 1000
+        f.write("Victories:" + str(vict))
+        f.write("\nDefeats:" + str(defe) + "\n")
         f.close()
 
 

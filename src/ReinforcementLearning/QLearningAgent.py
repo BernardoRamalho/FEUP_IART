@@ -72,6 +72,8 @@ class QLAgent:
                 }      
 
         def train(self, env):
+                vict = 0
+                defe = 0
                 f = open("QLresults.txt", "w")
                 f.write("Num episodes: " + str(self.num_episodes) + '\n')
                 f.write("Max_steps: " + str(self.max_steps_per_episode) + '\n')
@@ -93,20 +95,14 @@ class QLAgent:
                                                 action = int(keywithmaxval(self.q_table[state]))
                                         else:
                                                 valid_moves = env.generate_valid_moves()
-                                                if not valid_moves:
-                                                        done = True
-                                                        break
                                                 move = np.random.choice(valid_moves)
                                                 action = env.move_to_action(move) 
                                 else:   
                                         valid_moves = env.generate_valid_moves()
-                                        if not valid_moves:
-                                                done = True
-                                                break
                                         move = np.random.choice(valid_moves)
                                         action = env.move_to_action(move)                       
                                 
-                                reward, done = env.step(action, True)
+                                reward, done = env.step_greed(action, True)
                                 new_state = env.state_to_string()
                                 action = str(action)
 
@@ -135,19 +131,25 @@ class QLAgent:
                         self.rewards_all_episodes.append(rewards_current_episode)
                         
                         if step < self.max_steps_per_episode - 1:
-                                print("Winner:")
-                                print(env.whoWon())
-                rewards_per_thousand_episodes = np.split(np.array(self.rewards_all_episodes), self.num_episodes / 1000)
+                                winner = env.whoWon()
+                                if winner == 1:
+                                        vict += 1
+                                elif winner == -1:
+                                        defe += 1
+                                
+                rewards_per_thousand_episodes = np.split(np.array(self.rewards_all_episodes), self.num_episodes / 10)
 
                 end_time = timeit.default_timer()
                 if end_time != -1:
                         f.write("Training Time:" + str(end_time - start_time) + '\n')
                 f.write("Average reward per thousand episodes\n")
 
-                count = 1000
+                count = 10
                 for r in rewards_per_thousand_episodes:
-                        f.write(str(count) + ': ' + str(sum(r/1000)) + '\n')
-                        count += 1000
+                        f.write(str(count) + ': ' + str(sum(r/10)) + '\n')
+                        count += 10
+                f.write("Victories:" + str(vict))
+                f.write("\nDefeats:" + str(defe) + "\n")
                 f.close()
 
 
@@ -204,7 +206,7 @@ env.setup()
 
 #test_str = env.state_to_string()
 
-ql_agent = QLAgent("qtableV2.json", 10000, 250, 0.4, 0.6, 1, 1, 0.01, 0.01)
+ql_agent = QLAgent("qtableV3.json", 100, 250, 0.4, 0.6, 1, 1, 0.01, 0.01)
 
 
 ql_agent.train(env)
