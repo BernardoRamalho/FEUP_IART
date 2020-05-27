@@ -85,8 +85,8 @@ class PivitEnv(gym.Env):
 
         if isDone:
             winner = self.whoWon()
-            if winner == self.player_turn:
-                reward += 1
+            if winner == 1:
+                    reward += 1
             else: reward -= 1
         elif random:
             self.player_turn *= -1
@@ -284,6 +284,7 @@ class PivitEnv(gym.Env):
     def whoWon(self):
 
         if (not self.generate_valid_blue_moves()):
+            print("A")
             return 1
         
         if (not self.generate_valid_red_moves()):
@@ -296,15 +297,15 @@ class PivitEnv(gym.Env):
             if (blueStatus.isupper()):
                 blueCount += 1
 
+        blueCount = np.count_nonzero(np.array(self.blueMap) == 'none')
+        if blueCount == len(self.blueMap): return 1
+        redCount = np.count_nonzero(np.array(self.redMap) == 'none')
+        if redCount == len(self.redMap): return -1
+
         if redCount > blueCount:
             return 1
         elif redCount < blueCount:
             return -1
-
-        redCount = np.count_nonzero(np.array(self.redMap) == 'none')
-        if redCount == len(self.redMap): return -1
-        blueCount = np.count_nonzero(np.array(self.blueMap) == 'none')
-        if blueCount == len(self.blueMap): return 1
 
         return 0
 

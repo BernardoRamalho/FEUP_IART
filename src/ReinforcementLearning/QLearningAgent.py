@@ -195,9 +195,10 @@ env.setup()
 
 #test_str = env.state_to_string()
 
-ql_agent = QLAgent("qtableV2.json", 1000, 300, 0.1, 0.9, 1, 1, 0.01, 0.01)
+ql_agent = QLAgent("qtableV2.json", 100, 220, 0.1, 0.9, 1, 1, 0.01, 0.01)
 
-ql_agent.test(env)
+
+ql_agent.train(env)
 stop = timeit.default_timer()
 #print(stop)
 
