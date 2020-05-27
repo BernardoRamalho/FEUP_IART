@@ -27,8 +27,8 @@ class QLAgent:
 
                 self.num_episodes = num_episodes
                 self.max_steps_per_episode = max_steps
-                self.learning_rate = 0.1
-                self.discount_rate = 0.99
+                self.learning_rate = learning_rate
+                self.discount_rate = discount_rate
                 self.exploration_rate = exploration_rate
                 self.max_exploration_rate = max_exploration_rate
                 self.min_exploration_rate = min_exploration_rate
@@ -72,22 +72,17 @@ class QLAgent:
                 }      
 
         def train(self, env):
+                f = open("QLresults.txt", "w")
+                f.write("Num episodes: " + str(self.num_episodes) + '\n')
+                f.write("Max_steps: " + str(self.max_steps_per_episode) + '\n')
                 self.rewards_all_episodes = []
                 rewards_current_episode = 'a'
-                start_time = -1
+                start_time = timeit.default_timer()
                 end_time = -1
                 for episode in range(self.num_episodes):
                         env.reset()
-                        if end_time != -1:
-                                print("Time diff:")
-                                print(end_time - start_time)
-                        start_time = time.time()
-                        if rewards_current_episode != 'a':
-                                print("Rewards")
-                                print(rewards_current_episode)
                         done = False
                         rewards_current_episode = 0
-                        print("Episode Number")
                         print(episode)
                         for step in range(self.max_steps_per_episode):
                                 #env.render() 
@@ -101,6 +96,7 @@ class QLAgent:
                                                 if not valid_moves:
                                                         done = True
                                                         break
+                                                move = np.random.choice(valid_moves)
                                                 action = env.move_to_action(move) 
                                 else:   
                                         valid_moves = env.generate_valid_moves()
@@ -141,28 +137,41 @@ class QLAgent:
                         if step < self.max_steps_per_episode - 1:
                                 print("Winner:")
                                 print(env.whoWon())
-                        end_time = time.time()
+                rewards_per_thousand_episodes = np.split(np.array(self.rewards_all_episodes), self.num_episodes / 100)
+
+                end_time = timeit.default_timer()
                 if end_time != -1:
-                        print("Time diff:")
-                        print(end_time - start_time)
-                if rewards_current_episode != 'a':
-                        print("Rewards")
-                        print(rewards_current_episode)
+                        f.write("Training Time:" + str(end_time - start_time) + '\n')
+                f.write("Average reward per thousand episodes\n")
+
+                count = 100
+                for r in rewards_per_thousand_episodes:
+                        f.write(str(count) + ': ' + str(sum(r/100)) + '\n')
+                        count += 100
+                f.close()
+
+
 
         def test(self, env):
                 done = False
                 while not done:
+                        time.sleep(0.5)
                         env.render()
                         state = env.state_to_string()
+                        print("turn:")
+                        print(env.player_turn)
+                        print(env.board)
                         if state in self.q_table:
+                                print(self.q_table[state])
                                 action = int(keywithmaxval(self.q_table[state]))
                         else:
                                 valid_moves = env.generate_valid_moves()
                                 if not valid_moves:
                                         done = True
                                         break
-                                action = env.move_to_action(valid_moves[0]) 
-
+                                action = env.move_to_action(np.random.choice(valid_moves))
+                        print("Picked:")
+                        print(action)
                         reward, done = env.step(action, True)
 
                         if done == True:
@@ -195,7 +204,7 @@ env.setup()
 
 #test_str = env.state_to_string()
 
-ql_agent = QLAgent("qtableV2.json", 100, 220, 0.1, 0.9, 1, 1, 0.01, 0.01)
+ql_agent = QLAgent("qtableV2.json", 1000, 250, 0.4, 0.6, 1, 1, 0.01, 0.01)
 
 
 ql_agent.train(env)

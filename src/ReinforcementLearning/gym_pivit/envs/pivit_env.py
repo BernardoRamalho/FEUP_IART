@@ -284,7 +284,6 @@ class PivitEnv(gym.Env):
     def whoWon(self):
 
         if (not self.generate_valid_blue_moves()):
-            print("A")
             return 1
         
         if (not self.generate_valid_red_moves()):
@@ -298,15 +297,17 @@ class PivitEnv(gym.Env):
                 blueCount += 1
 
         blueCount = np.count_nonzero(np.array(self.blueMap) == 'none')
-        if blueCount == len(self.blueMap): return 1
+        if blueCount == len(self.blueMap): 
+            return 1
         redCount = np.count_nonzero(np.array(self.redMap) == 'none')
-        if redCount == len(self.redMap): return -1
+        if redCount == len(self.redMap): 
+            return -1
 
         if redCount > blueCount:
             return 1
         elif redCount < blueCount:
             return -1
-
+            
         return 0
 
     # Searches for a piece in the board
