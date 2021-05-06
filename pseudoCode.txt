@@ -1,0 +1,71 @@
+Gerar Moves
+
+function generate_moves_for_one_piece(Board, XPosition, YPosition, MyDirectionMap):
+	
+	Initialize valid_positions as [] (empty list)
+	
+	Piece_ID = Board[XPosition][YPosition]
+
+	Piece_Direction = MyDirectionMap[Piece_ID]
+	counter = 0
+
+	if Piece_Direction is 'H' or 'h': # Piece is Horizontal, H for Evolved and h for Basic
+		deltaColumn = 0
+		while deltaColumn is in Board.size:
+			if (counter % 2 == 0 or  Piece_Direction is 'H') and valid_square(Board, XPosition, YPosition + deltaColumn):
+				valid_positions.add(((XPosition, YPosition), (XPosition, YPosition + deltaColumn)))
+			if enemy_in(Board, XPosition, YPosition + deltaColumn):
+				break
+
+			deltaColumn++
+
+		deltaColumn = Board.size - 1
+		while deltaColumn is >= 0:
+			if (counter % 2 == 0 or  Piece_Direction is 'H') and valid_square(Board, XPosition, YPosition - deltaColumn):
+				valid_positions.add(((XPosition, YPosition), (XPosition, YPosition - deltaColumn)))
+			if enemy_in(Board, XPosition, YPosition - deltaColumn):
+				break
+
+			deltaColumn--
+
+	else if Piece_Direction is 'V' or 'v': # Piece is Vertical, V for Evolved and v for Basic
+		deltaLine = 0
+		while deltaLine is in Board.size:
+			if (counter % 2 == 0 or  Piece_Direction is 'V') and valid_square(Board, XPosition + deltaLine, YPosition):
+				valid_positions.add(((XPosition, YPosition), (XPosition + deltaLine, YPosition)))
+			if enemy_in(Board, XPosition + deltaLine, YPosition):
+				break
+
+			deltaLine++
+
+		deltaLine = Board.size - 1
+		while deltaLine is >= 0:
+			if (counter % 2 == 0 or  Piece_Direction is 'H') and valid_square(Board, XPosition - deltaLine, YPosition):
+				valid_positions.add(((XPosition, YPosition), (XPosition - deltaLine, YPosition)))
+			if enemy_in(Board, XPosition - deltaLine, YPosition):
+				break
+
+			deltaLine--
+	return valid_positions
+
+function generate_moves_for_player(Board, Player):
+	
+	Initialize total_moves as [] (empty list)
+
+	for Position and Piece_ID in Board:
+		if Piece_ID belongs to Player:
+			total_moves += generate_moves_for_one_piece(Board, Position[X], Position[Y], Player.DirectionMap)
+
+
+
+function player_move(action, Board):
+	move = action_to_move(action)
+	if enemy_piece in move[new_position]:
+		kill(move[new_position])
+
+	piece = Board[move[old_position]]
+	Board[move[old_position]] = Empty
+	Board[move[new_position]] = piece
+
+	if new_position is evolve_position:
+		evolve(piece)
